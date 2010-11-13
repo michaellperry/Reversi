@@ -1,0 +1,29 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="FacetedWorlds.Reversi.Views.ChatControl"
+	d:DesignWidth="420" d:DesignHeight="498">
+	<UserControl.Resources>
+		<DataTemplate x:Key="MessageViewModelTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Sender}">
+					<TextBlock.Foreground>
+						<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+					</TextBlock.Foreground>
+				</TextBlock>
+				<TextBlock Text="{Binding Body}" Margin="0,0,0,4"/>
+			</StackPanel>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid>
+			<TextBox Margin="0,0,119,0" TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" VerticalAlignment="Top"/>
+			<Button Content="Send" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Click="Send_Click"/>
+			<ListBox Margin="0,72,0,0" ItemTemplate="{StaticResource MessageViewModelTemplate}" ItemsSource="{Binding Messages}"/>
+		</Grid>
+	</Grid>
+</UserControl>

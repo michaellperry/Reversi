@@ -1,0 +1,782 @@
+﻿<FacetedWorlds_Reversi_ViewModels:MainViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:FacetedWorlds_Reversi_Model="clr-namespace:FacetedWorlds.Reversi.Model;assembly=FacetedWorlds.Reversi.Model" xmlns:System="clr-namespace:System;assembly=mscorlib" HasSelectedPlayer="True" IsNameValid="False" PendingName="someone@example.com" ShowYourGames="False" ShowYourName="True" ShowPendingApproval="True" Title="Tortor inceptos" YourName="someone@example.com" HasRejectedNames="True">
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.Losses>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="12" MyTurn="True" MyColor="Black" OpponentName="Nam aenean cras curabitur maecenas" WhiteCount="63">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="32">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="22" Square="75"/>
+						<FacetedWorlds_Reversi_Model:Move Index="65" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="56" Square="83"/>
+						<FacetedWorlds_Reversi_Model:Move Index="93" Square="25"/>
+						<FacetedWorlds_Reversi_Model:Move Index="51" Square="57"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Mauris duis aliquam vestibulum phasellus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="99" MyTurn="True" MyColor="Empty" OpponentName="Praesent consequat class convallis" WhiteCount="42">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="24">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="67" Square="88"/>
+						<FacetedWorlds_Reversi_Model:Move Index="92" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="34" Square="31"/>
+						<FacetedWorlds_Reversi_Model:Move Index="13" Square="90"/>
+						<FacetedWorlds_Reversi_Model:Move Index="18" Square="70"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Curae nunc nullam"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="55" MyTurn="True" MyColor="Black" OpponentName="Adipiscing dignissim" WhiteCount="17">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="35">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="94" Square="32"/>
+						<FacetedWorlds_Reversi_Model:Move Index="49" Square="45"/>
+						<FacetedWorlds_Reversi_Model:Move Index="48" Square="50"/>
+						<FacetedWorlds_Reversi_Model:Move Index="61" Square="21"/>
+						<FacetedWorlds_Reversi_Model:Move Index="96" Square="53"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Sed donec elementum parturient integer"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="35" MyTurn="True" MyColor="White" OpponentName="Accumsan dis bibendum etiam amet" WhiteCount="54">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="95">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="47" Square="99"/>
+						<FacetedWorlds_Reversi_Model:Move Index="65" Square="21"/>
+						<FacetedWorlds_Reversi_Model:Move Index="45" Square="96"/>
+						<FacetedWorlds_Reversi_Model:Move Index="31" Square="87"/>
+						<FacetedWorlds_Reversi_Model:Move Index="16" Square="29"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Fusce ante arcu"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="68" MyTurn="True" MyColor="Empty" OpponentName="Facilisis lorem est" WhiteCount="76">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="75">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="62" Square="98"/>
+						<FacetedWorlds_Reversi_Model:Move Index="41" Square="13"/>
+						<FacetedWorlds_Reversi_Model:Move Index="14" Square="32"/>
+						<FacetedWorlds_Reversi_Model:Move Index="24" Square="30"/>
+						<FacetedWorlds_Reversi_Model:Move Index="89" Square="70"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Hac quisque aptent"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="16" MyTurn="True" MyColor="Empty" OpponentName="Auctor congue dictumst fermentum eleifend" WhiteCount="35">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="18">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="23" Square="48"/>
+						<FacetedWorlds_Reversi_Model:Move Index="12" Square="70"/>
+						<FacetedWorlds_Reversi_Model:Move Index="45" Square="84"/>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="39"/>
+						<FacetedWorlds_Reversi_Model:Move Index="83" Square="14"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Cursus facilisi vestibulum"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="97" MyTurn="True" MyColor="White" OpponentName="Dictum leo" WhiteCount="80">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="34">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="46" Square="33"/>
+						<FacetedWorlds_Reversi_Model:Move Index="48" Square="87"/>
+						<FacetedWorlds_Reversi_Model:Move Index="13" Square="95"/>
+						<FacetedWorlds_Reversi_Model:Move Index="76" Square="73"/>
+						<FacetedWorlds_Reversi_Model:Move Index="87" Square="63"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Vestibulum mus morbi lectus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="92" MyTurn="True" MyColor="White" OpponentName="Fringilla habitasse diam nulla libero" WhiteCount="84">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="48">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="84" Square="21"/>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="58"/>
+						<FacetedWorlds_Reversi_Model:Move Index="38" Square="88"/>
+						<FacetedWorlds_Reversi_Model:Move Index="15" Square="36"/>
+						<FacetedWorlds_Reversi_Model:Move Index="83" Square="83"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Vivamus nec aliquam hendrerit"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="45" MyTurn="True" MyColor="Empty" OpponentName="Himenaeos proin faucibus" WhiteCount="82">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="83">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="69" Square="25"/>
+						<FacetedWorlds_Reversi_Model:Move Index="46" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="93" Square="15"/>
+						<FacetedWorlds_Reversi_Model:Move Index="16" Square="80"/>
+						<FacetedWorlds_Reversi_Model:Move Index="86" Square="90"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Habitant aliquet adipiscing parturient"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="11" MyTurn="True" MyColor="White" OpponentName="Imperdiet eget inceptos vestibulum" WhiteCount="65">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="67">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="81" Square="39"/>
+						<FacetedWorlds_Reversi_Model:Move Index="45" Square="35"/>
+						<FacetedWorlds_Reversi_Model:Move Index="85" Square="32"/>
+						<FacetedWorlds_Reversi_Model:Move Index="78" Square="96"/>
+						<FacetedWorlds_Reversi_Model:Move Index="10" Square="41"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Blandit ligula augue"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.Losses>
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.RejectedNames>
+		<System:String>Penatibus interdum lobortis luctus elit</System:String>
+		<System:String>Vestibulum nascetur magnis per sed</System:String>
+		<System:String>Pharetra conubia sem</System:String>
+		<System:String>Mattis porttitor placerat tincidunt</System:String>
+		<System:String>Mauris adipiscing pulvinar</System:String>
+		<System:String>Enim sit mollis</System:String>
+		<System:String>Dolor sagittis fames montes parturient</System:String>
+		<System:String>Nostra ornare tristique erat ultricies</System:String>
+		<System:String>Senectus felis vestibulum vel</System:String>
+		<System:String>Platea eros sociosqu vestibulum</System:String>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.RejectedNames>
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.TheirMove>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="35" MyTurn="False" MyColor="White" OpponentName="Nibh venenatis adipiscing nam cubilia" WhiteCount="37">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="76">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="46" Square="91"/>
+						<FacetedWorlds_Reversi_Model:Move Index="98" Square="63"/>
+						<FacetedWorlds_Reversi_Model:Move Index="50" Square="63"/>
+						<FacetedWorlds_Reversi_Model:Move Index="52" Square="29"/>
+						<FacetedWorlds_Reversi_Model:Move Index="35" Square="61"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Suscipit primis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="19" MyTurn="False" MyColor="Empty" OpponentName="Torquent ultrices rutrum parturient nisi" WhiteCount="90">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="69">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="85"/>
+						<FacetedWorlds_Reversi_Model:Move Index="68" Square="98"/>
+						<FacetedWorlds_Reversi_Model:Move Index="30" Square="91"/>
+						<FacetedWorlds_Reversi_Model:Move Index="57" Square="71"/>
+						<FacetedWorlds_Reversi_Model:Move Index="17" Square="75"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Vestibulum vehicula vulputate nisl sapien"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="57" MyTurn="False" MyColor="White" OpponentName="Volutpat curabitur semper phasellus" WhiteCount="82">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="98">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="62" Square="67"/>
+						<FacetedWorlds_Reversi_Model:Move Index="87" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="83" Square="80"/>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="27"/>
+						<FacetedWorlds_Reversi_Model:Move Index="68" Square="25"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Vestibulum maecenas ipsum dapibus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="32" MyTurn="False" MyColor="White" OpponentName="Consequat justo nunc" WhiteCount="38">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="50">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="29" Square="59"/>
+						<FacetedWorlds_Reversi_Model:Move Index="47" Square="55"/>
+						<FacetedWorlds_Reversi_Model:Move Index="78" Square="18"/>
+						<FacetedWorlds_Reversi_Model:Move Index="26" Square="25"/>
+						<FacetedWorlds_Reversi_Model:Move Index="58" Square="92"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Adipiscing egestas sociis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="11" MyTurn="False" MyColor="Empty" OpponentName="Odio lacus convallis parturient" WhiteCount="42">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="21">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="77"/>
+						<FacetedWorlds_Reversi_Model:Move Index="15" Square="39"/>
+						<FacetedWorlds_Reversi_Model:Move Index="25" Square="17"/>
+						<FacetedWorlds_Reversi_Model:Move Index="15" Square="51"/>
+						<FacetedWorlds_Reversi_Model:Move Index="10" Square="84"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Lorem taciti orci"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="66" MyTurn="False" MyColor="Black" OpponentName="Sed praesent vestibulum" WhiteCount="34">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="77">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="56" Square="65"/>
+						<FacetedWorlds_Reversi_Model:Move Index="51" Square="15"/>
+						<FacetedWorlds_Reversi_Model:Move Index="70" Square="86"/>
+						<FacetedWorlds_Reversi_Model:Move Index="75" Square="80"/>
+						<FacetedWorlds_Reversi_Model:Move Index="71" Square="98"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Pede accumsan vestibulum dignissim dis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="61" MyTurn="False" MyColor="White" OpponentName="Adipiscing parturient" WhiteCount="22">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="96">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="82" Square="41"/>
+						<FacetedWorlds_Reversi_Model:Move Index="82" Square="14"/>
+						<FacetedWorlds_Reversi_Model:Move Index="75" Square="59"/>
+						<FacetedWorlds_Reversi_Model:Move Index="67" Square="72"/>
+						<FacetedWorlds_Reversi_Model:Move Index="16" Square="75"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Tellus bibendum dictumst"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="39" MyTurn="False" MyColor="Empty" OpponentName="Eleifend tempor magna" WhiteCount="73">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="99">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="26"/>
+						<FacetedWorlds_Reversi_Model:Move Index="98" Square="28"/>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="14"/>
+						<FacetedWorlds_Reversi_Model:Move Index="89" Square="11"/>
+						<FacetedWorlds_Reversi_Model:Move Index="62" Square="60"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Est quam hac"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="52" MyTurn="False" MyColor="Black" OpponentName="Euismod tempus elementum massa metus" WhiteCount="69">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="31">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="51" Square="36"/>
+						<FacetedWorlds_Reversi_Model:Move Index="40" Square="12"/>
+						<FacetedWorlds_Reversi_Model:Move Index="79" Square="80"/>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="29"/>
+						<FacetedWorlds_Reversi_Model:Move Index="35" Square="74"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Facilisis leo mus facilisi"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="96" MyTurn="False" MyColor="Black" OpponentName="Fermentum quis faucibus" WhiteCount="82">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="19">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="83" Square="98"/>
+						<FacetedWorlds_Reversi_Model:Move Index="14" Square="50"/>
+						<FacetedWorlds_Reversi_Model:Move Index="89" Square="39"/>
+						<FacetedWorlds_Reversi_Model:Move Index="75" Square="71"/>
+						<FacetedWorlds_Reversi_Model:Move Index="21" Square="58"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Feugiat fringilla urna habitant nec"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.TheirMove>
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.Wins>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="52" MyTurn="False" MyColor="Empty" OpponentName="Morbi habitasse" WhiteCount="41">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="33">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="29" Square="72"/>
+						<FacetedWorlds_Reversi_Model:Move Index="95" Square="29"/>
+						<FacetedWorlds_Reversi_Model:Move Index="80" Square="18"/>
+						<FacetedWorlds_Reversi_Model:Move Index="61" Square="54"/>
+						<FacetedWorlds_Reversi_Model:Move Index="17" Square="41"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Gravida iaculis vestibulum"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="13" MyTurn="False" MyColor="White" OpponentName="Neque interdum cras hendrerit lobortis" WhiteCount="96">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="96">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="41" Square="62"/>
+						<FacetedWorlds_Reversi_Model:Move Index="80" Square="49"/>
+						<FacetedWorlds_Reversi_Model:Move Index="52" Square="38"/>
+						<FacetedWorlds_Reversi_Model:Move Index="31" Square="65"/>
+						<FacetedWorlds_Reversi_Model:Move Index="31" Square="90"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Himenaeos vestibulum nascetur imperdiet duis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="22" MyTurn="False" MyColor="Black" OpponentName="Malesuada penatibus netus turpis lacinia" WhiteCount="33">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="71">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="76"/>
+						<FacetedWorlds_Reversi_Model:Move Index="60" Square="40"/>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="58"/>
+						<FacetedWorlds_Reversi_Model:Move Index="60" Square="55"/>
+						<FacetedWorlds_Reversi_Model:Move Index="61" Square="14"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Varius laoreet porttitor"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="15" MyTurn="False" MyColor="Black" OpponentName="Non nunc tincidunt amet" WhiteCount="90">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="94">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="61" Square="45"/>
+						<FacetedWorlds_Reversi_Model:Move Index="65" Square="75"/>
+						<FacetedWorlds_Reversi_Model:Move Index="67" Square="72"/>
+						<FacetedWorlds_Reversi_Model:Move Index="46" Square="93"/>
+						<FacetedWorlds_Reversi_Model:Move Index="98" Square="23"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Adipiscing parturient natoque per aenean"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="71" MyTurn="False" MyColor="Black" OpponentName="Tristique mauris vestibulum nulla" WhiteCount="93">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="16">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="30"/>
+						<FacetedWorlds_Reversi_Model:Move Index="68" Square="98"/>
+						<FacetedWorlds_Reversi_Model:Move Index="81" Square="99"/>
+						<FacetedWorlds_Reversi_Model:Move Index="17" Square="18"/>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="85"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Sed vestibulum adipiscing parturient pharetra"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="77" MyTurn="False" MyColor="White" OpponentName="Placerat ante nullam vestibulum" WhiteCount="10">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="63">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="83" Square="53"/>
+						<FacetedWorlds_Reversi_Model:Move Index="50" Square="80"/>
+						<FacetedWorlds_Reversi_Model:Move Index="58" Square="56"/>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="57"/>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="86"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Ultricies aptent vestibulum porta adipiscing"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="55" MyTurn="False" MyColor="White" OpponentName="Auctor congue posuere parturient" WhiteCount="87">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="33">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="33" Square="75"/>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="45"/>
+						<FacetedWorlds_Reversi_Model:Move Index="63" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="68" Square="71"/>
+						<FacetedWorlds_Reversi_Model:Move Index="15" Square="39"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Purus pulvinar vestibulum cursus risus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="62" MyTurn="False" MyColor="Black" OpponentName="Sem sit venenatis" WhiteCount="53">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="32">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="34" Square="97"/>
+						<FacetedWorlds_Reversi_Model:Move Index="85" Square="86"/>
+						<FacetedWorlds_Reversi_Model:Move Index="60" Square="71"/>
+						<FacetedWorlds_Reversi_Model:Move Index="98" Square="13"/>
+						<FacetedWorlds_Reversi_Model:Move Index="89" Square="92"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Arcu velit"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="28" MyTurn="False" MyColor="White" OpponentName="Sagittis dictum diam eget" WhiteCount="41">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="65">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="37"/>
+						<FacetedWorlds_Reversi_Model:Move Index="58" Square="75"/>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="68"/>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="58"/>
+						<FacetedWorlds_Reversi_Model:Move Index="75" Square="42"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Vulputate vestibulum curabitur"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="38" MyTurn="False" MyColor="Empty" OpponentName="Phasellus vitae" WhiteCount="72">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="31">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="34" Square="19"/>
+						<FacetedWorlds_Reversi_Model:Move Index="91" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="24" Square="63"/>
+						<FacetedWorlds_Reversi_Model:Move Index="27" Square="35"/>
+						<FacetedWorlds_Reversi_Model:Move Index="32" Square="46"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Lectus adipiscing"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.Wins>
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.YourMove>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="90" MyTurn="False" MyColor="Black" OpponentName="Senectus class" WhiteCount="22">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="36">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="38" Square="56"/>
+						<FacetedWorlds_Reversi_Model:Move Index="29" Square="44"/>
+						<FacetedWorlds_Reversi_Model:Move Index="82" Square="34"/>
+						<FacetedWorlds_Reversi_Model:Move Index="27" Square="97"/>
+						<FacetedWorlds_Reversi_Model:Move Index="35" Square="40"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Libero vel curae donec etiam"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="39" MyTurn="False" MyColor="Empty" OpponentName="Potenti nam elit sociosqu consequat" WhiteCount="21">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="95">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="28" Square="19"/>
+						<FacetedWorlds_Reversi_Model:Move Index="73" Square="58"/>
+						<FacetedWorlds_Reversi_Model:Move Index="65" Square="54"/>
+						<FacetedWorlds_Reversi_Model:Move Index="58" Square="38"/>
+						<FacetedWorlds_Reversi_Model:Move Index="46" Square="89"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Parturient enim"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="21" MyTurn="False" MyColor="Black" OpponentName="Fusce lorem" WhiteCount="38">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="78">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="90" Square="10"/>
+						<FacetedWorlds_Reversi_Model:Move Index="39" Square="21"/>
+						<FacetedWorlds_Reversi_Model:Move Index="91" Square="86"/>
+						<FacetedWorlds_Reversi_Model:Move Index="84" Square="17"/>
+						<FacetedWorlds_Reversi_Model:Move Index="39" Square="96"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Suscipit pretium convallis dignissim vestibulum"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="41" MyTurn="False" MyColor="Black" OpponentName="Ligula vestibulum" WhiteCount="61">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="59">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="16" Square="20"/>
+						<FacetedWorlds_Reversi_Model:Move Index="33" Square="99"/>
+						<FacetedWorlds_Reversi_Model:Move Index="78" Square="79"/>
+						<FacetedWorlds_Reversi_Model:Move Index="48" Square="29"/>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="17"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Elementum rhoncus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="73" MyTurn="False" MyColor="Black" OpponentName="Torquent morbi" WhiteCount="68">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="80">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="27" Square="42"/>
+						<FacetedWorlds_Reversi_Model:Move Index="98" Square="92"/>
+						<FacetedWorlds_Reversi_Model:Move Index="67" Square="17"/>
+						<FacetedWorlds_Reversi_Model:Move Index="32" Square="13"/>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="26"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Sed litora erat sodales"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="23" MyTurn="False" MyColor="White" OpponentName="Dis eros" WhiteCount="14">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="48">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="36" Square="55"/>
+						<FacetedWorlds_Reversi_Model:Move Index="87" Square="88"/>
+						<FacetedWorlds_Reversi_Model:Move Index="22" Square="45"/>
+						<FacetedWorlds_Reversi_Model:Move Index="27" Square="16"/>
+						<FacetedWorlds_Reversi_Model:Move Index="47" Square="47"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Adipiscing viverra nulla"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="46" MyTurn="False" MyColor="Empty" OpponentName="Luctus proin est ultrices" WhiteCount="19">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="20">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="42" Square="73"/>
+						<FacetedWorlds_Reversi_Model:Move Index="59" Square="55"/>
+						<FacetedWorlds_Reversi_Model:Move Index="93" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="47" Square="21"/>
+						<FacetedWorlds_Reversi_Model:Move Index="68" Square="51"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Facilisis nibh nisi hac"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="47" MyTurn="False" MyColor="Empty" OpponentName="Parturient vehicula augue leo aliquam" WhiteCount="41">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="39">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="31" Square="18"/>
+						<FacetedWorlds_Reversi_Model:Move Index="55" Square="72"/>
+						<FacetedWorlds_Reversi_Model:Move Index="93" Square="65"/>
+						<FacetedWorlds_Reversi_Model:Move Index="85" Square="40"/>
+						<FacetedWorlds_Reversi_Model:Move Index="52" Square="93"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Integer mus dolor magnis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="55" MyTurn="False" MyColor="Black" OpponentName="Volutpat nec" WhiteCount="54">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="95">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="26" Square="56"/>
+						<FacetedWorlds_Reversi_Model:Move Index="73" Square="80"/>
+						<FacetedWorlds_Reversi_Model:Move Index="95" Square="93"/>
+						<FacetedWorlds_Reversi_Model:Move Index="55" Square="56"/>
+						<FacetedWorlds_Reversi_Model:Move Index="75" Square="59"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Fames mattis maecenas quisque praesent"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="88" MyTurn="False" MyColor="Black" OpponentName="Non nisl nunc vestibulum" WhiteCount="60">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="33">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="90" Square="75"/>
+						<FacetedWorlds_Reversi_Model:Move Index="37" Square="67"/>
+						<FacetedWorlds_Reversi_Model:Move Index="13" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="51" Square="82"/>
+						<FacetedWorlds_Reversi_Model:Move Index="23" Square="19"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Accumsan vivamus bibendum"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.YourMove>
+</FacetedWorlds_Reversi_ViewModels:MainViewModel>

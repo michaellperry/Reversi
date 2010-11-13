@@ -1,0 +1,44 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_ISynchronizationService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647"
+                    textEncoding="utf-8">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IWindowsPhonePushService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+      <client>
+            <endpoint address="http://localhost:8080/correspondence_sync_app" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_ISynchronizationService"
+                contract="UpdateControls.Correspondence.WebServiceClient.ISynchronizationService" name="BasicHttpBinding_ISynchronizationService" />
+            <endpoint address="http://localhost:8080/windows_phone_app"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWindowsPhonePushService"
+                contract="UpdateControls.Correspondence.WebServiceClient.WindowsPhone.IWindowsPhonePushService"
+                name="BasicHttpBinding_IWindowsPhonePushService" />
+        </client>
+      <!--<client>
+            <endpoint address="http://www.facetedworlds.com/correspondence_sync_app" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_ISynchronizationService"
+                contract="UpdateControls.Correspondence.WebServiceClient.ISynchronizationService" name="BasicHttpBinding_ISynchronizationService" />
+            <endpoint address="http://www.facetedworlds.com/windows_phone_app"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWindowsPhonePushService"
+                contract="UpdateControls.Correspondence.WebServiceClient.WindowsPhone.IWindowsPhonePushService"
+                name="BasicHttpBinding_IWindowsPhonePushService" />
+        </client>-->
+      <!--<client>
+            <endpoint address="http://localhost:9119/SyncExpress" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_ISynchronizationService"
+                contract="UpdateControls.Correspondence.WebServiceClient.ISynchronizationService" name="BasicHttpBinding_ISynchronizationService" />
+            <endpoint address="http://localhost:9119/SyncExpress/WindowsPhone"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWindowsPhonePushService"
+                contract="UpdateControls.Correspondence.WebServiceClient.WindowsPhone.IWindowsPhonePushService"
+                name="BasicHttpBinding_IWindowsPhonePushService" />
+        </client>-->
+    </system.serviceModel>
+</configuration>

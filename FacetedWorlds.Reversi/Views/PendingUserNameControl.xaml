@@ -1,0 +1,18 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:FacetedWorlds_Reversi="clr-namespace:FacetedWorlds.Reversi" x:Class="FacetedWorlds.Reversi.Views.PendingUserNameControl"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <StackPanel x:Name="LayoutRoot" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData1.xaml}">
+    	<TextBlock TextWrapping="Wrap" Text="Checking the availability of:" Margin="8,8,8,0"/>
+    	<TextBlock TextWrapping="Wrap" Text="{Binding PendingName}" Margin="8,0"/>
+    	<FacetedWorlds_Reversi:WaitControl Height="30" HorizontalAlignment="Center" Width="105" Margin="0,30,0,0"/>
+    </StackPanel>
+</UserControl>

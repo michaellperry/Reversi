@@ -1,0 +1,33 @@
+﻿<Window x:Class="FacetedWorlds.Reversi.View.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:FacetedWorlds.Reversi.View"
+    Title="Correspondence Reversi" Height="555" Width="818">
+    
+    <DockPanel>
+        <Border
+            DockPanel.Dock="Top">
+            <local:LogonView />
+        </Border>
+        <Border
+            DockPanel.Dock="Bottom">
+            <TextBlock
+                Text="{Binding LastError}"
+                TextTrimming="CharacterEllipsis" />
+
+        </Border>
+        <Border
+            DockPanel.Dock="Left"
+            Width="160">
+            <local:GameListView
+                Style="{StaticResource DisabledOnNull}" />
+        </Border>
+        <Border DockPanel.Dock="Right" Width="215">
+            <local:ChatView Style="{StaticResource DisabledOnNull}" DataContext="{Binding SelectedChat}"/>
+        </Border>
+        <Border Background="Green">
+            <local:GameBoardView
+                DataContext="{Binding SelectedGameDetail}"/>
+        </Border>
+    </DockPanel>
+</Window>

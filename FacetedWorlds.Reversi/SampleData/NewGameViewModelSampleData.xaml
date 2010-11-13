@@ -1,0 +1,14 @@
+﻿<FacetedWorlds_Reversi_ViewModels:NewGameViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:System="clr-namespace:System;assembly=mscorlib" OpponentName="someone@example.com">
+	<FacetedWorlds_Reversi_ViewModels:NewGameViewModel.MyFriends>
+		<System:String>Class maecenas curabitur</System:String>
+		<System:String>Nam sed aenean curae</System:String>
+		<System:String>Aliquam dis integer praesent accumsan</System:String>
+		<System:String>Est cras</System:String>
+		<System:String>Mauris vestibulum</System:String>
+		<System:String>Hac leo bibendum</System:String>
+		<System:String>Duis dictumst nunc</System:String>
+		<System:String>Nullam quisque aptent mus</System:String>
+		<System:String>Amet eleifend</System:String>
+		<System:String>Auctor donec facilisi ante</System:String>
+	</FacetedWorlds_Reversi_ViewModels:NewGameViewModel.MyFriends>
+</FacetedWorlds_Reversi_ViewModels:NewGameViewModel>
