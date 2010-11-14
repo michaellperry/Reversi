@@ -16,20 +16,7 @@
 	</UserControl.Resources>
 
 	<StackPanel x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
-		<Grid d:LayoutOverrides="Width">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition/>
-			</Grid.ColumnDefinitions>
-			<Button Content="New Game">
-				<Custom:Interaction.Triggers>
-					<Custom:EventTrigger EventName="Click">
-						<ic:NavigateToPageAction TargetPage="/Views/NewGamePage.xaml"/>
-					</Custom:EventTrigger>
-				</Custom:Interaction.Triggers>
-			</Button>
-			<TextBlock Text="{Binding ApprovedUserName}" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,4,0"/>
-		</Grid>
+		<TextBlock Text="{Binding ApprovedUserName}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"/>
 		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Your Move:" HorizontalAlignment="Left" Height="27" Width="101">
 			<TextBlock.Foreground>
 				<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>

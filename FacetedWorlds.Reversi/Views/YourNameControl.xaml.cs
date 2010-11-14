@@ -20,7 +20,7 @@ namespace FacetedWorlds.Reversi.Views
 
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
-            ForView.Unwrap<MainViewModel>(DataContext).ClaimName();
+            ForView.Unwrap<YourNameViewModel>(DataContext).ClaimName();
             HideConfirmationPopup();
         }
 

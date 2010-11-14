@@ -41,7 +41,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

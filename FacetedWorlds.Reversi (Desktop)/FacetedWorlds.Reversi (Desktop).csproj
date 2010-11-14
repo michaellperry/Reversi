@@ -47,19 +47,19 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.Memory">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.Memory\bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.SSCE">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.SSCE\bin\Debug\UpdateControls.Correspondence.SSCE.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.WebService.Contract">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebService.Contract.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.WebServiceClient">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.XAML">
       <SpecificVersion>False</SpecificVersion>

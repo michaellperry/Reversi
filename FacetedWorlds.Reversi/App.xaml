@@ -23,8 +23,8 @@
         	<GradientStop Color="#FF626262"/>
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="WhiteGlossBrush" EndPoint="0.795,0.904" StartPoint="0.205,0.096">
-        	<GradientStop Color="#FFABA8A8" Offset="0.348"/>
-        	<GradientStop Color="White"/>
+        	<GradientStop Color="#FFABA8A8" Offset="0.764"/>
+        	<GradientStop Color="White" Offset="0.536"/>
         </LinearGradientBrush>
     </Application.Resources>
 

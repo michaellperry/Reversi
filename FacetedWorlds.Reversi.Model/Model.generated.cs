@@ -20,6 +20,11 @@ digraph "FacetedWorlds.Reversi.Model"
     Move -> Player
     Outcome -> Game
     Outcome -> Player [label="  ?"]
+    LocalGame -> Identity
+    LocalPlayer -> LocalGame
+    LocalMove -> LocalPlayer
+    LocalOutcome -> LocalGame
+    LocalOutcome -> LocalPlayer [label="  ?"]
 }
 **/
 
@@ -34,6 +39,10 @@ namespace FacetedWorlds.Reversi.Model
         public static Query QueryClaims = new Query()
             .JoinSuccessors(Claim.RoleIdentity)
             ;
+        public static Query QueryActiveLocalGames = new Query()
+            .JoinSuccessors(LocalGame.RoleIdentity, Condition.WhereIsEmpty(LocalGame.QueryIsActive)
+            )
+            ;
 
         // Predicates
 
@@ -45,6 +54,7 @@ namespace FacetedWorlds.Reversi.Model
 
         // Results
         private Result<Claim> _claims;
+        private Result<LocalGame> _activeLocalGames;
 
         // Business constructor
         public Identity(
@@ -65,6 +75,7 @@ namespace FacetedWorlds.Reversi.Model
         private void InitializeResults()
         {
             _claims = new Result<Claim>(this, QueryClaims);
+            _activeLocalGames = new Result<LocalGame>(this, QueryActiveLocalGames);
         }
 
         // Predecessor access
@@ -79,6 +90,10 @@ namespace FacetedWorlds.Reversi.Model
         public IEnumerable<Claim> Claims
         {
             get { return _claims; }
+        }
+        public IEnumerable<LocalGame> ActiveLocalGames
+        {
+            get { return _activeLocalGames; }
         }
     }
     
@@ -760,6 +775,263 @@ namespace FacetedWorlds.Reversi.Model
             get { return _game.Fact; }
         }
         public Player Winner
+        {
+            get { return _winner.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class LocalGame : CorrespondenceFact
+    {
+        // Roles
+        public static Role<Identity> RoleIdentity = new Role<Identity>("identity");
+
+        // Queries
+        public static Query QueryMoves = new Query()
+            .JoinSuccessors(LocalPlayer.RoleGame)
+            .JoinSuccessors(LocalMove.RolePlayer)
+            ;
+        public static Query QueryOutcomes = new Query()
+            .JoinSuccessors(LocalOutcome.RoleGame)
+            ;
+        public static Query QueryIsActive = new Query()
+            .JoinSuccessors(LocalOutcome.RoleGame)
+            ;
+
+        // Predicates
+        public static Condition IsActive = Condition.WhereIsEmpty(QueryIsActive);
+
+        // Predecessors
+        private PredecessorObj<Identity> _identity;
+
+        // Unique
+        [CorrespondenceField]
+        public Guid _unique;
+
+        // Fields
+
+        // Results
+        private Result<LocalMove> _moves;
+        private Result<LocalOutcome> _outcomes;
+
+        // Business constructor
+        public LocalGame(
+            Identity identity
+            )
+        {
+            _unique = Guid.NewGuid();
+            InitializeResults();
+            _identity = new PredecessorObj<Identity>(this, RoleIdentity, identity);
+        }
+
+        // Hydration constructor
+        public LocalGame(FactMemento memento)
+        {
+            InitializeResults();
+            _identity = new PredecessorObj<Identity>(this, RoleIdentity, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+            _moves = new Result<LocalMove>(this, QueryMoves);
+            _outcomes = new Result<LocalOutcome>(this, QueryOutcomes);
+        }
+
+        // Predecessor access
+        public Identity Identity
+        {
+            get { return _identity.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
+        public IEnumerable<LocalMove> Moves
+        {
+            get { return _moves; }
+        }
+        public IEnumerable<LocalOutcome> Outcomes
+        {
+            get { return _outcomes; }
+        }
+    }
+    
+    [CorrespondenceType]
+    public partial class LocalPlayer : CorrespondenceFact
+    {
+        // Roles
+        public static Role<LocalGame> RoleGame = new Role<LocalGame>("game");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<LocalGame> _game;
+
+        // Fields
+        [CorrespondenceField]
+        public int _index;
+
+        // Results
+
+        // Business constructor
+        public LocalPlayer(
+            LocalGame game
+            ,int index
+            )
+        {
+            InitializeResults();
+            _game = new PredecessorObj<LocalGame>(this, RoleGame, game);
+            _index = index;
+        }
+
+        // Hydration constructor
+        public LocalPlayer(FactMemento memento)
+        {
+            InitializeResults();
+            _game = new PredecessorObj<LocalGame>(this, RoleGame, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public LocalGame Game
+        {
+            get { return _game.Fact; }
+        }
+
+        // Field access
+        public int Index
+        {
+            get { return _index; }
+        }
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class LocalMove : CorrespondenceFact
+    {
+        // Roles
+        public static Role<LocalPlayer> RolePlayer = new Role<LocalPlayer>("player");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<LocalPlayer> _player;
+
+        // Fields
+        [CorrespondenceField]
+        public int _index;
+        [CorrespondenceField]
+        public int _square;
+
+        // Results
+
+        // Business constructor
+        public LocalMove(
+            LocalPlayer player
+            ,int index
+            ,int square
+            )
+        {
+            InitializeResults();
+            _player = new PredecessorObj<LocalPlayer>(this, RolePlayer, player);
+            _index = index;
+            _square = square;
+        }
+
+        // Hydration constructor
+        public LocalMove(FactMemento memento)
+        {
+            InitializeResults();
+            _player = new PredecessorObj<LocalPlayer>(this, RolePlayer, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public LocalPlayer Player
+        {
+            get { return _player.Fact; }
+        }
+
+        // Field access
+        public int Index
+        {
+            get { return _index; }
+        }
+        public int Square
+        {
+            get { return _square; }
+        }
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class LocalOutcome : CorrespondenceFact
+    {
+        // Roles
+        public static Role<LocalGame> RoleGame = new Role<LocalGame>("game");
+        public static Role<LocalPlayer> RoleWinner = new Role<LocalPlayer>("winner");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<LocalGame> _game;
+        private PredecessorOpt<LocalPlayer> _winner;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public LocalOutcome(
+            LocalGame game
+            ,LocalPlayer winner
+            )
+        {
+            InitializeResults();
+            _game = new PredecessorObj<LocalGame>(this, RoleGame, game);
+            _winner = new PredecessorOpt<LocalPlayer>(this, RoleWinner, winner);
+        }
+
+        // Hydration constructor
+        public LocalOutcome(FactMemento memento)
+        {
+            InitializeResults();
+            _game = new PredecessorObj<LocalGame>(this, RoleGame, memento);
+            _winner = new PredecessorOpt<LocalPlayer>(this, RoleWinner, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public LocalGame Game
+        {
+            get { return _game.Fact; }
+        }
+        public LocalPlayer Winner
         {
             get { return _winner.Fact; }
         }

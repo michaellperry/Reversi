@@ -18,8 +18,11 @@ namespace FacetedWorlds.Reversi.Views
             if (e.Uri == new Uri("/MainPage.xaml", UriKind.Relative))
             {
                 GameViewModel viewModel = ForView.Unwrap<GameViewModel>(DataContext);
-                viewModel.CommitMove();
-                viewModel.ClearSelectedPlayer();
+                if (viewModel != null)
+                {
+                    viewModel.CommitMove();
+                    viewModel.ClearSelectedPlayer();
+                }
             }
         }
     }

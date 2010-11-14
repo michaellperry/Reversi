@@ -65,16 +65,16 @@
     </Reference>
     <Reference Include="UpdateControls.Correspondence, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.IsolatedStorage">
-      <HintPath>..\..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.IsolatedStorage (WP7)\Bin\Debug\UpdateControls.Correspondence.IsolatedStorage.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.IsolatedStorage (WP7)\Bin\Debug\UpdateControls.Correspondence.IsolatedStorage.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.Memory">
-      <HintPath>..\..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.WebServiceClient">
-      <HintPath>..\..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.WebServiceClient (WP7)\Bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.WebServiceClient (WP7)\Bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +89,7 @@
     <Compile Include="ViewModels\ChatViewModel.cs" />
     <Compile Include="ViewModels\INetworkServices.cs" />
     <Compile Include="ViewModels\MessageViewModel.cs" />
+    <Compile Include="ViewModels\YourNameViewModel.cs" />
     <Compile Include="Views\ChatControl.xaml.cs">
       <DependentUpon>ChatControl.xaml</DependentUpon>
     </Compile>
@@ -204,6 +205,13 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <Content Include="Images\appbar.add.rest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\appbar.basecircle.rest.png" />
+    <Content Include="Images\appbar.pass.rest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
@@ -240,6 +248,7 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

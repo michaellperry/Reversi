@@ -49,9 +49,8 @@
     <Reference Include="UpdateControls, Version=2.1.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>C:\Projects\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.dll</HintPath>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence">
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

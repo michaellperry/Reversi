@@ -77,6 +77,110 @@
 				</Setter.Value>
 			</Setter>
 		</Style>
+		<Style x:Key="AddGameButtonStyle" TargetType="Button">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}"/>
+			<Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+			<Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}"/>
+			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}"/>
+			<Setter Property="Padding" Value="10,3,10,5"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Grid Background="Transparent" Width="48" Height="48">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver"/>
+									<VisualState x:Name="Pressed">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+											<ColorAnimation Duration="0" To="{StaticResource PhoneContrastForegroundColor}" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+											<ColorAnimation Duration="0" To="{StaticResource PhoneForegroundColor}" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Disabled"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Ellipse x:Name="ellipse" Opacity="0">
+								<Ellipse.Fill>
+									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+								</Ellipse.Fill>
+							</Ellipse>
+							<Rectangle x:Name="rectangle">
+								<Rectangle.Fill>
+									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+								</Rectangle.Fill>
+								<Rectangle.OpacityMask>
+									<ImageBrush Stretch="Fill" ImageSource="/Images/appbar.add.rest.png"/>
+								</Rectangle.OpacityMask>
+							</Rectangle>
+							<Rectangle x:Name="rectangle1">
+								<Rectangle.OpacityMask>
+									<ImageBrush Stretch="Fill" ImageSource="Images/appbar.basecircle.rest.png"/>
+								</Rectangle.OpacityMask>
+								<Rectangle.Fill>
+									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+								</Rectangle.Fill>
+							</Rectangle>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="PassThePhoneButtonStyle" TargetType="Button">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}"/>
+			<Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+			<Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}"/>
+			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}"/>
+			<Setter Property="Padding" Value="10,3,10,5"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Grid Background="Transparent" Width="48" Height="48">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver"/>
+									<VisualState x:Name="Pressed">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="0.905" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+											<ColorAnimation Duration="0" To="{StaticResource PhoneContrastBackgroundColor}" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse" d:IsOptimized="True"/>
+											<ColorAnimation Duration="0" To="{StaticResource PhoneContrastForegroundColor}" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Disabled"/>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="FocusStates">
+									<VisualState x:Name="Focused"/>
+									<VisualState x:Name="Unfocused"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Ellipse x:Name="ellipse" Fill="#FFF4F4F5" Opacity="0"/>
+							<Rectangle>
+								<Rectangle.OpacityMask>
+									<ImageBrush Stretch="Fill" ImageSource="Images/appbar.basecircle.rest.png"/>
+								</Rectangle.OpacityMask>
+								<Rectangle.Fill>
+									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Rectangle x:Name="rectangle">
+								<Rectangle.OpacityMask>
+									<ImageBrush Stretch="Fill" ImageSource="/Images/appbar.pass.rest.png"/>
+								</Rectangle.OpacityMask>
+								<Rectangle.Fill>
+									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+								</Rectangle.Fill>
+							</Rectangle>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
 	</phone:PhoneApplicationPage.Resources>
  
     <!--Sample code showing usage of ApplicationBar-->
@@ -105,7 +209,7 @@
 	</phone:PhoneApplicationPage.DataContext>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}" Margin="1,0,-1,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -114,12 +218,25 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="Faceted Reversi" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="{Binding Title}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="your games"/>
         </StackPanel>
-        <Grid x:Name="ContentPanel" Margin="12,0,12,0" Grid.Row="1" >
-        	<local:YourGamesControl Margin="0,0,8,-460" d:LayoutOverrides="Height" Visibility="{Binding ShowYourGames, Converter={StaticResource VisibilityValueConverter}}"/>
-        	<v:YourNameControl x:Name="YourName" VerticalAlignment="Top" Visibility="{Binding ShowYourName, Converter={StaticResource VisibilityValueConverter}}"/>
-        	<v:PendingUserNameControl Visibility="{Binding ShowPendingApproval, Converter={StaticResource VisibilityValueConverter}}"/>
+        <Grid x:Name="ContentPanel" Margin="13,0,11,0" Grid.Row="1" >
+        	<Grid>
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="52"/>
+        			<RowDefinition Height="52"/>
+        			<RowDefinition/>
+        		</Grid.RowDefinitions>
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="52"/>
+        			<ColumnDefinition/>
+        		</Grid.ColumnDefinitions>
+        		<Button Content="Button" Margin="0" d:LayoutOverrides="Width, Height" Style="{StaticResource AddGameButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="NewGame_Click"/>
+        		<TextBlock TextWrapping="Wrap" Text="Play against someone with another phone." Grid.Column="1" VerticalAlignment="Center" Margin="8,0"/>
+        		<Button Content="Button" Margin="0" Grid.Row="1" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource PassThePhoneButtonStyle}" Click="PassThePhone_Click"/>
+        		<TextBlock TextWrapping="Wrap" Text="Pass this phone between two people." Grid.Column="1" Margin="8,0" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+        	</Grid>
+        	<local:YourGamesControl Margin="0,0,8,-460" d:LayoutOverrides="Height" Visibility="{Binding IsUserApproved, Converter={StaticResource VisibilityValueConverter}}"/>
         </Grid>
 
         <!--ContentPanel - place additional content here-->

@@ -27,5 +27,10 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return ApprovedUsers.FirstOrDefault(); }
         }
+
+        public void CreateLocalGame()
+        {
+            Community.AddFact(new LocalGame(this));
+        }
     }
 }

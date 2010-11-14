@@ -6,6 +6,11 @@ fact Identity {
 	Claim* claims {
 		Claim c : c.identity = this
 	}
+
+	LocalGame* activeLocalGames {
+		LocalGame g : g.identity = this
+			where g.isActive
+	}
 }
 
 fact IdentityService {
@@ -123,4 +128,37 @@ fact Move {
 fact Outcome {
 	Game game;
 	Player? winner;
+}
+
+fact LocalGame {
+	unique;
+	Identity identity;
+
+	LocalMove* moves {
+		LocalMove m : m.player.game = this
+	}
+
+	LocalOutcome* outcomes {
+		LocalOutcome o : o.game = this
+	}
+
+	bool isActive {
+		not exists LocalOutcome o : o.game = this
+	}
+}
+
+fact LocalPlayer {
+	LocalGame game;
+	int index;
+}
+
+fact LocalMove {
+	LocalPlayer player;
+	int index;
+	int square;
+}
+
+fact LocalOutcome {
+	LocalGame game;
+	LocalPlayer? winner;
 }
