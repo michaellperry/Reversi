@@ -17,7 +17,7 @@ namespace FacetedWorlds.Reversi.Views
         {
             if (e.Uri == new Uri("/MainPage.xaml", UriKind.Relative))
             {
-                GameViewModel viewModel = ForView.Unwrap<GameViewModel>(DataContext);
+                IGameViewModel viewModel = ForView.Unwrap<IGameViewModel>(DataContext);
                 if (viewModel != null)
                 {
                     viewModel.CommitMove();

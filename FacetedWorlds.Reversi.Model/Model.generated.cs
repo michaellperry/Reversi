@@ -791,6 +791,9 @@ namespace FacetedWorlds.Reversi.Model
         public static Role<Identity> RoleIdentity = new Role<Identity>("identity");
 
         // Queries
+        public static Query QueryPlayers = new Query()
+            .JoinSuccessors(LocalPlayer.RoleGame)
+            ;
         public static Query QueryMoves = new Query()
             .JoinSuccessors(LocalPlayer.RoleGame)
             .JoinSuccessors(LocalMove.RolePlayer)
@@ -815,6 +818,7 @@ namespace FacetedWorlds.Reversi.Model
         // Fields
 
         // Results
+        private Result<LocalPlayer> _players;
         private Result<LocalMove> _moves;
         private Result<LocalOutcome> _outcomes;
 
@@ -838,6 +842,7 @@ namespace FacetedWorlds.Reversi.Model
         // Result initializer
         private void InitializeResults()
         {
+            _players = new Result<LocalPlayer>(this, QueryPlayers);
             _moves = new Result<LocalMove>(this, QueryMoves);
             _outcomes = new Result<LocalOutcome>(this, QueryOutcomes);
         }
@@ -851,6 +856,10 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+        public IEnumerable<LocalPlayer> Players
+        {
+            get { return _players; }
+        }
         public IEnumerable<LocalMove> Moves
         {
             get { return _moves; }

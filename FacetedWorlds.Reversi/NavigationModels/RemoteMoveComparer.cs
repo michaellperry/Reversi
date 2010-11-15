@@ -3,7 +3,7 @@ using FacetedWorlds.Reversi.Model;
 
 namespace FacetedWorlds.Reversi.Client.NavigationModels
 {
-    public class MoveComparer : IComparer<Move>
+    public class RemoteMoveComparer : IComparer<Move>
     {
         public int Compare(Move x, Move y)
         {

@@ -134,6 +134,10 @@ fact LocalGame {
 	unique;
 	Identity identity;
 
+	LocalPlayer* players {
+		LocalPlayer p : p.game = this
+	}
+
 	LocalMove* moves {
 		LocalMove m : m.player.game = this
 	}

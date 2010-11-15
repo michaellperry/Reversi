@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using FacetedWorlds.Reversi.Client.NavigationModels;
@@ -10,47 +10,30 @@ using FacetedWorlds.Reversi.NavigationModels;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class GameViewModel
+    public class LocalGameViewModel : IGameViewModel
     {
-        private Player _player;
-        private GameState _gameState;
+        private LocalGameState _gameState;
         private MainNavigationModel _mainNavigation;
 
-        public GameViewModel(Player player, MainNavigationModel mainNavigation)
+        public LocalGameViewModel(LocalGame localGame, MainNavigationModel mainNavigation)
         {
-            _player = player;
+            _gameState = new LocalGameState(localGame, mainNavigation);
             _mainNavigation = mainNavigation;
-            _gameState = new GameState(player, mainNavigation);
         }
 
         public string Name
         {
-            get
-            {
-                return
-                    MyColor == PieceColor.Black
-                        ? string.Format("you vs. {0}", OtherPlayerName)
-                        : String.Format("{0} vs. you", OtherPlayerName);
-            }
-        }
-
-        public string ToMove
-        {
-            get
-            {
-                return _gameState.MyTurn
-                    ? "your move"
-                    : string.Format("{0}'s move", OtherPlayerName);
-            }
+            get { return "pass the phone"; }
         }
 
         public bool HasNewMessages
         {
-            get
-            {
-                Player otherPlayer = GetOtherPlayer();
-                return otherPlayer == null ? false : otherPlayer.NewMessages.Any();
-            }
+            get { return false; }
+        }
+
+        public bool CanChat
+        {
+            get { return false; }
         }
 
         public ICommand Resign
@@ -58,7 +41,17 @@ namespace FacetedWorlds.Reversi.ViewModels
             get
             {
                 return MakeCommand
-                    .Do(() => _player.Game.DeclareWinner(GetOtherPlayer()));
+                    .Do(() =>
+                    {
+                        int otherPlayerIndex =
+                            _gameState.MyColor == PieceColor.Black ? 1 :
+                            _gameState.MyColor == PieceColor.White ? 0 :
+                            -1;
+
+                        LocalPlayer otherPlayer = _gameState.Game.Players.FirstOrDefault(
+                            player => player.Index == otherPlayerIndex);
+                        _gameState.Game.DeclareWinner(otherPlayer);
+                    });
             }
         }
 
@@ -74,7 +67,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public bool MyTurn
         {
-            get { return _gameState.MyTurn; }
+            get { return !_gameState.IsMovePending && _gameState.Game.Outcome == null; }
         }
 
         public bool IWon
@@ -92,12 +85,12 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return _gameState.IDrew; }
         }
 
-        public IEnumerable<RowViewModel> Rows
+        public IEnumerable<IRowViewModel> Rows
         {
             get
             {
                 for (int row = 0; row < Square.NumberOfRows; row++)
-                    yield return new RowViewModel(_gameState, row);
+                    yield return new LocalRowViewModel(_gameState, row);
             }
         }
 
@@ -129,21 +122,6 @@ namespace FacetedWorlds.Reversi.ViewModels
         public void CancelMove()
         {
             _gameState.CancelMove();
-        }
-
-        private string OtherPlayerName
-        {
-            get
-            {
-                var otherPlayer = GetOtherPlayer();
-                return otherPlayer == null ? "nobody" : otherPlayer.User.UserName;
-            }
-        }
-
-        private Player GetOtherPlayer()
-        {
-            List<Player> players = _player.Game.Players.ToList();
-            return players.FirstOrDefault(p => p != _player);
         }
 
         public void ClearSelectedPlayer()

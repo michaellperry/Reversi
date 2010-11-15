@@ -14,13 +14,13 @@ namespace FacetedWorlds.Reversi.ViewModels
         private Player _player;
         private MainNavigationModel _mainNavigation;
 
-        private GameState _gameState;
+        private RemoteGameState _gameState;
 
         public GameSummaryViewModel(Player player, MainNavigationModel mainNavigation)
         {
             _player = player;
             _mainNavigation = mainNavigation;
-            _gameState = new GameState(player, _mainNavigation);
+            _gameState = new RemoteGameState(player, _mainNavigation);
         }
 
         public Player Player

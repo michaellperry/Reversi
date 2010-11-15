@@ -8,11 +8,10 @@ using FacetedWorlds.Reversi.NavigationModels;
 
 namespace FacetedWorlds.Reversi.Client.NavigationModels
 {
-    public class GameState
+    public class LocalGameState
     {
-        private Player _player;
+        private LocalGame _game;
         private MainNavigationModel _mainNavigation;
-        private PieceColor _myColor;
 
         private GameBoard _priorBoard;
         private GameBoard _gameBoard;
@@ -21,34 +20,26 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         private GameBoard _previewBoard;
         private Dependent _depPreviewBoard;
 
-        public GameState(Player player, MainNavigationModel mainNavigation)
+        public LocalGameState(LocalGame game, MainNavigationModel mainNavigation)
         {
-            _player = player;
+            _game = game;
             _mainNavigation = mainNavigation;
-            if (_player != null)
-            {
-                _myColor = _player.Index == 0 ? PieceColor.Black : PieceColor.White;
-            }
 
             _depGameBoard = new Dependent(UpdateGameBoard);
             _depPreviewBoard = new Dependent(UpdatePreviewBoard);
+        }
+
+        public LocalGame Game
+        {
+            get { return _game; }
         }
 
         public PieceColor MyColor
         {
             get
             {
-                bool gameIsOngoing = _player != null && _player.Game.Outcome == null;
-                return gameIsOngoing ? _myColor : PieceColor.Empty;
-            }
-        }
-
-        public bool MyTurn
-        {
-            get
-            {
-                _depGameBoard.OnGet();
-                return _gameBoard != null && _gameBoard.ToMove == _myColor;
+                GameBoard gameBoard = GetGameBoard();
+                return gameBoard != null ? gameBoard.ToMove : PieceColor.Empty;
             }
         }
 
@@ -57,24 +48,15 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             get
             {
                 return
-                    _player != null &&
-                    _player.Game.Outcome != null &&
-                    _player.Game.Outcome.Winner == _player;
+                    _game != null &&
+                    _game.Outcome != null &&
+                    _game.Outcome.Winner != null;
             }
         }
 
         public bool ILost
         {
-            get
-            {
-                if (_player != null && _player.Game.Outcome != null)
-                {
-                    Player winner = _player.Game.Outcome.Winner;
-                    return winner != null && winner != _player;
-                }
-                else
-                    return false;
-            }
+            get { return false; }
         }
 
         public bool IDrew
@@ -82,59 +64,62 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             get
             {
                 return
-                    _player != null &&
-                    _player.Game.Outcome != null &&
-                    _player.Game.Outcome.Winner == null;
+                    _game != null &&
+                    _game.Outcome != null &&
+                    _game.Outcome.Winner == null;
             }
         }
 
         public PieceColor PieceAt(Square square)
         {
-            _depGameBoard.OnGet();
-            return _gameBoard == null ? PieceColor.Empty : _gameBoard.PieceAt(square);
+            GameBoard gameBoard = GetGameBoard();
+            return gameBoard == null ? PieceColor.Empty : gameBoard.PieceAt(square);
         }
 
         public bool IsPriorMove(Square square)
         {
-            _depGameBoard.OnGet();
+            GameBoard gameBoard = GetGameBoard();
+            GameBoard priorBoard = GetPriorBoard();
             return
                 _mainNavigation.PreviewMove == null &&
-                _priorBoard.PieceAt(square) == PieceColor.Empty &&
-                _gameBoard.PieceAt(square) != PieceColor.Empty;
+                priorBoard.PieceAt(square) == PieceColor.Empty &&
+                gameBoard.PieceAt(square) != PieceColor.Empty;
         }
 
         public bool IsPriorCapture(Square square)
         {
-            _depGameBoard.OnGet();
+            GameBoard gameBoard = GetGameBoard();
+            GameBoard priorBoard = GetPriorBoard();
             return
                 _mainNavigation.PreviewMove == null &&
-                _priorBoard.PieceAt(square) != PieceColor.Empty &&
-                _gameBoard.PieceAt(square) != _priorBoard.PieceAt(square);
+                priorBoard.PieceAt(square) != PieceColor.Empty &&
+                gameBoard.PieceAt(square) != priorBoard.PieceAt(square);
         }
 
         public bool IsPreviewCapture(Square square)
         {
-            _depPreviewBoard.OnGet();
+            GameBoard gameBoard = GetGameBoard();
+            GameBoard previewBoard = GetPreviewBoard();
             return
                 _mainNavigation.PreviewMove != square &&
-                _gameBoard.PieceAt(square) != _previewBoard.PieceAt(square);
+                gameBoard.PieceAt(square) != previewBoard.PieceAt(square);
         }
 
         public bool IsPreviewCede(Square square)
         {
-            _depPreviewBoard.OnGet();
+            GameBoard previewBoard = GetPreviewBoard();
             return
                 _mainNavigation.PreviewMove != null &&
-                _previewBoard.ToMove != MyColor &&
-                _previewBoard.LegalMoves.Contains(square);
+                previewBoard.ToMove != MyColor &&
+                previewBoard.LegalMoves.Contains(square);
         }
 
         public int BlackCount
         {
             get
             {
-                _depGameBoard.OnGet();
-                return _gameBoard.BlackCount;
+                GameBoard gameBoard = GetGameBoard();
+                return gameBoard.BlackCount;
             }
         }
 
@@ -142,8 +127,8 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             get
             {
-                _depGameBoard.OnGet();
-                return _gameBoard.WhiteCount;
+                GameBoard gameBoard = GetGameBoard();
+                return gameBoard.WhiteCount;
             }
         }
 
@@ -156,10 +141,10 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         public void MakeMove(Square square)
         {
             _mainNavigation.PreviewMove = null;
-            _depGameBoard.OnGet();
-            if (MyTurn && _gameBoard.LegalMoves.Contains(square))
+            GameBoard gameBoard = GetGameBoard();
+            if (gameBoard.LegalMoves.Contains(square))
             {
-                _mainNavigation.PendingMoveIndex = _gameBoard.MoveIndex;
+                _mainNavigation.PendingMoveIndex = gameBoard.MoveIndex;
                 _mainNavigation.PendingMove = square;
             }
         }
@@ -173,20 +158,26 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             if (_mainNavigation.PendingMove != null)
             {
-                _player.MakeMove(_mainNavigation.PendingMoveIndex, _mainNavigation.PendingMove.Index);
-                _mainNavigation.PendingMove = null;
-
-                _depGameBoard.OnGet();
-                if (_gameBoard.ToMove == PieceColor.Empty)
+                GameBoard priorBoard = GetPriorBoard();
+                int playerIndexToMove = priorBoard.ToMove == PieceColor.Black ? 0 : 1;
+                LocalPlayer playerToMove = _game.Players.FirstOrDefault(player => player.Index == playerIndexToMove);
+                if (playerToMove != null)
                 {
-                    int blackCount = _gameBoard.BlackCount;
-                    int whiteCount = _gameBoard.WhiteCount;
-                    if (blackCount > whiteCount)
-                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 0));
-                    else if (blackCount < whiteCount)
-                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 1));
-                    else
-                        _player.Game.DeclareWinner(null);
+                    playerToMove.MakeMove(_mainNavigation.PendingMoveIndex, _mainNavigation.PendingMove.Index);
+                    _mainNavigation.PendingMove = null;
+
+                    GameBoard gameBoard = GetGameBoard();
+                    if (gameBoard.ToMove == PieceColor.Empty)
+                    {
+                        int blackCount = gameBoard.BlackCount;
+                        int whiteCount = gameBoard.WhiteCount;
+                        if (blackCount > whiteCount)
+                            _game.DeclareWinner(_game.Players.Single(p => p.Index == 0));
+                        else if (blackCount < whiteCount)
+                            _game.DeclareWinner(_game.Players.Single(p => p.Index == 1));
+                        else
+                            _game.DeclareWinner(null);
+                    }
                 }
             }
         }
@@ -203,16 +194,16 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             _priorBoard = null;
             _gameBoard = null;
-            if (_player != null)
+            if (_game != null)
             {
-                Game game = _player.Game;
-                IEnumerable<Move> gameMoves = game.Moves;
-                List<Move> moves = gameMoves.ToList();
-                moves.Sort(new MoveComparer());
+                LocalGame game = _game;
+                IEnumerable<LocalMove> gameMoves = game.Moves;
+                List<LocalMove> moves = gameMoves.ToList();
+                moves.Sort(new LocalMoveComparer());
                 int expectedIndex = 0;
                 _priorBoard = GameBoard.OpeningPosition;
                 _gameBoard = GameBoard.OpeningPosition;
-                foreach (Move move in moves)
+                foreach (LocalMove move in moves)
                 {
                     if (move.Index != expectedIndex)
                         return;
@@ -240,11 +231,29 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
 
         private void UpdatePreviewBoard()
         {
-            _depGameBoard.OnGet();
-            if (_mainNavigation.PreviewMove != null && _gameBoard.LegalMoves.Contains(_mainNavigation.PreviewMove))
-                _previewBoard = _gameBoard.AfterMove(_mainNavigation.PreviewMove);
+            GameBoard gameBoard = GetGameBoard();
+            if (_mainNavigation.PreviewMove != null && gameBoard.LegalMoves.Contains(_mainNavigation.PreviewMove))
+                _previewBoard = gameBoard.AfterMove(_mainNavigation.PreviewMove);
             else
-                _previewBoard = _gameBoard;
+                _previewBoard = gameBoard;
+        }
+
+        private GameBoard GetGameBoard()
+        {
+            _depGameBoard.OnGet();
+            return _gameBoard;
+        }
+
+        private GameBoard GetPriorBoard()
+        {
+            _depGameBoard.OnGet();
+            return _priorBoard;
+        }
+
+        private GameBoard GetPreviewBoard()
+        {
+            _depPreviewBoard.OnGet();
+            return _previewBoard;
         }
     }
 }

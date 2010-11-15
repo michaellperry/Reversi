@@ -3,12 +3,12 @@ using FacetedWorlds.Reversi.GameLogic;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class SquareViewModel
+    public class LocalSquareViewModel : ISquareViewModel
     {
-        private GameState _gameState;
+        private LocalGameState _gameState;
         private Square _square;
 
-        public SquareViewModel(GameState gameState, Square square)
+        public LocalSquareViewModel(LocalGameState gameState, Square square)
         {
             _gameState = gameState;
             _square = square;

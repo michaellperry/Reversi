@@ -30,7 +30,9 @@ namespace FacetedWorlds.Reversi.Model
 
         public void CreateLocalGame()
         {
-            Community.AddFact(new LocalGame(this));
+            LocalGame game = Community.AddFact(new LocalGame(this));
+            Community.AddFact(new LocalPlayer(game, 0));
+            Community.AddFact(new LocalPlayer(game, 1));
         }
     }
 }

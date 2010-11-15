@@ -46,8 +46,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
-    <Reference Include="UpdateControls, Version=2.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UpdateControls, Version=2.1.1.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>C:\Projects\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
       <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
@@ -57,6 +58,8 @@
     <Compile Include="Claim.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Identity.cs" />
+    <Compile Include="LocalGame.cs" />
+    <Compile Include="LocalPlayer.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Model.generated.cs">
       <AutoGen>True</AutoGen>

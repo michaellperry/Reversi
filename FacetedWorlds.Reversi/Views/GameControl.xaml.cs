@@ -118,9 +118,9 @@ namespace FacetedWorlds.Reversi.Views
             ReleaseMouseCapture();
         }
 
-        private GameViewModel ViewModel
+        private IGameViewModel ViewModel
         {
-            get { return ForView.Unwrap<GameViewModel>(DataContext); }
+            get { return ForView.Unwrap<IGameViewModel>(DataContext); }
         }
     }
 }

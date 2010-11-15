@@ -1,3 +1,4 @@
+using System.Linq;
 using FacetedWorlds.Reversi.Model;
 using FacetedWorlds.Reversi.NavigationModels;
 using FacetedWorlds.Reversi.ViewModels;
@@ -14,7 +15,7 @@ namespace FacetedWorlds.Reversi.Presenters
         private NameNavigationModel _nameNavigationModel;
         private MainViewModel _main;
         private NewGameViewModel _newGame;
-        private GameViewModel _game;
+        private IGameViewModel _game;
         private ChatViewModel _chat;
 
         private Dependent _depNewGame;
@@ -37,9 +38,18 @@ namespace FacetedWorlds.Reversi.Presenters
             });
             _depGame = new Dependent(delegate
             {
-                _game = _mainNavigationModel.SelectedPlayer == null
-                    ? null
-                    : new GameViewModel(_mainNavigationModel.SelectedPlayer, _mainNavigationModel);
+                if (_mainNavigationModel.SelectedPlayer != null)
+                {
+                    _game = new RemoteGameViewModel(_mainNavigationModel.SelectedPlayer, _mainNavigationModel);
+                }
+                else
+                {
+                    LocalGame localGame = _identity.ActiveLocalGames.FirstOrDefault();
+                    if (localGame != null)
+                        _game = new LocalGameViewModel(localGame, _mainNavigationModel);
+                    else
+                        _game = null;
+                }
             });
             _depChat = new Dependent(delegate
             {
@@ -59,7 +69,7 @@ namespace FacetedWorlds.Reversi.Presenters
             get { _depNewGame.OnGet(); return _newGame; }
         }
 
-        public GameViewModel Game
+        public IGameViewModel Game
         {
             get { _depGame.OnGet(); return _game; }
         }

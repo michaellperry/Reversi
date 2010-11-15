@@ -68,7 +68,7 @@
 		<!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<FacetedWorlds_Reversi_Views:GameControl Margin="0,72,0,0"/>
-			<Button Content="Chat" VerticalAlignment="Top" HorizontalAlignment="Right">
+			<Button Content="Chat" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="{Binding CanChat, Converter={StaticResource VisibilityValueConverter}}">
 				<Custom:Interaction.Triggers>
 					<Custom:EventTrigger EventName="Click">
 						<ic:NavigateToPageAction TargetPage="/Views/ChatPage.xaml"/>

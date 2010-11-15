@@ -4,24 +4,24 @@ using FacetedWorlds.Reversi.GameLogic;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class RowViewModel
+    public class LocalRowViewModel : IRowViewModel
     {
-        private GameState _gameState;
+        private LocalGameState _gameState;
         private int _row;
 
-        public RowViewModel(GameState gameState, int row)
+        public LocalRowViewModel(LocalGameState gameState, int row)
         {
             _gameState = gameState;
             _row = row;
         }
 
-        public IEnumerable<SquareViewModel> Squares
+        public IEnumerable<ISquareViewModel> Squares
         {
             get
             {
                 for (int column = 0; column < Square.NumberOfColumns; column++)
                 {
-                    yield return new SquareViewModel(_gameState, new Square(_row, column));
+                    yield return new LocalSquareViewModel(_gameState, new Square(_row, column));
                 }
             }
         }

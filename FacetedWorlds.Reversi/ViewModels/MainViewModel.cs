@@ -90,7 +90,8 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public void CreateLocalGame()
         {
-            _identity.CreateLocalGame();
+            if (!_identity.ActiveLocalGames.Any())
+                _identity.CreateLocalGame();
         }
 
         private User User
