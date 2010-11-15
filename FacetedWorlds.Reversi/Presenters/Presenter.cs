@@ -45,7 +45,7 @@ namespace FacetedWorlds.Reversi.Presenters
 
             string anid = UserExtendedProperties.GetValue("ANID") as string;
             string anonymousUserId = String.IsNullOrEmpty(anid)
-                ? "test:user06"
+                ? "test:user08"
                 : "liveid:" + ParseAnonymousId(anid);
             _identity = _community.AddFact(new Identity(anonymousUserId));
 

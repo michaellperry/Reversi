@@ -10,19 +10,22 @@ namespace FacetedWorlds.Reversi.ViewModels
         private INetworkServices _networkServices;
         private Identity _identity;
         private MainNavigationModel _mainNavigation;
-        private NameNavigationModel _nameNavigation;
 
-        public MainViewModel(INetworkServices networkServices, Identity identity, MainNavigationModel mainNavigation, NameNavigationModel nameNavigation)
+        public MainViewModel(INetworkServices networkServices, Identity identity, MainNavigationModel mainNavigation)
         {
             _networkServices = networkServices;
             _identity = identity;
             _mainNavigation = mainNavigation;
-            _nameNavigation = nameNavigation;
         }
 
         public bool IsUserApproved
         {
             get { return User != null; }
+        }
+
+        public bool IsUserNotApproved
+        {
+            get { return User == null; }
         }
 		
 		public string ApprovedUserName

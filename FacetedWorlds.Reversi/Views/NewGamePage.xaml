@@ -6,12 +6,16 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:Custom="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+	xmlns:FacetedWorlds_Reversi="clr-namespace:FacetedWorlds.Reversi"
+	xmlns:local="clr-namespace:FacetedWorlds.Reversi.Views"
+	xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters"
 	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
 	x:Class="FacetedWorlds.Reversi.Views.NewGamePage"
 	Orientation="Portrait"
 	shell:SystemTray.IsVisible="True"
     >
 	<phone:PhoneApplicationPage.Resources>
+		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
 		<DataTemplate x:Key="StringTemplate">
 			<StackPanel>
 				<TextBlock Text="{Binding Mode=OneWay}"/>
@@ -47,16 +51,20 @@
 		<!--TitlePanel contains the name of the application and page title-->
 		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
 			<TextBlock x:Name="ApplicationTitle" Text="Faceted Reversi" Style="{StaticResource PhoneTextNormalStyle}"/>
-			<TextBlock x:Name="PageTitle" Text="new game" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+			<TextBlock x:Name="PageTitle" Text="{Binding Title}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
 		</StackPanel>
 
 		<!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-			<TextBlock Margin="8,8,0,0" TextWrapping="Wrap" Text="Opponent:" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-			<TextBox Margin="0,35,0,0" TextWrapping="Wrap" Text="{Binding OpponentName, Mode=TwoWay}" VerticalAlignment="Top"/>
-			<TextBlock HorizontalAlignment="Left" Margin="8,180,0,0" TextWrapping="Wrap" Text="Select an opponent:" VerticalAlignment="Top"/>
-			<Button Content="Challenge" Margin="0,107,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Challenge_Click" />
-			<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,211,0,0" VerticalAlignment="Top" SelectedItem="{Binding OpponentName, Mode=TwoWay}"/>
+            <Border Visibility="{Binding Challenge, Converter={StaticResource VisibilityValueConverter}}" d:IsHidden="True">
+				<FacetedWorlds_Reversi:ChallengeControl DataContext="{Binding Challenge}"/>
+			</Border>
+            <Border Visibility="{Binding YourName, Converter={StaticResource VisibilityValueConverter}}">
+            	<local:YourNameControl x:Name="yourNameControl" DataContext="{Binding YourName}"/>
+            </Border>
+            <Border Visibility="{Binding PendingUserName, Converter={StaticResource VisibilityValueConverter}}" d:IsHidden="True">
+            	<local:PendingUserNameControl DataContext="{Binding PendingUserName}"/>
+            </Border>
 		</Grid>
 	</Grid>
 </phone:PhoneApplicationPage>

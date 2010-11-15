@@ -97,6 +97,8 @@
     <Compile Include="ViewModels\LocalRowViewModel.cs" />
     <Compile Include="ViewModels\LocalSquareViewModel.cs" />
     <Compile Include="ViewModels\MessageViewModel.cs" />
+    <Compile Include="ViewModels\NewGameViewModel.cs" />
+    <Compile Include="ViewModels\PendingUserNameViewModel.cs" />
     <Compile Include="ViewModels\YourNameViewModel.cs" />
     <Compile Include="Views\ChatControl.xaml.cs">
       <DependentUpon>ChatControl.xaml</DependentUpon>
@@ -122,13 +124,16 @@
     <Compile Include="NavigationModels\MainNavigationModel.cs" />
     <Compile Include="NavigationModels\RemoteMoveComparer.cs" />
     <Compile Include="ViewModels\RemoteGameViewModel.cs" />
-    <Compile Include="ViewModels\NewGameViewModel.cs" />
+    <Compile Include="ViewModels\ChallengeViewModel.cs" />
     <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GameSummaryViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\RemoteRowViewModel.cs" />
     <Compile Include="ViewModels\RemoteSquareViewModel.cs" />
+    <Compile Include="Views\ChallengeControl.xaml.cs">
+      <DependentUpon>ChallengeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewGamePage.xaml.cs">
       <DependentUpon>NewGamePage.xaml</DependentUpon>
     </Compile>
@@ -180,6 +185,10 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChallengeControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\NewGamePage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -244,9 +253,6 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
     <DesignData Include="SampleData\MainViewModelSampleData.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-    </DesignData>
-    <DesignData Include="SampleData\MainViewModelSampleData1.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
     <DesignData Include="SampleData\NewGameViewModelSampleData.xaml">

@@ -30,7 +30,7 @@
 		<StaticResource ResourceKey="PhoneForegroundBrush"/>
 	</UserControl.Foreground>
     
-    <Grid x:Name="LayoutRoot" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData1.xaml}">
+    <Grid x:Name="LayoutRoot">
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="VisualStateGroup">
     			<VisualStateGroup.Transitions>

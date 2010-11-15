@@ -221,7 +221,7 @@
             <TextBlock x:Name="PageTitle" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="your games"/>
         </StackPanel>
         <Grid x:Name="ContentPanel" Margin="13,0,11,0" Grid.Row="1" >
-        	<Grid>
+        	<Grid Visibility="{Binding IsUserNotApproved, Converter={StaticResource VisibilityValueConverter}}">
         		<Grid.RowDefinitions>
         			<RowDefinition Height="52"/>
         			<RowDefinition Height="52"/>

@@ -11,8 +11,12 @@ namespace FacetedWorlds.Reversi.ValueConverters
         {
             if (targetType == typeof(Visibility))
             {
-                bool sourceValue = (bool)value;
-                return sourceValue ? Visibility.Visible : Visibility.Collapsed;
+                bool sourceValue = value is bool
+                    ? (bool)value
+                    : value != null;
+                return sourceValue
+                    ? Visibility.Visible
+                    : Visibility.Collapsed;
             }
             else
             {

@@ -1,4 +1,4 @@
-<FacetedWorlds_Reversi_ViewModels:MainViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:FacetedWorlds_Reversi_Model="clr-namespace:FacetedWorlds.Reversi.Model;assembly=FacetedWorlds.Reversi.Model" ApprovedUserName="Aenean aliquam vestibulum" HasSelectedPlayer="True" IsUserApproved="False">
+﻿<FacetedWorlds_Reversi_ViewModels:MainViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:FacetedWorlds_Reversi_Model="clr-namespace:FacetedWorlds.Reversi.Model;assembly=FacetedWorlds.Reversi.Model" ApprovedUserName="Aenean aliquam vestibulum" HasSelectedPlayer="True" IsUserApproved="False" IsUserNotApproved="True">
 	<FacetedWorlds_Reversi_ViewModels:MainViewModel.Losses>
 		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="52" HasNewMessages="True" MyTurn="False" MyColor="White" OpponentName="Cras adipiscing parturient curabitur" WhiteCount="35">
 			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>

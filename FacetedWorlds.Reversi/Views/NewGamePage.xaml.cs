@@ -1,9 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using FacetedWorlds.Reversi.ViewModels;
-using Microsoft.Phone.Controls;
-using UpdateControls.XAML;
-using System;
+﻿using Microsoft.Phone.Controls;
 
 namespace FacetedWorlds.Reversi.Views
 {
@@ -14,14 +9,10 @@ namespace FacetedWorlds.Reversi.Views
             InitializeComponent();
         }
 
-        private void Challenge_Click(object sender, RoutedEventArgs e)
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            ICommand challenge = ForView.Unwrap<NewGameViewModel>(DataContext).Challenge;
-            if (challenge.CanExecute(null))
-            {
-                challenge.Execute(null);
-                NavigationService.GoBack();
-            }
+            if (yourNameControl.HandleBack())
+                e.Cancel = true;
         }
     }
 }
