@@ -5,15 +5,27 @@ namespace FacetedWorlds.Reversi.ViewModels
     public class MessageViewModel
     {
         private Message _message;
+        private Player _player;
 
-        public MessageViewModel(Message message)
+        public MessageViewModel(Message message, Player player)
         {
+            _player = player;
             _message = message;
         }
 
         public string Sender
         {
             get { return _message.Sender.User.UserName; }
+        }
+
+        public bool FromMe
+        {
+            get { return _message.Sender == _player; }
+        }
+
+        public bool FromOpponent
+        {
+            get { return _message.Sender != _player; }
         }
 
         public string Body

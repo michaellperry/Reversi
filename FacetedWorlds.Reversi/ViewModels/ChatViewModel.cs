@@ -49,7 +49,7 @@ namespace FacetedWorlds.Reversi.ViewModels
             get
             {
                 return _selectedPlayer.Game.Messages
-                    .Select(message => new MessageViewModel(message));
+                    .Select(message => new MessageViewModel(message, _selectedPlayer));
             }
         }
 

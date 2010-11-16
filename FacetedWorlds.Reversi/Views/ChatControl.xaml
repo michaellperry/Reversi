@@ -3,23 +3,50 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters"
 	mc:Ignorable="d"
 	x:Class="FacetedWorlds.Reversi.Views.ChatControl"
 	d:DesignWidth="420" d:DesignHeight="498">
 	<UserControl.Resources>
+		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
+		<FacetedWorlds_Reversi_ValueConverters:ChatMarginValueConverter x:Key="ChatMarginValueConverter"/>
 		<DataTemplate x:Key="MessageViewModelTemplate">
 			<StackPanel>
-				<TextBlock Text="{Binding Sender}">
-					<TextBlock.Foreground>
-						<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
-					</TextBlock.Foreground>
-				</TextBlock>
-				<TextBlock Text="{Binding Body}" Margin="0,0,0,4"/>
+				<Grid Margin="{Binding FromMe, Converter={StaticResource ChatMarginValueConverter}}">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="12"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="12"/>
+					</Grid.RowDefinitions>
+					<Border d:LayoutOverrides="Width" Grid.Row="1">
+						<Border.Background>
+							<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+						</Border.Background>
+						<TextBlock Text="{Binding Body}" Width="312" TextWrapping="Wrap" Margin="8,4">
+							<TextBlock.Foreground>
+								<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+							</TextBlock.Foreground>
+						</TextBlock>
+					</Border>
+					<Path Data="M19.666666,21 C19.666666,7.3333335 19.666666,7.3333335 19.666666,7.3333335 L32.333,21" HorizontalAlignment="Left" Margin="20,0,0,-1" Stretch="Fill" UseLayoutRounding="False" Width="16" Height="12" VerticalAlignment="Bottom" Visibility="{Binding FromOpponent, Converter={StaticResource VisibilityValueConverter}}">
+						<Path.Fill>
+							<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+						</Path.Fill>
+					</Path>
+					<Path Data="M19.666666,21 C19.666666,7.3333335 19.666666,7.3333335 19.666666,7.3333335 L32.333,21" HorizontalAlignment="Right" Margin="0,-1,20,0" Stretch="Fill" UseLayoutRounding="False" Width="16" Height="12" VerticalAlignment="Top" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Visibility="{Binding FromMe, Converter={StaticResource VisibilityValueConverter}}">
+						<Path.RenderTransform>
+							<CompositeTransform Rotation="180"/>
+						</Path.RenderTransform>
+						<Path.Fill>
+							<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+						</Path.Fill>
+					</Path>
+				</Grid>
 			</StackPanel>
 		</DataTemplate>
 	</UserControl.Resources>
 
-	<Grid x:Name="LayoutRoot" Background="Transparent">
+	<Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/ChatViewModelSampleData.xaml}">
 		<Grid>
 			<TextBox Margin="0,0,119,0" TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" VerticalAlignment="Top"/>
 			<Button Content="Send" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Click="Send_Click"/>

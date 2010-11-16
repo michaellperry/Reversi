@@ -86,6 +86,7 @@
     <Compile Include="NavigationModels\LocalMoveComparer.cs" />
     <Compile Include="NavigationModels\NameNavigationModel.cs" />
     <Compile Include="Presenters\ViewModelLocator.cs" />
+    <Compile Include="ValueConverters\ChatMarginValueConverter.cs" />
     <Compile Include="ValueConverters\PieceColorValueConverter.cs" />
     <Compile Include="ValueConverters\VisibilityValueConverter.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
@@ -249,6 +250,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <DesignData Include="SampleData\ChatViewModelSampleData.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </DesignData>
     <DesignData Include="SampleData\GameViewModelSampleData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
