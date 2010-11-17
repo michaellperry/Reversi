@@ -44,7 +44,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="UpdateControls">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
       <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
@@ -62,7 +62,7 @@
       <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.XAML">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\codeplex\updatecontrols\Desktop\UpdateControls.XAML\bin\Release\UpdateControls.XAML.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

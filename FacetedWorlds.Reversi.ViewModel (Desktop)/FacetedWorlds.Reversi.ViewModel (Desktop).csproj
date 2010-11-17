@@ -39,13 +39,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UpdateControls">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
       <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.XAML">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\codeplex\updatecontrols\Desktop\UpdateControls.XAML\bin\Release\UpdateControls.XAML.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

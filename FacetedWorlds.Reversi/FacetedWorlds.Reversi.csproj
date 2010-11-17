@@ -60,8 +60,8 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
-    <Reference Include="UpdateControls, Version=2.1.1.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UpdateControls">
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
