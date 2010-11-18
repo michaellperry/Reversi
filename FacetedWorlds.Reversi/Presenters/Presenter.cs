@@ -12,10 +12,11 @@ using UpdateControls.Correspondence.WebServiceClient;
 using UpdateControls.XAML;
 using System.Windows.Threading;
 using UpdateControls;
+using Microsoft.Phone.Marketplace;
 
 namespace FacetedWorlds.Reversi.Presenters
 {
-    public class Presenter : INetworkServices
+    public class Presenter : IPresentationServices
     {
         private const string STR_SelectedPlayerGameGuid = "SelectedPlayerGameGuid";
         private const string STR_OpponentName = "OpponentName";
@@ -24,6 +25,7 @@ namespace FacetedWorlds.Reversi.Presenters
         private Community _community;
         private Identity _identity;
         private ViewModelLocator _viewModelLocator;
+        private LicenseInformation _licenseInformation = new LicenseInformation();
 
         private DispatcherTimer _synchronizeTimer = new DispatcherTimer();
         private MainNavigationModel _mainNavigation = new MainNavigationModel();
@@ -45,7 +47,7 @@ namespace FacetedWorlds.Reversi.Presenters
 
             string anid = UserExtendedProperties.GetValue("ANID") as string;
             string anonymousUserId = String.IsNullOrEmpty(anid)
-                ? "test:user08"
+                ? "test:user10"
                 : "liveid:" + ParseAnonymousId(anid);
             _identity = _community.AddFact(new Identity(anonymousUserId));
 
@@ -66,6 +68,20 @@ namespace FacetedWorlds.Reversi.Presenters
             _synchronizeTimer.Start();
 
             _viewModelLocator = new ViewModelLocator(_identity, this, _mainNavigation, _nameNavigationModel);
+        }
+
+        public bool ForceInTrialMode { get; set; }
+
+        public bool IsInTrialMode
+        {
+            get
+            {
+                return
+#if DEBUG
+                    ForceInTrialMode ||
+#endif
+                    _licenseInformation.IsTrial();
+            }
         }
 
         public object ViewModelLocator

@@ -3,6 +3,8 @@ using FacetedWorlds.Reversi.ViewModels;
 using Microsoft.Phone.Controls;
 using UpdateControls.XAML;
 using Microsoft.Phone.Shell;
+using System.Windows;
+using Microsoft.Phone.Tasks;
 
 namespace FacetedWorlds.Reversi
 {
@@ -30,9 +32,8 @@ namespace FacetedWorlds.Reversi
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            MainViewModel viewModel = ForView.Unwrap<MainViewModel>(DataContext);
-            viewModel.Synchronize();
-            if (viewModel.HasSelectedPlayer)
+            ViewModel.Synchronize();
+            if (ViewModel.HasSelectedPlayer)
             {
                 NavigationService.Navigate(new Uri("/Views/GamePage.xaml", UriKind.Relative));
             }
@@ -58,14 +59,34 @@ namespace FacetedWorlds.Reversi
 
         private void CreateRemoteGame()
         {
-            NavigationService.Navigate(new Uri("/Views/NewGamePage.xaml", UriKind.Relative));
+            if (ViewModel.CanChallenge)
+                NavigationService.Navigate(new Uri("/Views/NewGamePage.xaml", UriKind.Relative));
+            else
+            {
+                MessageBoxResult trialResult = MessageBox.Show(
+                    "Your trial period has expired. Please purchase the game.",
+                    "Trial expired",
+                    MessageBoxButton.OKCancel);
+                if (trialResult == MessageBoxResult.OK)
+                {
+                    // Show the application details.
+                    new MarketplaceDetailTask
+                    {
+                        ContentType = MarketplaceContentType.Applications
+                    }.Show();
+                }
+            }
         }
 
         private void CreateLocalGame()
         {
-            MainViewModel viewModel = ForView.Unwrap<MainViewModel>(DataContext);
-            viewModel.CreateLocalGame();
+            ViewModel.CreateLocalGame();
             NavigationService.Navigate(new Uri("/Views/GamePage.xaml", UriKind.Relative));
+        }
+
+        private MainViewModel ViewModel
+        {
+            get { return ForView.Unwrap<MainViewModel>(DataContext); }
         }
     }
 }

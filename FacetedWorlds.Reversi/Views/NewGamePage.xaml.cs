@@ -8,11 +8,5 @@ namespace FacetedWorlds.Reversi.Views
         {
             InitializeComponent();
         }
-
-        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
-        {
-            if (yourNameControl.HandleBack())
-                e.Cancel = true;
-        }
     }
 }

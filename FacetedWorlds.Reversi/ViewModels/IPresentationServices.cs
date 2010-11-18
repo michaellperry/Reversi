@@ -1,8 +1,9 @@
 ﻿
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public interface INetworkServices
+    public interface IPresentationServices
     {
         void Synchronize();
+        bool IsInTrialMode { get; }
     }
 }

@@ -2,18 +2,19 @@
 using System.Linq;
 using FacetedWorlds.Reversi.Model;
 using FacetedWorlds.Reversi.NavigationModels;
+using System;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
     public class MainViewModel
     {
-        private INetworkServices _networkServices;
+        private IPresentationServices _presentationServices;
         private Identity _identity;
         private MainNavigationModel _mainNavigation;
 
-        public MainViewModel(INetworkServices networkServices, Identity identity, MainNavigationModel mainNavigation)
+        public MainViewModel(IPresentationServices presentationServices, Identity identity, MainNavigationModel mainNavigation)
         {
-            _networkServices = networkServices;
+            _presentationServices = presentationServices;
             _identity = identity;
             _mainNavigation = mainNavigation;
         }
@@ -83,7 +84,35 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public void Synchronize()
         {
-            _networkServices.Synchronize();
+            _presentationServices.Synchronize();
+        }
+
+        public bool CanChallenge
+        {
+            get
+            {
+                if (User == null)
+                {
+                    // If the user does not have an alias, let them sign up.
+                    return true;
+                }
+                else if (!_presentationServices.IsInTrialMode)
+                {
+                    // If the user has paid, let them challenge.
+                    return true;
+                }
+                else if (!User.ActivePlayers.Any() && !User.FinishedPlayers.Any())
+                {
+                    // If the user has an alias and has not paid,
+                    // let them create their first game.
+                    return true;
+                }
+                else
+                {
+                    // Trial is over.
+                    return false;
+                }
+            }
         }
 
         public bool HasSelectedPlayer

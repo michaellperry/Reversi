@@ -60,7 +60,7 @@
 				<FacetedWorlds_Reversi:ChallengeControl DataContext="{Binding Challenge}"/>
 			</Border>
             <Border Visibility="{Binding YourName, Converter={StaticResource VisibilityValueConverter}}">
-            	<local:YourNameControl x:Name="yourNameControl" DataContext="{Binding YourName}"/>
+            	<local:YourNameControl DataContext="{Binding YourName}"/>
             </Border>
             <Border Visibility="{Binding PendingUserName, Converter={StaticResource VisibilityValueConverter}}" d:IsHidden="True">
             	<local:PendingUserNameControl DataContext="{Binding PendingUserName}"/>

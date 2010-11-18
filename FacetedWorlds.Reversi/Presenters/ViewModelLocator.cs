@@ -9,7 +9,7 @@ namespace FacetedWorlds.Reversi.Presenters
     public class ViewModelLocator
     {
         private Identity _identity;
-        private INetworkServices _networkServices;
+        private IPresentationServices _presentationServices;
         private MainNavigationModel _mainNavigationModel;
 
         private NameNavigationModel _nameNavigationModel;
@@ -21,14 +21,14 @@ namespace FacetedWorlds.Reversi.Presenters
         private Dependent _depGame;
         private Dependent _depChat;
 
-        public ViewModelLocator(Identity identity, INetworkServices networkServices, MainNavigationModel mainNavigationModel, NameNavigationModel nameNavigationModel)
+        public ViewModelLocator(Identity identity, IPresentationServices presentationServices, MainNavigationModel mainNavigationModel, NameNavigationModel nameNavigationModel)
         {
             _identity = identity;
-            _networkServices = networkServices;
+            _presentationServices = presentationServices;
             _mainNavigationModel = mainNavigationModel;
             _nameNavigationModel = nameNavigationModel;
 
-            _main = new MainViewModel(_networkServices, _identity, _mainNavigationModel);
+            _main = new MainViewModel(_presentationServices, _identity, _mainNavigationModel);
             _newGame = new NewGameViewModel(_identity, _mainNavigationModel, _nameNavigationModel);
             _depGame = new Dependent(delegate
             {

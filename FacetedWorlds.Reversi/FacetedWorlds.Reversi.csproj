@@ -91,7 +91,7 @@
     <Compile Include="ValueConverters\VisibilityValueConverter.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
     <Compile Include="ViewModels\IGameViewModel.cs" />
-    <Compile Include="ViewModels\INetworkServices.cs" />
+    <Compile Include="ViewModels\IPresentationServices.cs" />
     <Compile Include="ViewModels\IRowViewModel.cs" />
     <Compile Include="ViewModels\ISquareViewModel.cs" />
     <Compile Include="ViewModels\LocalGameViewModel.cs" />
