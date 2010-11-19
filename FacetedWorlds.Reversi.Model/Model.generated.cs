@@ -20,11 +20,14 @@ digraph "FacetedWorlds.Reversi.Model"
     Move -> Player
     Outcome -> Game
     Outcome -> Player [label="  ?"]
+    OutcomeAcknowledge -> Player
+    OutcomeAcknowledge -> Outcome
     LocalGame -> Identity
     LocalPlayer -> LocalGame
     LocalMove -> LocalPlayer
     LocalOutcome -> LocalGame
     LocalOutcome -> LocalPlayer [label="  ?"]
+    LocalOutcomeAcknowledge -> LocalOutcome
 }
 **/
 
@@ -472,12 +475,10 @@ namespace FacetedWorlds.Reversi.Model
             )
             ;
         public static Query QueryIsActive = new Query()
-            .JoinPredecessors(Player.RoleGame)
-            .JoinSuccessors(Outcome.RoleGame)
+            .JoinSuccessors(OutcomeAcknowledge.RolePlayer)
             ;
         public static Query QueryIsNotActive = new Query()
-            .JoinPredecessors(Player.RoleGame)
-            .JoinSuccessors(Outcome.RoleGame)
+            .JoinSuccessors(OutcomeAcknowledge.RolePlayer)
             ;
 
         // Predicates
@@ -742,6 +743,8 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorOpt<Player> _winner;
 
         // Fields
+        [CorrespondenceField]
+        public int _resigned;
 
         // Results
 
@@ -749,11 +752,13 @@ namespace FacetedWorlds.Reversi.Model
         public Outcome(
             Game game
             ,Player winner
+            ,int resigned
             )
         {
             InitializeResults();
             _game = new PredecessorObj<Game>(this, RoleGame, game);
             _winner = new PredecessorOpt<Player>(this, RoleWinner, winner);
+            _resigned = resigned;
         }
 
         // Hydration constructor
@@ -780,6 +785,68 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Field access
+        public int Resigned
+        {
+            get { return _resigned; }
+        }
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class OutcomeAcknowledge : CorrespondenceFact
+    {
+        // Roles
+        public static Role<Player> RolePlayer = new Role<Player>("player");
+        public static Role<Outcome> RoleOutcome = new Role<Outcome>("outcome");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<Player> _player;
+        private PredecessorObj<Outcome> _outcome;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public OutcomeAcknowledge(
+            Player player
+            ,Outcome outcome
+            )
+        {
+            InitializeResults();
+            _player = new PredecessorObj<Player>(this, RolePlayer, player);
+            _outcome = new PredecessorObj<Outcome>(this, RoleOutcome, outcome);
+        }
+
+        // Hydration constructor
+        public OutcomeAcknowledge(FactMemento memento)
+        {
+            InitializeResults();
+            _player = new PredecessorObj<Player>(this, RolePlayer, memento);
+            _outcome = new PredecessorObj<Outcome>(this, RoleOutcome, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public Player Player
+        {
+            get { return _player.Fact; }
+        }
+        public Outcome Outcome
+        {
+            get { return _outcome.Fact; }
+        }
+
+        // Field access
 
         // Query result access
     }
@@ -803,6 +870,7 @@ namespace FacetedWorlds.Reversi.Model
             ;
         public static Query QueryIsActive = new Query()
             .JoinSuccessors(LocalOutcome.RoleGame)
+            .JoinSuccessors(LocalOutcomeAcknowledge.RoleOutcome)
             ;
 
         // Predicates
@@ -1008,6 +1076,8 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorOpt<LocalPlayer> _winner;
 
         // Fields
+        [CorrespondenceField]
+        public int _resigned;
 
         // Results
 
@@ -1015,11 +1085,13 @@ namespace FacetedWorlds.Reversi.Model
         public LocalOutcome(
             LocalGame game
             ,LocalPlayer winner
+            ,int resigned
             )
         {
             InitializeResults();
             _game = new PredecessorObj<LocalGame>(this, RoleGame, game);
             _winner = new PredecessorOpt<LocalPlayer>(this, RoleWinner, winner);
+            _resigned = resigned;
         }
 
         // Hydration constructor
@@ -1043,6 +1115,59 @@ namespace FacetedWorlds.Reversi.Model
         public LocalPlayer Winner
         {
             get { return _winner.Fact; }
+        }
+
+        // Field access
+        public int Resigned
+        {
+            get { return _resigned; }
+        }
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class LocalOutcomeAcknowledge : CorrespondenceFact
+    {
+        // Roles
+        public static Role<LocalOutcome> RoleOutcome = new Role<LocalOutcome>("outcome");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<LocalOutcome> _outcome;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public LocalOutcomeAcknowledge(
+            LocalOutcome outcome
+            )
+        {
+            InitializeResults();
+            _outcome = new PredecessorObj<LocalOutcome>(this, RoleOutcome, outcome);
+        }
+
+        // Hydration constructor
+        public LocalOutcomeAcknowledge(FactMemento memento)
+        {
+            InitializeResults();
+            _outcome = new PredecessorObj<LocalOutcome>(this, RoleOutcome, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public LocalOutcome Outcome
+        {
+            get { return _outcome.Fact; }
         }
 
         // Field access

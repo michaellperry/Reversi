@@ -13,9 +13,7 @@ namespace FacetedWorlds.Reversi.ViewModels
         PieceColor MyColor { get; }
         PieceColor OpponentColor { get; }
         bool MyTurn { get; }
-        bool IWon { get; }
-        bool ILost { get; }
-        bool IDrew { get; }
+        string Outcome { get; }
         IEnumerable<IRowViewModel> Rows { get; }
         bool IsMovePending { get; }
         void PreviewMove(int row, int column);
@@ -24,5 +22,6 @@ namespace FacetedWorlds.Reversi.ViewModels
         void CommitMove();
         void CancelMove();
         void ClearSelectedPlayer();
+        void AcknowledgeOutcome();
     }
 }

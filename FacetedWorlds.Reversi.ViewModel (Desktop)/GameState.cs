@@ -117,11 +117,11 @@ namespace FacetedWorlds.Reversi.ViewModel
                     int blackCount = _gameBoard.BlackCount;
                     int whiteCount = _gameBoard.WhiteCount;
                     if (blackCount > whiteCount)
-                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 0));
+                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 0), false);
                     else if (blackCount < whiteCount)
-                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 1));
+                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 1), false);
                     else
-                        _player.Game.DeclareWinner(null);
+                        _player.Game.DeclareWinner(null, false);
                 }
             }
         }

@@ -59,6 +59,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Identity.cs" />
     <Compile Include="LocalGame.cs" />
+    <Compile Include="LocalOutcome.cs" />
     <Compile Include="LocalPlayer.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Model.generated.cs">

@@ -50,7 +50,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
                         LocalPlayer otherPlayer = _gameState.Game.Players.FirstOrDefault(
                             player => player.Index == otherPlayerIndex);
-                        _gameState.Game.DeclareWinner(otherPlayer);
+                        _gameState.Game.DeclareWinner(otherPlayer, true);
                     });
             }
         }
@@ -70,19 +70,17 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return !_gameState.IsMovePending && _gameState.Game.Outcome == null; }
         }
 
-        public bool IWon
+        public string Outcome
         {
-            get { return _gameState.IWon; }
-        }
-
-        public bool ILost
-        {
-            get { return _gameState.ILost; }
-        }
-
-        public bool IDrew
-        {
-            get { return _gameState.IDrew; }
+            get
+            {
+                return
+                    _gameState.BlackWon ? "Black Won" :
+                    _gameState.WhiteWon ? "White Won" :
+                    _gameState.Draw ? "Draw" :
+                    _gameState.Resigned ? "Resigned" :
+                    string.Empty;
+            }
         }
 
         public IEnumerable<IRowViewModel> Rows
@@ -127,6 +125,14 @@ namespace FacetedWorlds.Reversi.ViewModels
         public void ClearSelectedPlayer()
         {
             _mainNavigation.SelectedPlayer = null;
+        }
+
+        public void AcknowledgeOutcome()
+        {
+            foreach (LocalOutcome outcome in _gameState.Game.Outcomes)
+            {
+                outcome.Acknowledge();
+            }
         }
     }
 }

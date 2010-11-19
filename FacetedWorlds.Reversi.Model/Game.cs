@@ -14,9 +14,9 @@ namespace FacetedWorlds.Reversi.Model
 			get { return Outcomes.FirstOrDefault(); }
 		}
 
-		public void DeclareWinner(Player winner)
+        public void DeclareWinner(Player winner, bool resigned)
 		{
-			Community.AddFact(new Outcome(this, winner));
+            Community.AddFact(new Outcome(this, winner, resigned ? 1 : 0));
 		}
 	}
 }

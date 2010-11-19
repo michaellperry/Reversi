@@ -76,6 +76,8 @@
 				</Custom:Interaction.Triggers>
 			</Button>
 			<FacetedWorlds_Reversi:SpeechBaloonControl HorizontalAlignment="Right" Margin="0,13,103,0" VerticalAlignment="Top" Width="51" Height="46" Visibility="{Binding HasNewMessages, Converter={StaticResource VisibilityValueConverter}}"/>
+			<TextBlock Margin="0,10,158,0" Text="{Binding Outcome}" VerticalAlignment="Top" FontSize="32"/>
+			<Button Content="Resign" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="148" Click="Resign_Click" Visibility="{Binding MyTurn, Converter={StaticResource VisibilityValueConverter}}"/>
 		</Grid>
 	</Grid>
 

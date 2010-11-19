@@ -59,7 +59,20 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
                 return
                     _player != null &&
                     _player.Game.Outcome != null &&
-                    _player.Game.Outcome.Winner == _player;
+                    _player.Game.Outcome.Winner == _player &&
+                    _player.Game.Outcome.Resigned != 1;
+            }
+        }
+
+        public bool HeResigned
+        {
+            get
+            {
+                return
+                    _player != null &&
+                    _player.Game.Outcome != null &&
+                    _player.Game.Outcome.Winner == _player &&
+                    _player.Game.Outcome.Resigned == 1;
             }
         }
 
@@ -70,7 +83,21 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
                 if (_player != null && _player.Game.Outcome != null)
                 {
                     Player winner = _player.Game.Outcome.Winner;
-                    return winner != null && winner != _player;
+                    return winner != null && winner != _player && _player.Game.Outcome.Resigned != 1;
+                }
+                else
+                    return false;
+            }
+        }
+
+        public bool IResigned
+        {
+            get
+            {
+                if (_player != null && _player.Game.Outcome != null)
+                {
+                    Player winner = _player.Game.Outcome.Winner;
+                    return winner != null && winner != _player && _player.Game.Outcome.Resigned == 1;
                 }
                 else
                     return false;
@@ -182,11 +209,11 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
                     int blackCount = _gameBoard.BlackCount;
                     int whiteCount = _gameBoard.WhiteCount;
                     if (blackCount > whiteCount)
-                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 0));
+                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 0), false);
                     else if (blackCount < whiteCount)
-                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 1));
+                        _player.Game.DeclareWinner(_player.Game.Players.Single(p => p.Index == 1), false);
                     else
-                        _player.Game.DeclareWinner(null);
+                        _player.Game.DeclareWinner(null, false);
                 }
             }
         }

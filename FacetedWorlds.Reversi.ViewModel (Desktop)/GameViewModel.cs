@@ -24,7 +24,7 @@ namespace FacetedWorlds.Reversi.ViewModel
             {
                 return MakeCommand
                     .Do(() => _player.Game.DeclareWinner(
-                        _player.Game.Players.FirstOrDefault(p => p != _player)));
+                        _player.Game.Players.FirstOrDefault(p => p != _player), true));
             }
         }
 

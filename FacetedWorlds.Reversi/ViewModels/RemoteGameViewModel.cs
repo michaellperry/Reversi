@@ -53,7 +53,7 @@ namespace FacetedWorlds.Reversi.ViewModels
             get
             {
                 return MakeCommand
-                    .Do(() => _player.Game.DeclareWinner(GetOtherPlayer()));
+                    .Do(() => _player.Game.DeclareWinner(GetOtherPlayer(), true));
             }
         }
 
@@ -72,9 +72,18 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return _gameState.MyTurn && !_gameState.IsMovePending; }
         }
 
-        public bool IWon
+        public string Outcome
         {
-            get { return _gameState.IWon; }
+            get
+            {
+                return
+                    _gameState.IWon ? "You Won" :
+                    _gameState.ILost ? "You Lost" :
+                    _gameState.IDrew ? "You Drew" :
+                    _gameState.IResigned ? "You Resigned" :
+                    _gameState.HeResigned ? "Opponent Resigned" :
+                        string.Empty;
+            }
         }
 
         public bool ILost
@@ -144,6 +153,15 @@ namespace FacetedWorlds.Reversi.ViewModels
         public void ClearSelectedPlayer()
         {
             _mainNavigation.SelectedPlayer = null;
+        }
+
+        public void AcknowledgeOutcome()
+        {
+            IEnumerable<Outcome> outcomes = _player.Game.Outcomes;
+            foreach (Outcome outcome in outcomes)
+            {
+                _player.Acknowledge(outcome);
+            }
         }
     }
 }

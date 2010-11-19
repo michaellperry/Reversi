@@ -12,5 +12,10 @@ namespace FacetedWorlds.Reversi.Model
         {
             Community.AddFact(new Message(this, messageBody));
         }
+
+        public void Acknowledge(Outcome outcome)
+        {
+            Community.AddFact(new OutcomeAcknowledge(this, outcome));
+        }
 	}
 }
