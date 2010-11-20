@@ -6,7 +6,7 @@
 	xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters"
 	mc:Ignorable="d"
 	x:Class="FacetedWorlds.Reversi.Views.ChatControl"
-	d:DesignWidth="420" d:DesignHeight="573">
+	d:DesignWidth="420" d:DesignHeight="573" LayoutUpdated="ChatControl_LayoutUpdated">
 	<UserControl.Resources>
 		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
 		<FacetedWorlds_Reversi_ValueConverters:ChatMarginValueConverter x:Key="ChatMarginValueConverter"/>
@@ -46,14 +46,14 @@
 		</DataTemplate>
 	</UserControl.Resources>
 
-	<Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/ChatViewModelSampleData.xaml}">
-		<Grid>
+	<ScrollViewer x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/ChatViewModelSampleData.xaml}">
+		<Grid x:Name="ListContent" Width="420">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
-			<ListBox ItemTemplate="{StaticResource MessageViewModelTemplate}" ItemsSource="{Binding Messages}"/>
-			<Grid Grid.Row="1" VerticalAlignment="Top" Margin="120,0,0,0">
+			<ItemsControl ItemTemplate="{StaticResource MessageViewModelTemplate}" ItemsSource="{Binding Messages}"/>
+			<Grid Grid.Row="1" VerticalAlignment="Top" Margin="121,0,-1,0">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="12"/>
 					<RowDefinition Height="Auto"/>
@@ -75,5 +75,5 @@
 				</Path>
 			</Grid>
 		</Grid>
-	</Grid>
+	</ScrollViewer>
 </UserControl>

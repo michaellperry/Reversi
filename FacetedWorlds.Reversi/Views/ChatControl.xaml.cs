@@ -1,19 +1,11 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using UpdateControls.XAML;
-using FacetedWorlds.Reversi.ViewModels;
+﻿using System.Windows.Controls;
 
 namespace FacetedWorlds.Reversi.Views
 {
 	public partial class ChatControl : UserControl
 	{
+        private double _oldTop = 0.0;
+
 		public ChatControl()
 		{
 			// Required to initialize variables
@@ -25,9 +17,14 @@ namespace FacetedWorlds.Reversi.Views
             ((TextBox)sender).GetBindingExpression(TextBox.TextProperty).UpdateSource();
         }
 
-        private void Send_Click(object sender, RoutedEventArgs e)
+        private void ChatControl_LayoutUpdated(object sender, System.EventArgs e)
         {
-            ForView.Unwrap<ChatViewModel>(DataContext).Send.Execute(null);
+            double top = ListContent.ActualHeight - LayoutRoot.ActualHeight;
+            if (top > 0.0 && top != _oldTop)
+            {
+                LayoutRoot.ScrollToVerticalOffset(top);
+                _oldTop = top;
+            }
         }
     }
 }

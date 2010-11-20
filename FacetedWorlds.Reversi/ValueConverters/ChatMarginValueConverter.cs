@@ -13,7 +13,7 @@ namespace FacetedWorlds.Reversi.ValueConverters
                 bool sourceValue = (bool)value;
                 return sourceValue
                     ? new Thickness(120, 0, 0, 0)
-                    : new Thickness(8, 0, 0, 0);
+                    : new Thickness(8, 0, 112, 0);
             }
             else
                 throw new ArgumentException(String.Format("Can't convert to type {0}.", targetType));
