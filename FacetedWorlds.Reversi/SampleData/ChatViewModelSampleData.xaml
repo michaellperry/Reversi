@@ -6,9 +6,5 @@
 		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Auctor sed adipiscing accumsan" Sender="Bibendum dis parturient" FromMe="True"/>
 		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Amet phasellus dictumst est" Sender="Congue ante etiam arcu" FromOpponent="True" FromMe="False"/>
 		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Eleifend hac consequat cursus vestibulum" Sender="Diam eget leo facilisi mus" FromMe="True"/>
-		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Elit fusce lorem" Sender="Faucibus commodo dictum nec enim" FromMe="True"/>
-		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Morbi convallis" Sender="Nulla habitant" FromOpponent="True" FromMe="False"/>
-		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Inceptos vestibulum conubia non" Sender="Interdum cubilia erat eros" FromMe="True"/>
-		<FacetedWorlds_Reversi_ViewModels:MessageViewModel Body="Lobortis proin augue" Sender="Nibh adipiscing dignissim nisi" FromOpponent="True" FromMe="False"/>
 	</FacetedWorlds_Reversi_ViewModels:ChatViewModel.Messages>
 </FacetedWorlds_Reversi_ViewModels:ChatViewModel>

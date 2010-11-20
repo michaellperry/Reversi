@@ -82,6 +82,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameLogic\GameBoard.cs" />
+    <Compile Include="Images\SendMessage.xaml.cs">
+      <DependentUpon>SendMessage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavigationModels\LocalGameState.cs" />
     <Compile Include="NavigationModels\LocalMoveComparer.cs" />
     <Compile Include="NavigationModels\NameNavigationModel.cs" />
@@ -163,6 +166,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Images\SendMessage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ChatControl.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -228,6 +235,9 @@
     </Content>
     <Resource Include="Images\appbar.basecircle.rest.png" />
     <Content Include="Images\appbar.pass.rest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\appbar.send.rest.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ServiceReferences.ClientConfig">

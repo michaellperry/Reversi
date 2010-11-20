@@ -21,7 +21,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public string Title
         {
-            get { return String.Format("chat with {0}", OtherPlayerName); }
+            get { return OtherPlayerName; }
         }
 
         public string MessageBody
@@ -49,7 +49,8 @@ namespace FacetedWorlds.Reversi.ViewModels
             get
             {
                 return _selectedPlayer.Game.Messages
-                    .Select(message => new MessageViewModel(message, _selectedPlayer));
+                    .Select(message => new MessageViewModel(message, _selectedPlayer))
+                    .Reverse();
             }
         }
 

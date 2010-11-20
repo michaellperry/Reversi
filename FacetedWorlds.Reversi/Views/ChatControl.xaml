@@ -6,7 +6,7 @@
 	xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters"
 	mc:Ignorable="d"
 	x:Class="FacetedWorlds.Reversi.Views.ChatControl"
-	d:DesignWidth="420" d:DesignHeight="498">
+	d:DesignWidth="420" d:DesignHeight="573">
 	<UserControl.Resources>
 		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
 		<FacetedWorlds_Reversi_ValueConverters:ChatMarginValueConverter x:Key="ChatMarginValueConverter"/>
@@ -48,9 +48,32 @@
 
 	<Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/ChatViewModelSampleData.xaml}">
 		<Grid>
-			<TextBox Margin="0,0,119,0" TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" VerticalAlignment="Top"/>
-			<Button Content="Send" HorizontalAlignment="Right" VerticalAlignment="Top" Width="115" Click="Send_Click"/>
-			<ListBox Margin="0,72,0,0" ItemTemplate="{StaticResource MessageViewModelTemplate}" ItemsSource="{Binding Messages}"/>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<ListBox ItemTemplate="{StaticResource MessageViewModelTemplate}" ItemsSource="{Binding Messages}"/>
+			<Grid Grid.Row="1" VerticalAlignment="Top" Margin="120,0,0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="12"/>
+				</Grid.RowDefinitions>
+				<Border d:LayoutOverrides="Width" Grid.Row="1">
+					<Border.Background>
+						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+					</Border.Background>
+					<TextBox TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" d:LayoutOverrides="Height"/>
+				</Border>
+				<Path Data="M19.666666,21 C19.666666,7.3333335 19.666666,7.3333335 19.666666,7.3333335 L32.333,21" HorizontalAlignment="Right" Margin="0,-1,20,0" Stretch="Fill" UseLayoutRounding="False" Width="16" Height="12" VerticalAlignment="Top" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+					<Path.RenderTransform>
+						<CompositeTransform Rotation="180"/>
+					</Path.RenderTransform>
+					<Path.Fill>
+						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+					</Path.Fill>
+				</Path>
+			</Grid>
 		</Grid>
 	</Grid>
 </UserControl>
