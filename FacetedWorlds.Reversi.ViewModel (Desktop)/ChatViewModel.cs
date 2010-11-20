@@ -45,6 +45,7 @@ namespace FacetedWorlds.Reversi.ViewModel
             get
             {
                 return _selectedPlayer.Game.Messages
+                    .OrderBy(message => message.Index)
                     .Select(message => new MessageViewModel(message));
             }
         }

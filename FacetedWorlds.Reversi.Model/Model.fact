@@ -117,6 +117,7 @@ fact Player {
 fact Message {
 	Player sender;
 	string body;
+	int index;
 
 	bool isAcknowledged {
 		exists Acknowledge a : a.message = this

@@ -631,6 +631,8 @@ namespace FacetedWorlds.Reversi.Model
         // Fields
         [CorrespondenceField]
         public string _body;
+        [CorrespondenceField]
+        public int _index;
 
         // Results
 
@@ -638,11 +640,13 @@ namespace FacetedWorlds.Reversi.Model
         public Message(
             Player sender
             ,string body
+            ,int index
             )
         {
             InitializeResults();
             _sender = new PredecessorObj<Player>(this, RoleSender, sender);
             _body = body;
+            _index = index;
         }
 
         // Hydration constructor
@@ -667,6 +671,10 @@ namespace FacetedWorlds.Reversi.Model
         public string Body
         {
             get { return _body; }
+        }
+        public int Index
+        {
+            get { return _index; }
         }
 
         // Query result access

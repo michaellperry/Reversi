@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Linq;
 namespace FacetedWorlds.Reversi.Model
 {
 	public partial class Player
@@ -10,7 +12,7 @@ namespace FacetedWorlds.Reversi.Model
 
         public void SendMessage(string messageBody)
         {
-            Community.AddFact(new Message(this, messageBody));
+            Community.AddFact(new Message(this, messageBody, Game.Messages.Count()));
         }
 
         public void Acknowledge(Outcome outcome)
