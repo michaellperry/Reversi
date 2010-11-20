@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 using FacetedWorlds.Reversi.GameLogic;
+using System;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
@@ -23,5 +24,7 @@ namespace FacetedWorlds.Reversi.ViewModels
         void CancelMove();
         void ClearSelectedPlayer();
         void AcknowledgeOutcome();
+        bool IsChatEnabled { get; }
+        void EnableChat();
     }
 }

@@ -41,5 +41,22 @@ namespace FacetedWorlds.Reversi.Views
                     viewModel.Resign.Execute(null);
             }
         }
+
+        private void Chat_Click(object sender, RoutedEventArgs e)
+        {
+            IGameViewModel viewModel = ForView.Unwrap<IGameViewModel>(DataContext);
+            if (!viewModel.IsChatEnabled)
+            {
+                MessageBoxResult ageResult = MessageBox.Show(
+                    "You must be 13 years or older to enable chat.",
+                    "I am 13 or older",
+                    MessageBoxButton.OKCancel);
+                if (ageResult != MessageBoxResult.OK)
+                    return;
+
+                viewModel.EnableChat();
+            }
+            NavigationService.Navigate(new Uri("/Views/ChatPage.xaml", UriKind.Relative));
+        }
     }
 }

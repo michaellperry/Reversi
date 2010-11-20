@@ -134,5 +134,14 @@ namespace FacetedWorlds.Reversi.ViewModels
                 outcome.Acknowledge();
             }
         }
+
+        public bool IsChatEnabled
+        {
+            get { return false; }
+        }
+
+        public void EnableChat()
+        {
+        }
     }
 }

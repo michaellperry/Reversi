@@ -43,5 +43,10 @@ namespace FacetedWorlds.Reversi.Model
                         response.Approved == 1));
             }
         }
+
+        public void EnableChat()
+        {
+            Community.AddFact(new ChatEnable(this));
+        }
     }
 }

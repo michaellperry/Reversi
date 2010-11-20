@@ -61,6 +61,14 @@ fact User {
 		Player opponent : opponent.game = me.game
 		User u : u = opponent.user
 	}
+
+	ChatEnable* isChatEnabled {
+		ChatEnable e : e.user = this
+	}
+}
+
+fact ChatEnable {
+	User user;
 }
 
 fact Game {

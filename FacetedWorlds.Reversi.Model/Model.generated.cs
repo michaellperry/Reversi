@@ -13,6 +13,7 @@ digraph "FacetedWorlds.Reversi.Model"
     Claim -> User
     Claim -> IdentityService [color="red"]
     ClaimResponse -> Claim
+    ChatEnable -> User
     Player -> User [color="red"]
     Player -> Game [color="red"]
     Message -> Player
@@ -310,6 +311,9 @@ namespace FacetedWorlds.Reversi.Model
             .JoinSuccessors(Player.RoleGame)
             .JoinPredecessors(Player.RoleUser)
             ;
+        public static Query QueryIsChatEnabled = new Query()
+            .JoinSuccessors(ChatEnable.RoleUser)
+            ;
 
         // Predicates
 
@@ -324,6 +328,7 @@ namespace FacetedWorlds.Reversi.Model
         private Result<Player> _activePlayers;
         private Result<Player> _finishedPlayers;
         private Result<User> _relatedUsers;
+        private Result<ChatEnable> _isChatEnabled;
 
         // Business constructor
         public User(
@@ -347,6 +352,7 @@ namespace FacetedWorlds.Reversi.Model
             _activePlayers = new Result<Player>(this, QueryActivePlayers);
             _finishedPlayers = new Result<Player>(this, QueryFinishedPlayers);
             _relatedUsers = new Result<User>(this, QueryRelatedUsers);
+            _isChatEnabled = new Result<ChatEnable>(this, QueryIsChatEnabled);
         }
 
         // Predecessor access
@@ -374,6 +380,59 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _relatedUsers; }
         }
+        public IEnumerable<ChatEnable> IsChatEnabled
+        {
+            get { return _isChatEnabled; }
+        }
+    }
+    
+    [CorrespondenceType]
+    public partial class ChatEnable : CorrespondenceFact
+    {
+        // Roles
+        public static Role<User> RoleUser = new Role<User>("user");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<User> _user;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public ChatEnable(
+            User user
+            )
+        {
+            InitializeResults();
+            _user = new PredecessorObj<User>(this, RoleUser, user);
+        }
+
+        // Hydration constructor
+        public ChatEnable(FactMemento memento)
+        {
+            InitializeResults();
+            _user = new PredecessorObj<User>(this, RoleUser, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public User User
+        {
+            get { return _user.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
     }
     
     [CorrespondenceType]
