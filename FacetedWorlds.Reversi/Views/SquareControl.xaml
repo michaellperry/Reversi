@@ -12,15 +12,9 @@
 		<FacetedWorlds_Reversi_ValueConverters:PieceGlossValueConverter x:Key="PieceGlossValueConverter"/>
 		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
 		<FacetedWorlds_Reversi_ValueConverters:PieceColorValueConverter x:Key="PieceColorValueConverter"/>
-		<Color x:Key="BoardColor">#FF1F5224</Color>
 	</UserControl.Resources>
 
 	<Grid x:Name="LayoutRoot" Background="Transparent">
-        <Rectangle Stroke="Black">
-            <Rectangle.Fill>
-                <SolidColorBrush Color="{StaticResource BoardColor}"/>
-            </Rectangle.Fill>
-        </Rectangle>
         <Ellipse Margin="4" Fill="{Binding Color, Converter={StaticResource PieceGlossValueConverter}}"/>
         <Ellipse Margin="6" Fill="{Binding Color, Converter={StaticResource PieceColorValueConverter}}"/>
         <Rectangle Fill="Black" Opacity="0.26" Visibility="{Binding IsPreviewCapture, Converter={StaticResource VisibilityValueConverter}}" d:IsHidden="True"/>

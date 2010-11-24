@@ -8,6 +8,7 @@
 
     <!--Application Resources-->
     <Application.Resources>
+    	<Color x:Key="BoardColor">#FF1F5224</Color>
         <p:Presenter x:Key="Presenter" ForceInTrialMode="True" />
         <Color x:Key="WhitePieceColor">#FFF4F4F5</Color>
         <Color x:Key="BlackPieceColor">#FF1F1F1F</Color>
