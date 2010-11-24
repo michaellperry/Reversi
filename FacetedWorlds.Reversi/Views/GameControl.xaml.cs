@@ -13,7 +13,7 @@ namespace FacetedWorlds.Reversi.Views
 	{
         private const int SquareSize = 57;
         private static Point NewPieceRestingPosition = new Point(200, 473);
-        private static Point FloatingPiecePosition = new Point(26, -27);
+        private static Point FloatingPiecePosition = new Point(26, -57);
 
         private bool _dragging = false;
         private Point _relativeToNewPiece;

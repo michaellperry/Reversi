@@ -67,11 +67,11 @@
 
 		<!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-			<FacetedWorlds_Reversi_Views:GameControl Margin="0,72,0,0"/>
-			<Button Content="Chat" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="{Binding CanChat, Converter={StaticResource VisibilityValueConverter}}" Click="Chat_Click"/>
-			<FacetedWorlds_Reversi:SpeechBaloonControl HorizontalAlignment="Right" Margin="0,13,103,0" VerticalAlignment="Top" Width="51" Height="46" Visibility="{Binding HasNewMessages, Converter={StaticResource VisibilityValueConverter}}"/>
-			<TextBlock Margin="0,10,158,0" Text="{Binding Outcome}" VerticalAlignment="Top" FontSize="32"/>
-			<Button Content="Resign" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="148" Click="Resign_Click" Visibility="{Binding MyTurn, Converter={StaticResource VisibilityValueConverter}}"/>
+			<FacetedWorlds_Reversi_Views:GameControl Height="592" VerticalAlignment="Top"/>
+			<Button Content="Chat" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{Binding CanChat, Converter={StaticResource VisibilityValueConverter}}" Click="Chat_Click"/>
+			<FacetedWorlds_Reversi:SpeechBaloonControl HorizontalAlignment="Right" Margin="0,0,103,10" VerticalAlignment="Bottom" Width="51" Height="46" Visibility="{Binding HasNewMessages, Converter={StaticResource VisibilityValueConverter}}"/>
+			<TextBlock Margin="12,0,154,13" VerticalAlignment="Bottom" FontSize="32" d:DataContext="{d:DesignData /SampleData/LocalGameViewModelSampleData.xaml}" Text="{Binding Outcome}"/>
+			<Button Content="Resign" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="148" Click="Resign_Click" Visibility="{Binding MyTurn, Converter={StaticResource VisibilityValueConverter}}"/>
 		</Grid>
 	</Grid>
 

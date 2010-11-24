@@ -48,7 +48,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             get
             {
                 _depGameBoard.OnGet();
-                return _gameBoard != null && _gameBoard.ToMove == _myColor;
+                return _gameBoard != null && _gameBoard.ToMove == _myColor && _player != null && _player.Game.Outcome == null;
             }
         }
 

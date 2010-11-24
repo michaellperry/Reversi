@@ -88,7 +88,11 @@
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
-						<Grid Background="Transparent" Width="48" Height="48">
+						<Grid Background="Transparent" Width="446" Height="48">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="48"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
 							<VisualStateManager.VisualStateGroups>
 								<VisualStateGroup x:Name="CommonStates">
 									<VisualState x:Name="Normal"/>
@@ -124,6 +128,7 @@
 									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
 								</Rectangle.Fill>
 							</Rectangle>
+							<TextBlock Text="Play against someone with another phone." Grid.Column="1" VerticalAlignment="Center" FontSize="20" Margin="12,0,0,0"/>
 						</Grid>
 					</ControlTemplate>
 				</Setter.Value>
@@ -140,7 +145,11 @@
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
-						<Grid Background="Transparent" Width="48" Height="48">
+						<Grid Background="Transparent" Width="439" Height="48">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" MinWidth="48"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
 							<VisualStateManager.VisualStateGroups>
 								<VisualStateGroup x:Name="CommonStates">
 									<VisualState x:Name="Normal"/>
@@ -176,6 +185,7 @@
 									<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
 								</Rectangle.Fill>
 							</Rectangle>
+							<TextBlock TextWrapping="Wrap" Text="Pass this phone between two people." Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="12,0,0,0"/>
 						</Grid>
 					</ControlTemplate>
 				</Setter.Value>
@@ -221,21 +231,10 @@
             <TextBlock x:Name="PageTitle" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="your games"/>
         </StackPanel>
         <Grid x:Name="ContentPanel" Margin="13,0,11,0" Grid.Row="1" >
-        	<Grid Visibility="{Binding IsUserNotApproved, Converter={StaticResource VisibilityValueConverter}}">
-        		<Grid.RowDefinitions>
-        			<RowDefinition Height="52"/>
-        			<RowDefinition Height="52"/>
-        			<RowDefinition/>
-        		</Grid.RowDefinitions>
-        		<Grid.ColumnDefinitions>
-        			<ColumnDefinition Width="52"/>
-        			<ColumnDefinition/>
-        		</Grid.ColumnDefinitions>
-        		<Button Content="Button" Margin="0" d:LayoutOverrides="Width, Height" Style="{StaticResource AddGameButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="NewGame_Click"/>
-        		<TextBlock TextWrapping="Wrap" Text="Play against someone with another phone." Grid.Column="1" VerticalAlignment="Center" Margin="8,0"/>
-        		<Button Content="Button" Margin="0" Grid.Row="1" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource PassThePhoneButtonStyle}" Click="PassThePhone_Click"/>
-        		<TextBlock TextWrapping="Wrap" Text="Pass this phone between two people." Grid.Column="1" Margin="8,0" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-        	</Grid>
+        	<StackPanel Visibility="{Binding IsUserNotApproved, Converter={StaticResource VisibilityValueConverter}}">
+        		<Button Content="Button" Margin="4,4,0,4" Style="{StaticResource AddGameButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="NewGame_Click"/>
+        		<Button Content="Button" Margin="4,4,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource PassThePhoneButtonStyle}" Click="PassThePhone_Click"/>
+        	</StackPanel>
         	<local:YourGamesControl Margin="0,0,8,-460" d:LayoutOverrides="Height" Visibility="{Binding IsUserApproved, Converter={StaticResource VisibilityValueConverter}}"/>
         </Grid>
 

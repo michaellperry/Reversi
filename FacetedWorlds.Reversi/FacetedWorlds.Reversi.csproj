@@ -263,7 +263,7 @@
     <DesignData Include="SampleData\ChatViewModelSampleData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
-    <DesignData Include="SampleData\GameViewModelSampleData.xaml">
+    <DesignData Include="SampleData\LocalGameViewModelSampleData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
     <DesignData Include="SampleData\MainViewModelSampleData.xaml">
