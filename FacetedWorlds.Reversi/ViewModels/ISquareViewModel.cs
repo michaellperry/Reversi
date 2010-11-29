@@ -1,4 +1,3 @@
-using FacetedWorlds.Reversi.Client.NavigationModels;
 using FacetedWorlds.Reversi.GameLogic;
 
 namespace FacetedWorlds.Reversi.ViewModels
@@ -9,5 +8,6 @@ namespace FacetedWorlds.Reversi.ViewModels
         PieceColor OpponentColor { get; }
         bool IsPreviewCapture { get; }
         bool IsPreviewCede { get; }
+        void MakeMove();
     }
 }

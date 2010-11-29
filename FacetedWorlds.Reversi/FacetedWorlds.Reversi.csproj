@@ -151,6 +151,7 @@
     <Compile Include="Views\SquareControl.xaml.cs">
       <DependentUpon>SquareControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VisualTreeExtensions.cs" />
     <Compile Include="Views\WaitControl.xaml.cs">
       <DependentUpon>WaitControl.xaml</DependentUpon>
     </Compile>
@@ -233,6 +234,12 @@
     <Content Include="Images\appbar.add.rest.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\background1d.png" />
+    <Resource Include="Images\background1l.png" />
+    <Resource Include="Images\background2d.png" />
+    <Resource Include="Images\background2l.png" />
+    <Resource Include="Images\background3d.png" />
+    <Resource Include="Images\background3l.png" />
     <Resource Include="Images\appbar.basecircle.rest.png" />
     <Content Include="Images\appbar.pass.rest.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -251,7 +258,6 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FacetedWorlds.Reversi.Model\FacetedWorlds.Reversi.Model.csproj">

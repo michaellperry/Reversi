@@ -9,7 +9,7 @@
     <!--Application Resources-->
     <Application.Resources>
     	<Color x:Key="BoardColor">#FF1F5224</Color>
-        <p:Presenter x:Key="Presenter" ForceInTrialMode="True" />
+        <p:Presenter x:Key="Presenter" ForceInTrialMode="False" />
         <Color x:Key="WhitePieceColor">#FFF4F4F5</Color>
         <Color x:Key="BlackPieceColor">#FF1F1F1F</Color>
         <Color x:Key="TransparentColor">#00000000</Color>
@@ -27,6 +27,7 @@
         	<GradientStop Color="#FFABA8A8" Offset="0.764"/>
         	<GradientStop Color="White" Offset="0.536"/>
         </LinearGradientBrush>
+        <Color x:Key="ChatBackgoundColor">#FFB8B8B8</Color>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

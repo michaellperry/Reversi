@@ -26,6 +26,10 @@
 		</Grid.RowDefinitions>
 		
 		<!--TitlePanel contains the name of the application and page title-->
+		<Image Grid.RowSpan="2" Source="/FacetedWorlds.Reversi;component/Images/background3l.png" Stretch="UniformToFill" Visibility="{StaticResource PhoneLightThemeVisibility}"/>
+		<Image Grid.RowSpan="2" Source="/FacetedWorlds.Reversi;component/Images/background3d.png" Stretch="UniformToFill" Visibility="{StaticResource PhoneDarkThemeVisibility}"/>
+		
+		<!--TitlePanel contains the name of the application and page title-->
 		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
 			<TextBlock x:Name="ApplicationTitle" Text="Faceted Reversi" Style="{StaticResource PhoneTextNormalStyle}"/>
 			<TextBlock x:Name="PageTitle" Text="{Binding Title}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>

@@ -1,4 +1,7 @@
 ﻿using System.Windows.Controls;
+using UpdateControls.XAML;
+using FacetedWorlds.Reversi.ViewModels;
+using System.Windows.Input;
 
 namespace FacetedWorlds.Reversi.Views
 {
@@ -24,6 +27,19 @@ namespace FacetedWorlds.Reversi.Views
             {
                 LayoutRoot.ScrollToVerticalOffset(top);
                 _oldTop = top;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ICommand sendCommand = ForView.Unwrap<ChatViewModel>(DataContext).Send;
+                if (sendCommand.CanExecute(null))
+                {
+                    sendCommand.Execute(null);
+                    e.Handled = true;
+                }
             }
         }
     }

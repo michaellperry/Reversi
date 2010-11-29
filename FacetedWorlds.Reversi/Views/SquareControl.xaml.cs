@@ -19,5 +19,11 @@ namespace FacetedWorlds.Reversi.Views
 			// Required to initialize variables
 			InitializeComponent();
 		}
+
+        private void Square_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ForView.Unwrap<ISquareViewModel>(DataContext).MakeMove();
+            this.GetAncestorOfType<GameControl>().CommitMoveInThreeSeconds();
+        }
 	}
 }

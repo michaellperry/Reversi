@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace FacetedWorlds.Reversi
 {
-	public partial class ChallengeControl : UserControl
+    public partial class ChallengeControl : UserControl
 	{
 		public ChallengeControl()
 		{
@@ -23,26 +23,9 @@ namespace FacetedWorlds.Reversi
             if (challenge.CanExecute(null))
             {
                 challenge.Execute(null);
-                PhoneApplicationPage page = GetAncestorOfType<PhoneApplicationPage>();
+                PhoneApplicationPage page = this.GetAncestorOfType<PhoneApplicationPage>();
                 page.NavigationService.GoBack();
             }
-        }
-
-        private T GetAncestorOfType<T>()
-            where T : DependencyObject
-        {
-            //Walk the visual tree to get the parent(ItemsControl)
-            //of this control
-            DependencyObject parent = this;
-
-            while (parent != null)
-            {
-                if (typeof(T).IsInstanceOfType(parent))
-                    break;
-                else
-                    parent = VisualTreeHelper.GetParent(parent);
-            }
-            return parent as T;
         }
     }
 }

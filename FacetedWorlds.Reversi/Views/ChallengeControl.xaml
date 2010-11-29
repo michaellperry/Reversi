@@ -16,11 +16,11 @@
 		</DataTemplate>
 	</UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Opponent:" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" Width="95"/>
-		<TextBox Margin="0,27,0,0" TextWrapping="Wrap" Text="{Binding OpponentName, Mode=TwoWay}" VerticalAlignment="Top" Height="72"/>
-		<TextBlock HorizontalAlignment="Left" Margin="8,172,0,0" TextWrapping="Wrap" Text="Select an opponent:" VerticalAlignment="Top" Height="27" Width="177"/>
-		<Button Content="Challenge" Margin="0,99,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Challenge_Click" Height="69" Width="161" />
-		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,203,0,0" VerticalAlignment="Top" SelectedItem="{Binding OpponentName, Mode=TwoWay}" Height="0"/>
-	</Grid>
+    <StackPanel x:Name="LayoutRoot" Background="Transparent">
+		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Opponent:" HorizontalAlignment="Left" Height="27" Width="95"/>
+		<TextBox TextWrapping="Wrap" Text="{Binding OpponentName, Mode=TwoWay}" Height="72"/>
+		<TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Select an opponent:" Height="27" Width="177"/>
+		<Button Content="Challenge" HorizontalAlignment="Left" Click="Challenge_Click" />
+		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectedItem="{Binding OpponentName, Mode=TwoWay}"/>
+	</StackPanel>
 </UserControl>

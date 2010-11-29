@@ -1,4 +1,5 @@
 ﻿using Microsoft.Phone.Controls;
+using UpdateControls;
 
 namespace FacetedWorlds.Reversi.Views
 {

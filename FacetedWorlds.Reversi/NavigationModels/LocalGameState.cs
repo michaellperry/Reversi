@@ -43,6 +43,15 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             }
         }
 
+        public PieceColor ToMove
+        {
+            get
+            {
+                GameBoard previewBoard = GetPreviewBoard();
+                return previewBoard.ToMove;
+            }
+        }
+
         public bool Resigned
         {
             get
@@ -131,8 +140,6 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             GameBoard previewBoard = GetPreviewBoard();
             return
-                _mainNavigation.PreviewMove != null &&
-                previewBoard.ToMove != MyColor &&
                 previewBoard.LegalMoves.Contains(square);
         }
 
@@ -164,7 +171,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             _mainNavigation.PreviewMove = null;
             GameBoard gameBoard = GetGameBoard();
-            if (gameBoard.LegalMoves.Contains(square))
+            if (_mainNavigation.PendingMove == null && gameBoard.LegalMoves.Contains(square))
             {
                 _mainNavigation.PendingMoveIndex = gameBoard.MoveIndex;
                 _mainNavigation.PendingMove = square;

@@ -39,5 +39,10 @@ namespace FacetedWorlds.Reversi.ViewModels
         {
             get { return _gameState.IsPreviewCede(_square); }
         }
+
+        public void MakeMove()
+        {
+            _gameState.MakeMove(_square);
+        }
     }
 }

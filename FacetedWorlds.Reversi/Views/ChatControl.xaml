@@ -61,17 +61,17 @@
 				</Grid.RowDefinitions>
 				<Border d:LayoutOverrides="Width" Grid.Row="1">
 					<Border.Background>
-						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+						<SolidColorBrush Color="{StaticResource PhoneTextBoxColor}"/>
 					</Border.Background>
-					<TextBox TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" d:LayoutOverrides="Height"/>
+					<TextBox TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" d:LayoutOverrides="Height" Background="{x:Null}" BorderBrush="{x:Null}" KeyDown="TextBox_KeyDown"/>
 				</Border>
-				<Path Data="M19.666666,21 C19.666666,7.3333335 19.666666,7.3333335 19.666666,7.3333335 L32.333,21" HorizontalAlignment="Right" Margin="0,-1,20,0" Stretch="Fill" UseLayoutRounding="False" Width="16" Height="12" VerticalAlignment="Top" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+				<Path Data="M19.999998,0 L34.666664,10.999999 L300,10.999999 L300,83 L0,83 L0,10.999999 L19.999998,10.999999 L19.999998,10.909792 C20,6.6582754E-07 20,6.6582754E-07 19.999998,0 z" HorizontalAlignment="Right" Height="83" Margin="0,-1,-244,0" Grid.Row="2" RenderTransformOrigin="0.0933333333333333,0.072289163841131" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="300">
+					<Path.Fill>
+						<SolidColorBrush Color="{StaticResource PhoneTextBoxColor}"/>
+					</Path.Fill>
 					<Path.RenderTransform>
 						<CompositeTransform Rotation="180"/>
 					</Path.RenderTransform>
-					<Path.Fill>
-						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
-					</Path.Fill>
 				</Path>
 			</Grid>
 		</Grid>

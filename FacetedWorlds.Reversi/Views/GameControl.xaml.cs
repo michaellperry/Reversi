@@ -9,8 +9,8 @@ using System;
 
 namespace FacetedWorlds.Reversi.Views
 {
-	public partial class GameControl : UserControl
-	{
+    public partial class GameControl : UserControl
+    {
         private const int SquareSize = 57;
         private static Point NewPieceRestingPosition = new Point(200, 473);
         private static Point FloatingPiecePosition = new Point(26, -57);
@@ -19,16 +19,29 @@ namespace FacetedWorlds.Reversi.Views
         private Point _relativeToNewPiece;
 
         private Dependent _depNewPieceState;
+        private DispatcherTimer _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3.0) };
 
-		public GameControl()
-		{
+        public GameControl()
+        {
             _depNewPieceState = new Dependent(UpdateNewPieceState);
             _depNewPieceState.Invalidated += TriggerUpdateNewPieceState;
             TriggerUpdateNewPieceState();
 
-			// Required to initialize variables
-			InitializeComponent();
-		}
+            // Required to initialize variables
+            InitializeComponent();
+
+            _timer.Tick += delegate(object s2, EventArgs e2)
+            {
+                if (ViewModel != null)
+                    ViewModel.CommitMove();
+                _timer.Stop();
+            };
+        }
+
+        public void CommitMoveInThreeSeconds()
+        {
+            _timer.Start();
+        }
 
         private void NewPiece_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -64,15 +77,7 @@ namespace FacetedWorlds.Reversi.Views
                 int hitColumn = (int)(hitPoint.X) / SquareSize;
                 ViewModel.MakeMove(hitRow, hitColumn);
 
-                // Commit the move in 3 seconds.
-                DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3.0) };
-                timer.Tick += delegate(object s2, EventArgs e2)
-                {
-                    if (ViewModel != null)
-                        ViewModel.CommitMove();
-                    timer.Stop();
-                };
-                timer.Start();
+                CommitMoveInThreeSeconds();
 
                 // Reset the new piece.
                 Reset();
@@ -88,9 +93,16 @@ namespace FacetedWorlds.Reversi.Views
             }
         }
 
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.CommitMove();
+            _timer.Stop();
+        }
+
         private void Undo_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.CancelMove();
+            _timer.Stop();
         }
 
         private void TriggerUpdateNewPieceState()

@@ -184,7 +184,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             _mainNavigation.PreviewMove = null;
             _depGameBoard.OnGet();
-            if (MyTurn && _gameBoard.LegalMoves.Contains(square))
+            if (_mainNavigation.PendingMove == null && MyTurn && _gameBoard.LegalMoves.Contains(square))
             {
                 _mainNavigation.PendingMoveIndex = _gameBoard.MoveIndex;
                 _mainNavigation.PendingMove = square;
