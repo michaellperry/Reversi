@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Threading;
 using FacetedWorlds.Reversi.Model;
 using FacetedWorlds.Reversi.NavigationModels;
 using FacetedWorlds.Reversi.ViewModels;
 using Microsoft.Phone.Info;
+using Microsoft.Phone.Marketplace;
+using Microsoft.Phone.Net.NetworkInformation;
 using UpdateControls.Correspondence;
 using UpdateControls.Correspondence.IsolatedStorage;
 using UpdateControls.Correspondence.Strategy;
 using UpdateControls.Correspondence.WebServiceClient;
 using UpdateControls.XAML;
-using System.Windows.Threading;
-using UpdateControls;
-using Microsoft.Phone.Marketplace;
 
 namespace FacetedWorlds.Reversi.Presenters
 {
@@ -51,24 +51,36 @@ namespace FacetedWorlds.Reversi.Presenters
                 : "liveid:" + ParseAnonymousId(anid);
             _identity = _community.AddFact(new Identity(anonymousUserId));
 
+            // Synchronize whenever the user has something to send.
             _community.FactAdded += delegate
             {
                 Synchronize();
             };
-            Synchronize();
 
+            // Synchronize periodically while waiting for a response to a claim.
             _synchronizeTimer.Interval = TimeSpan.FromSeconds(3.0);
-            _synchronizeTimer.Tick += delegate(object sender, EventArgs e)
+            _synchronizeTimer.Tick += (sender, e) =>
             {
                 if (_identity.User != null)
                     _synchronizeTimer.Stop();
                 else if (_identity.Claims.Any(claim => !claim.Responses.Any()))
-                    Synchronize();
+                        Synchronize();
             };
             _synchronizeTimer.Start();
 
+            // Synchronize when the network becomes available.
+            System.Net.NetworkInformation.NetworkChange.NetworkAddressChanged += (sender, e) =>
+            {
+                if (NetworkInterface.GetIsNetworkAvailable())
+                    Synchronize();
+            };
+
+            // And synchronize on startup or resume.
+            Synchronize();
+
             _viewModelLocator = new ViewModelLocator(_identity, this, _mainNavigation, _nameNavigationModel);
         }
+
 
         public bool ForceInTrialMode { get; set; }
 

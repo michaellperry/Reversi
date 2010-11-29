@@ -21,7 +21,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public PieceColor OpponentColor
         {
-            get { return _gameState.MyColor.Opposite(); }
+            get { return _gameState.ToMove; }
         }
 
         public bool IsPreviewCapture

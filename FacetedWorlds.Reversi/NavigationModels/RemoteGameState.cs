@@ -43,6 +43,15 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             }
         }
 
+        public PieceColor ToMove
+        {
+            get
+            {
+                GameBoard previewBoard = PreviewBoard;
+                return previewBoard.ToMove;
+            }
+        }
+
         public bool MyTurn
         {
             get
@@ -141,19 +150,14 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
 
         public bool IsPreviewCapture(Square square)
         {
-            _depPreviewBoard.OnGet();
             return
                 _mainNavigation.PreviewMove != square &&
-                _gameBoard.PieceAt(square) != _previewBoard.PieceAt(square);
+                _gameBoard.PieceAt(square) != PreviewBoard.PieceAt(square);
         }
 
         public bool IsPreviewCede(Square square)
         {
-            _depPreviewBoard.OnGet();
-            return
-                _mainNavigation.PreviewMove != null &&
-                _previewBoard.ToMove != MyColor &&
-                _previewBoard.LegalMoves.Contains(square);
+            return PreviewBoard.LegalMoves.Contains(square);
         }
 
         public int BlackCount
@@ -272,6 +276,15 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
                 _previewBoard = _gameBoard.AfterMove(_mainNavigation.PreviewMove);
             else
                 _previewBoard = _gameBoard;
+        }
+
+        private GameBoard PreviewBoard
+        {
+            get
+            {
+                _depPreviewBoard.OnGet();
+                return _previewBoard;
+            }
         }
     }
 }
