@@ -17,7 +17,10 @@
 	</UserControl.Resources>
 
 	<Grid x:Name="LayoutRoot" Background="Transparent">
-		<Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp" Background="#00000000">
+		<Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseLeave="Grid_MouseLeave" MouseEnter="Grid_MouseEnter">
+			<Grid.Background>
+				<SolidColorBrush Color="{StaticResource PhoneContrastBackgroundColor}" Opacity="0"/>
+			</Grid.Background>
 			<Custom:Interaction.Triggers>
 				<Custom:EventTrigger EventName="MouseLeftButtonUp">
 					<ic:NavigateToPageAction TargetPage="/Views/GamePage.xaml"/>

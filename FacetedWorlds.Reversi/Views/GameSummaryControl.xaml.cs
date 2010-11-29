@@ -1,14 +1,7 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using UpdateControls.XAML;
 using FacetedWorlds.Reversi.ViewModels;
+using UpdateControls.XAML;
 
 namespace FacetedWorlds.Reversi.Views
 {
@@ -20,6 +13,11 @@ namespace FacetedWorlds.Reversi.Views
 			InitializeComponent();
 		}
 
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ((Grid)sender).Background.Opacity = 0.3;
+        }
+
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GameSummaryViewModel viewModel = ForView.Unwrap<GameSummaryViewModel>(DataContext);
@@ -27,6 +25,17 @@ namespace FacetedWorlds.Reversi.Views
             {
                 viewModel.OpenGame.Execute(null);
             }
+            ((Grid)sender).Background.Opacity = 0.0;
+        }
+
+        private void Grid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ((Grid)sender).Background.Opacity = 0.0;
+        }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ((Grid)sender).Background.Opacity = 0.3;
         }
 	}
 }

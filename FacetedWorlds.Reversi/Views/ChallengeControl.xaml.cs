@@ -27,5 +27,10 @@ namespace FacetedWorlds.Reversi
                 page.NavigationService.GoBack();
             }
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ForView.Unwrap<ChallengeViewModel>(DataContext).OpponentName = (string)((ListBox)sender).SelectedItem;
+        }
     }
 }

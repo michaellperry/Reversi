@@ -21,6 +21,6 @@
 		<TextBox TextWrapping="Wrap" Text="{Binding OpponentName, Mode=TwoWay}" Height="72"/>
 		<TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Select an opponent:" Height="27" Width="177"/>
 		<Button Content="Challenge" HorizontalAlignment="Left" Click="Challenge_Click" />
-		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectedItem="{Binding OpponentName, Mode=TwoWay}"/>
+		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectionChanged="ListBox_SelectionChanged"/>
 	</StackPanel>
 </UserControl>
