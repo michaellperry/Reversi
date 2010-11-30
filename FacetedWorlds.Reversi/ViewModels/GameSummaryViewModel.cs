@@ -23,11 +23,6 @@ namespace FacetedWorlds.Reversi.ViewModels
             _gameState = new RemoteGameState(player, _mainNavigation);
         }
 
-        public Player Player
-        {
-            get { return _player; }
-        }
-
         public bool MyTurn
         {
             get { return _gameState.MyTurn; }
