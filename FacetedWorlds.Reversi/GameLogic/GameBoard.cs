@@ -26,10 +26,10 @@ namespace FacetedWorlds.Reversi.GameLogic
                 GameBoard position = new GameBoard();
                 for (int i = 0; i < NumberOfSquares; i++)
                     position._pieces[i] = PieceColor.Empty;
-                position._pieces[new Square(3, 3).Index] = PieceColor.White;
-                position._pieces[new Square(3, 4).Index] = PieceColor.Black;
-                position._pieces[new Square(4, 3).Index] = PieceColor.Black;
-                position._pieces[new Square(4, 4).Index] = PieceColor.White;
+                position._pieces[Square.FromCoordinates(3, 3).Index] = PieceColor.White;
+                position._pieces[Square.FromCoordinates(3, 4).Index] = PieceColor.Black;
+                position._pieces[Square.FromCoordinates(4, 3).Index] = PieceColor.Black;
+                position._pieces[Square.FromCoordinates(4, 4).Index] = PieceColor.White;
                 position._toMove = PieceColor.Black;
                 position.UpdateLegalMoves();
                 return position;
@@ -104,7 +104,7 @@ namespace FacetedWorlds.Reversi.GameLogic
             {
                 for (int column = 0; column < Square.NumberOfColumns; column++)
                 {
-                    Square square = new Square(row, column);
+                    Square square = Square.FromCoordinates(row, column);
                     if (IsLegalMove(square))
                         yield return square;
                 }
@@ -135,13 +135,13 @@ namespace FacetedWorlds.Reversi.GameLogic
         {
             Square step = NextSquare(square, deltaRow, deltaColumn);
 
-            if (step.IsOnBoard && _pieces[step.Index] == _toMove.Opposite())
+            if (step != null && _pieces[step.Index] == _toMove.Opposite())
             {
                 List<Square> flankedPieces = new List<Square>();
                 flankedPieces.Add(step);
                 step = NextSquare(step, deltaRow, deltaColumn);
 
-                while (step.IsOnBoard)
+                while (step != null)
                 {
                     if (_pieces[step.Index] == _toMove)
                         return flankedPieces;
@@ -158,7 +158,7 @@ namespace FacetedWorlds.Reversi.GameLogic
 
         private static Square NextSquare(Square from, int deltaRow, int deltaColumn)
         {
-            return new Square(from.Row + deltaRow, from.Column + deltaColumn);
+            return Square.FromCoordinates(from.Row + deltaRow, from.Column + deltaColumn);
         }
 
         public override string ToString()
@@ -168,7 +168,7 @@ namespace FacetedWorlds.Reversi.GameLogic
             {
                 for (int column = 0; column < Square.NumberOfColumns; column++)
                 {
-                    Square square = new Square(row, column);
+                    Square square = Square.FromCoordinates(row, column);
                     var piece = _pieces[square.Index];
                     boardPosition.Append(
                         piece == PieceColor.Black ? "B" :

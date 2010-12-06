@@ -21,9 +21,24 @@ namespace FacetedWorlds.Reversi.ViewModels
             {
                 for (int column = 0; column < Square.NumberOfColumns; column++)
                 {
-                    yield return new RemoteSquareViewModel(_gameState, new Square(_row, column));
+                    yield return new RemoteSquareViewModel(_gameState, Square.FromCoordinates(_row, column));
                 }
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == this)
+                return true;
+            RemoteRowViewModel that = obj as RemoteRowViewModel;
+            if (that == null)
+                return false;
+            return this._gameState.Equals(that._gameState) && this._row == that._row;
+        }
+
+        public override int GetHashCode()
+        {
+            return _gameState.GetHashCode() * Square.NumberOfRows + _row;
         }
     }
 }

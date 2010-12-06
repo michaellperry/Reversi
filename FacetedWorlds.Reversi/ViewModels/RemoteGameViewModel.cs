@@ -112,7 +112,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public void PreviewMove(int row, int column)
         {
-            _gameState.SetPreviewMove(new Square(row, column));
+            _gameState.SetPreviewMove(Square.FromCoordinates(row, column));
         }
 
         public void ClearPreviewMove()
@@ -122,7 +122,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public void MakeMove(int row, int column)
         {
-            _gameState.MakeMove(new Square(row, column));
+            _gameState.MakeMove(Square.FromCoordinates(row, column));
         }
 
         public void CommitMove()
@@ -172,6 +172,21 @@ namespace FacetedWorlds.Reversi.ViewModels
         public void EnableChat()
         {
             _player.User.EnableChat();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == this)
+                return true;
+            RemoteGameViewModel that = obj as RemoteGameViewModel;
+            if (that == null)
+                return false;
+            return this._player.Equals(that._player);
+        }
+
+        public override int GetHashCode()
+        {
+            return _player.GetHashCode();
         }
     }
 }

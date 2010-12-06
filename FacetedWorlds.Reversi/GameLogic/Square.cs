@@ -12,10 +12,21 @@ namespace FacetedWorlds.Reversi.GameLogic
 
         public static Square FromIndex(int index)
         {
+            if (index < 0 || index >= NumberOfRows * NumberOfColumns)
+                return null;
             return new Square(index / NumberOfColumns, index % NumberOfColumns);
         }
 
-        public Square(int row, int column)
+        public static Square FromCoordinates(int row, int column)
+        {
+            if (row < 0 || row >= NumberOfRows)
+                return null;
+            if (column < 0 || column >= NumberOfColumns)
+                return null;
+            return new Square(row, column);
+        }
+
+        private Square(int row, int column)
         {
             _row = row;
             _column = column;
@@ -34,16 +45,6 @@ namespace FacetedWorlds.Reversi.GameLogic
         public int Index
         {
             get { return _row * NumberOfColumns + _column; }
-        }
-
-        public bool IsOnBoard
-        {
-            get
-            {
-                return
-                    0 <= _row && _row < NumberOfRows &&
-                    0 <= _column && _column < NumberOfColumns;
-            }
         }
 
         public override bool Equals(object obj)

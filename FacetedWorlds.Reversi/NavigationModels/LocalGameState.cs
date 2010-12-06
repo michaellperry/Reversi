@@ -13,6 +13,10 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         private LocalGame _game;
         private MainNavigationModel _mainNavigation;
 
+        private GameBoard _priorBoardRaw;
+        private GameBoard _gameBoardRaw;
+        private Dependent _depGameBoardRaw;
+
         private GameBoard _priorBoard;
         private GameBoard _gameBoard;
         private Dependent _depGameBoard;
@@ -25,6 +29,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             _game = game;
             _mainNavigation = mainNavigation;
 
+            _depGameBoardRaw = new Dependent(UpdateGameBoardRaw);
             _depGameBoard = new Dependent(UpdateGameBoard);
             _depPreviewBoard = new Dependent(UpdatePreviewBoard);
         }
@@ -163,7 +168,10 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
 
         public void SetPreviewMove(Square square)
         {
-            if (_mainNavigation.PreviewMove != square)
+            GameBoard gameBoard = GetGameBoard();
+            if (square != null && !gameBoard.LegalMoves.Contains(square))
+                square = null;
+            if (!Object.Equals(_mainNavigation.PreviewMove, square))
                 _mainNavigation.PreviewMove = square;
         }
 
@@ -219,42 +227,45 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             }
         }
 
-        private void UpdateGameBoard()
+        private void UpdateGameBoardRaw()
         {
-            _priorBoard = null;
-            _gameBoard = null;
+            _priorBoardRaw = GameBoard.OpeningPosition;
+            _gameBoardRaw = GameBoard.OpeningPosition;
             if (_game != null)
             {
-                LocalGame game = _game;
-                IEnumerable<LocalMove> gameMoves = game.Moves;
-                List<LocalMove> moves = gameMoves.ToList();
+                List<LocalMove> moves = _game.Moves.ToList();
                 moves.Sort(new LocalMoveComparer());
                 int expectedIndex = 0;
-                _priorBoard = GameBoard.OpeningPosition;
-                _gameBoard = GameBoard.OpeningPosition;
                 foreach (LocalMove move in moves)
                 {
                     if (move.Index != expectedIndex)
                         return;
-                    if (move.Player.Index == 0 && _gameBoard.ToMove != PieceColor.Black)
+                    if (move.Player.Index == 0 && _gameBoardRaw.ToMove != PieceColor.Black)
                         return;
-                    if (move.Player.Index == 1 && _gameBoard.ToMove != PieceColor.White)
+                    if (move.Player.Index == 1 && _gameBoardRaw.ToMove != PieceColor.White)
                         return;
 
                     Square square = Square.FromIndex(move.Square);
-                    if (!_gameBoard.LegalMoves.Contains(square))
+                    if (!_gameBoardRaw.LegalMoves.Contains(square))
                         return;
 
-                    _priorBoard = _gameBoard;
-                    _gameBoard = _priorBoard.AfterMove(square);
+                    _priorBoardRaw = _gameBoardRaw;
+                    _gameBoardRaw = _priorBoardRaw.AfterMove(square);
                     ++expectedIndex;
                 }
+            }
+        }
 
-                if (_mainNavigation.PendingMove != null && _gameBoard.LegalMoves.Contains(_mainNavigation.PendingMove))
-                {
-                    _priorBoard = _gameBoard;
-                    _gameBoard = _priorBoard.AfterMove(_mainNavigation.PendingMove);
-                }
+        private void UpdateGameBoard()
+        {
+            _depGameBoardRaw.OnGet();
+            _priorBoard = _priorBoardRaw;
+            _gameBoard = _gameBoardRaw;
+
+            if (_mainNavigation.PendingMove != null && _gameBoard.LegalMoves.Contains(_mainNavigation.PendingMove))
+            {
+                _priorBoard = _gameBoard;
+                _gameBoard = _priorBoard.AfterMove(_mainNavigation.PendingMove);
             }
         }
 
@@ -283,6 +294,21 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             _depPreviewBoard.OnGet();
             return _previewBoard;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == this)
+                return true;
+            LocalGameState that = obj as LocalGameState;
+            if (that == null)
+                return false;
+            return this._game.Equals(that._game);
+        }
+
+        public override int GetHashCode()
+        {
+            return _game.GetHashCode();
         }
     }
 }

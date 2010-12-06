@@ -44,5 +44,20 @@ namespace FacetedWorlds.Reversi.ViewModels
         {
             _gameState.MakeMove(_square);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == this)
+                return true;
+            LocalSquareViewModel that = obj as LocalSquareViewModel;
+            if (that == null)
+                return false;
+            return this._gameState.Equals(that._gameState) && this._square.Equals(that._square);
+        }
+
+        public override int GetHashCode()
+        {
+            return _gameState.GetHashCode() * Square.NumberOfRows * Square.NumberOfColumns + _square.GetHashCode();
+        }
     }
 }
