@@ -37,7 +37,7 @@
                 contract="UpdateControls.Correspondence.WebServiceClient.ISynchronizationService" name="BasicHttpBinding_ISynchronizationService" />
             <endpoint address="http://michael-pc:9119/SyncExpress/WindowsPhone"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWindowsPhonePushService"
-                contract="UpdateControls.Correspondence.WebServiceClient.WindowsPhone.IWindowsPhonePushService"
+                contract="UpdateControls.Correspondence.WebServiceClient.IWindowsPhonePushService"
                 name="BasicHttpBinding_IWindowsPhonePushService" />
         </client>
     </system.serviceModel>
