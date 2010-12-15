@@ -15,19 +15,21 @@
 		</DataTemplate>
 	</UserControl.Resources>
 
-	<StackPanel x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
-		<TextBlock Text="{Binding ApprovedUserName}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"/>
-		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Your Move:" HorizontalAlignment="Left" Height="27" Width="101">
-			<TextBlock.Foreground>
-				<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
-			</TextBlock.Foreground>
-		</TextBlock>
-		<ItemsControl ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding YourMove}" Margin="8,0,0,0" UseLayoutRounding="True"/>
-		<TextBlock Margin="8,8,0,0" TextWrapping="Wrap" Text="Their Move:" HorizontalAlignment="Left" Height="27" Width="104">
-			<TextBlock.Foreground>
-				<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
-			</TextBlock.Foreground>
-		</TextBlock>
-		<ItemsControl ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding TheirMove}" Margin="8,0,0,0" UseLayoutRounding="True"/>
-	</StackPanel>
+	<ScrollViewer x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
+		<StackPanel Orientation="Vertical" Margin="8,0,0,0">
+			<TextBlock Text="{Binding ApprovedUserName}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+			<TextBlock TextWrapping="Wrap" Text="Your Move:" HorizontalAlignment="Left" Height="27" Width="101" Margin="0,8,0,0">
+				<TextBlock.Foreground>
+					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+				</TextBlock.Foreground>
+			</TextBlock>
+			<ItemsControl ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding YourMove}" UseLayoutRounding="True"/>
+			<TextBlock TextWrapping="Wrap" Text="Their Move:" HorizontalAlignment="Left" Height="27" Width="104" Margin="0,7,0,0">
+				<TextBlock.Foreground>
+					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+				</TextBlock.Foreground>
+			</TextBlock>
+			<ItemsControl ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding TheirMove}" UseLayoutRounding="True"/>
+		</StackPanel>
+	</ScrollViewer>
 </UserControl>

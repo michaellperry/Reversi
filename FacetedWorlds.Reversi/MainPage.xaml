@@ -12,7 +12,7 @@
     x:Class="FacetedWorlds.Reversi.MainPage"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" Margin="0,30,0,-30"
+    shell:SystemTray.IsVisible="True" Margin="0,30,0,0"
     >
 	<phone:PhoneApplicationPage.Resources>
 		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
@@ -234,12 +234,12 @@
             <TextBlock x:Name="ApplicationTitle" Text="Faceted Reversi" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Text="your games"/>
         </StackPanel>
-        <Grid x:Name="ContentPanel" Margin="13,0,11,0" Grid.Row="1" >
+        <Grid x:Name="ContentPanel" Margin="13,0,11,8" Grid.Row="1" >
         	<StackPanel Visibility="{Binding IsUserNotApproved, Converter={StaticResource VisibilityValueConverter}}">
         		<Button Content="Button" Margin="4,4,0,4" Style="{StaticResource AddGameButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Click="NewGame_Click"/>
         		<Button Content="Button" Margin="4,4,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource PassThePhoneButtonStyle}" Click="PassThePhone_Click"/>
         	</StackPanel>
-        	<local:YourGamesControl Margin="0,0,8,-460" d:LayoutOverrides="Height" Visibility="{Binding IsUserApproved, Converter={StaticResource VisibilityValueConverter}}"/>
+        	<local:YourGamesControl Margin="0" Visibility="{Binding IsUserApproved, Converter={StaticResource VisibilityValueConverter}}"/>
         </Grid>
 
         <!--ContentPanel - place additional content here-->

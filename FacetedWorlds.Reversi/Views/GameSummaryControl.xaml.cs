@@ -2,6 +2,8 @@
 using System.Windows.Input;
 using FacetedWorlds.Reversi.ViewModels;
 using UpdateControls.XAML;
+using System.Windows;
+using System.Windows.Media;
 
 namespace FacetedWorlds.Reversi.Views
 {
@@ -15,7 +17,9 @@ namespace FacetedWorlds.Reversi.Views
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ((Grid)sender).Background.Opacity = 0.3;
+            VisualStateManager.GoToState(this, "Pressed", false);
+            ContentPane.Background.Opacity = 0.3;
+            Tilt(e.GetPosition(ContentPane));
         }
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -25,17 +29,52 @@ namespace FacetedWorlds.Reversi.Views
             {
                 viewModel.OpenGame.Execute(null);
             }
-            ((Grid)sender).Background.Opacity = 0.0;
+            Reset();
         }
 
         private void Grid_MouseLeave(object sender, MouseEventArgs e)
         {
-            ((Grid)sender).Background.Opacity = 0.0;
+            Reset();
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
-            ((Grid)sender).Background.Opacity = 0.3;
+            VisualStateManager.GoToState(this, "Pressed", false);
+            ContentPane.Background.Opacity = 0.3;
+            Tilt(e.GetPosition(ContentPane));
         }
-	}
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+            Tilt(e.GetPosition(ContentPane));
+        }
+
+        private void Tilt(Point finger)
+        {
+            double angleX = 30.0 * (finger.Y / ContentPane.ActualHeight) - 15.0;
+            double angleY = -30.0 * (finger.X / ContentPane.ActualWidth) + 15.0;
+            double zOffset = -25.0;
+
+            SetProjection(angleX, angleY, zOffset);
+        }
+
+        private void Reset()
+        {
+            ContentPane.Background.Opacity = 0.0;
+            VisualStateManager.GoToState(this, "Resting", true);
+        }
+
+        private void SetProjection(double angleX, double angleY, double zOffset)
+        {
+            PlaneProjection projection = ContentPane.Projection as PlaneProjection;
+            if (projection == null)
+            {
+                projection = new PlaneProjection();
+                ContentPane.Projection = projection;
+            }
+            projection.RotationX = angleX;
+            projection.RotationY = angleY;
+            projection.GlobalOffsetZ = zOffset;
+        }
+    }
 }
