@@ -12,8 +12,10 @@ namespace FacetedWorlds.Reversi.UnitTest
     {
         private ICommunity _serverCommunity;
         private ICommunity _clientCommunity;
+        private ICommunity _otherClientCommunity;
         private IdentityService _service;
         private Identity _identity;
+        private Identity _otherIdentity;
 
         [TestInitialize()]
         public void Initialize()
@@ -26,10 +28,16 @@ namespace FacetedWorlds.Reversi.UnitTest
             _clientCommunity = new Community(new MemoryStorageStrategy())
                 .AddCommunicationStrategy(sharedCommunication)
                 .RegisterAssembly(typeof(Identity))
+                .Subscribe(() => _identity.Claims)
                 .Subscribe(() => _identity);
+            _otherClientCommunity = new Community(new MemoryStorageStrategy())
+                .AddCommunicationStrategy(sharedCommunication)
+                .RegisterAssembly(typeof(Identity))
+                .Subscribe(() => _otherIdentity.Claims);
 
             _service = _serverCommunity.AddFact(new IdentityService());
             _identity = _clientCommunity.AddFact(new Identity("liveid:12345"));
+            _otherIdentity = _otherClientCommunity.AddFact(new Identity("liveid:12345"));
         }
 
         [TestMethod]
@@ -111,9 +119,20 @@ namespace FacetedWorlds.Reversi.UnitTest
             Assert.AreEqual("michaellperry", _identity.User.UserName);
         }
 
+        [TestMethod]
+        public void WhenClaimOnOtherClientThisClientSeesApproval()
+        {
+            _otherIdentity.ClaimUserName("mperry");
+            Synchronize();
+            RunService();
+            Synchronize();
+            Assert.AreEqual(1, _identity.Claims.Single().Responses.Single().Approved);
+            Assert.AreEqual("mperry", _identity.User.UserName);
+        }
+
         private void Synchronize()
         {
-            while (_clientCommunity.Synchronize() || _serverCommunity.Synchronize()) ;
+            while (_clientCommunity.Synchronize() || _serverCommunity.Synchronize() || _otherClientCommunity.Synchronize()) ;
         }
 
         private void RunService()

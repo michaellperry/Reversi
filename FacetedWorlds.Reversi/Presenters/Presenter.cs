@@ -10,8 +10,8 @@ using Microsoft.Phone.Marketplace;
 using Microsoft.Phone.Net.NetworkInformation;
 using UpdateControls.Correspondence;
 using UpdateControls.Correspondence.IsolatedStorage;
+using UpdateControls.Correspondence.POXClient;
 using UpdateControls.Correspondence.Strategy;
-using UpdateControls.Correspondence.WebServiceClient;
 using UpdateControls.XAML;
 
 namespace FacetedWorlds.Reversi.Presenters
@@ -36,7 +36,7 @@ namespace FacetedWorlds.Reversi.Presenters
             IStorageStrategy storageStrategy = IsolatedStorageStorageStrategy.Load();
             //IStorageStrategy storageStrategy = new MemoryStorageStrategy();
             _community = new Community(storageStrategy)
-                .AddAsynchronousCommunicationStrategy(new WebServiceCommunicationStrategy("FacetedWorlds.Reversi"))
+                .AddAsynchronousCommunicationStrategy(new POXAsynchronousCommunicationStrategy(new POXConfigurationProvider()))
                 .RegisterAssembly(typeof(User))
                 .Subscribe(() => _identity)
                 .Subscribe(() => _identity.ApprovedUsers)
@@ -64,7 +64,7 @@ namespace FacetedWorlds.Reversi.Presenters
                 if (_identity.User != null)
                     _synchronizeTimer.Stop();
                 else if (_identity.Claims.Any(claim => !claim.Responses.Any()))
-                        Synchronize();
+                    Synchronize();
             };
             _synchronizeTimer.Start();
 

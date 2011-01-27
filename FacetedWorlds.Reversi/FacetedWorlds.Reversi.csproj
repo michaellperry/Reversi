@@ -73,8 +73,8 @@
     <Reference Include="UpdateControls.Correspondence.Memory">
       <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence.WebServiceClient">
-      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.WebServiceClient (WP7)\Bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence.POXClient">
+      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.POXClient (WP7)\Bin\Debug\UpdateControls.Correspondence.POXClient.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +88,7 @@
     <Compile Include="NavigationModels\LocalGameState.cs" />
     <Compile Include="NavigationModels\LocalMoveComparer.cs" />
     <Compile Include="NavigationModels\NameNavigationModel.cs" />
+    <Compile Include="Presenters\POXConfigurationProvider.cs" />
     <Compile Include="Presenters\ViewModelLocator.cs" />
     <Compile Include="ValueConverters\ChatMarginValueConverter.cs" />
     <Compile Include="ValueConverters\PieceColorValueConverter.cs" />

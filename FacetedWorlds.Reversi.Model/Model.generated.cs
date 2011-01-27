@@ -12,7 +12,7 @@ digraph "FacetedWorlds.Reversi.Model"
     Claim -> Identity [color="red"]
     Claim -> User
     Claim -> IdentityService [color="red"]
-    ClaimResponse -> Claim
+    ClaimResponse -> Claim [color="red"]
     ChatEnable -> User
     Player -> User [color="red"]
     Player -> Game [color="red"]
@@ -235,7 +235,7 @@ namespace FacetedWorlds.Reversi.Model
     public partial class ClaimResponse : CorrespondenceFact
     {
         // Roles
-        public static Role<Claim> RoleClaim = new Role<Claim>("claim");
+        public static Role<Claim> RoleClaim = new Role<Claim>("claim", RoleRelationship.Pivot);
 
         // Queries
 
