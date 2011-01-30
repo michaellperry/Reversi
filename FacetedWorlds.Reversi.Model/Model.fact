@@ -35,7 +35,7 @@ fact Claim {
 }
 
 fact ClaimResponse {
-	Claim claim;
+	publish Claim claim;
 	int approved;
 }
 

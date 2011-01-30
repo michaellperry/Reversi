@@ -39,6 +39,7 @@ namespace FacetedWorlds.Reversi.Presenters
                 .AddAsynchronousCommunicationStrategy(new POXAsynchronousCommunicationStrategy(new POXConfigurationProvider()))
                 .RegisterAssembly(typeof(User))
                 .Subscribe(() => _identity)
+                .Subscribe(() => _identity.Claims)
                 .Subscribe(() => _identity.ApprovedUsers)
                 .Subscribe(() => _identity.ApprovedUsers
                     .SelectMany(user => user.ActivePlayers)
