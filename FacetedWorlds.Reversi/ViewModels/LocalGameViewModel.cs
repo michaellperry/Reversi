@@ -144,6 +144,11 @@ namespace FacetedWorlds.Reversi.ViewModels
         {
         }
 
+        public bool IsWaiting
+        {
+            get { return false; }
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == this)

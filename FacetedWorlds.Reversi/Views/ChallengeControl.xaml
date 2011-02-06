@@ -4,6 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters"
+	xmlns:Itzben="clr-namespace:Itzben;assembly=Itzben"
 	mc:Ignorable="d"
 	x:Class="FacetedWorlds.Reversi.ChallengeControl"
 	d:DesignWidth="456" d:DesignHeight="473">
@@ -20,7 +21,10 @@
 		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Opponent:" HorizontalAlignment="Left" Height="27" Width="95"/>
 		<TextBox TextWrapping="Wrap" Text="{Binding OpponentName, Mode=TwoWay}" Height="72"/>
 		<TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Select an opponent:" Height="27" Width="177"/>
-		<Button Content="Challenge" HorizontalAlignment="Left" Click="Challenge_Click" />
 		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectionChanged="ListBox_SelectionChanged"/>
+		<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width">
+			<Button Content="Challenge" Click="Challenge_Click" VerticalAlignment="Top" />
+			<Button Content="Random Player" VerticalAlignment="Top" IsEnabled="{Binding CanRequestGame}" Click="RequestGame_Click"/>
+		</StackPanel>
 	</StackPanel>
 </UserControl>

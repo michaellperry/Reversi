@@ -19,18 +19,34 @@ namespace FacetedWorlds.Reversi
 
         private void Challenge_Click(object sender, RoutedEventArgs e)
         {
-            ICommand challenge = ForView.Unwrap<ChallengeViewModel>(DataContext).Challenge;
+            ICommand challenge = ViewModel.Challenge;
             if (challenge.CanExecute(null))
             {
                 challenge.Execute(null);
-                PhoneApplicationPage page = this.GetAncestorOfType<PhoneApplicationPage>();
-                page.NavigationService.GoBack();
+                GoBack();
             }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ForView.Unwrap<ChallengeViewModel>(DataContext).OpponentName = (string)((ListBox)sender).SelectedItem;
+            ViewModel.OpponentName = (string)((ListBox)sender).SelectedItem;
+        }
+
+        private void RequestGame_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.RequestGame();
+            GoBack();
+        }
+
+        private ChallengeViewModel ViewModel
+        {
+            get { return ForView.Unwrap<ChallengeViewModel>(DataContext); }
+        }
+
+        private void GoBack()
+        {
+            PhoneApplicationPage page = this.GetAncestorOfType<PhoneApplicationPage>();
+            page.NavigationService.GoBack();
         }
     }
 }

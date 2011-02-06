@@ -26,5 +26,6 @@ namespace FacetedWorlds.Reversi.ViewModels
         void AcknowledgeOutcome();
         bool IsChatEnabled { get; }
         void EnableChat();
+        bool IsWaiting { get; }
     }
 }

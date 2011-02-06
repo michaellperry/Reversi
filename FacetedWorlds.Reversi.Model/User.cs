@@ -48,5 +48,16 @@ namespace FacetedWorlds.Reversi.Model
         {
             Community.AddFact(new ChatEnable(this));
         }
+
+        public bool GameIsRequested
+        {
+            get { return PendingGameRequests.Any(); }
+        }
+
+        public GameRequest RequestGame()
+        {
+            MatchmakingService service = Community.AddFact(new MatchmakingService());
+            return Community.AddFact(new GameRequest(service, this));
+        }
     }
 }

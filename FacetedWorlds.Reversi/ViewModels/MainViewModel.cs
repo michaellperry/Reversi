@@ -117,7 +117,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public bool HasSelectedPlayer
         {
-            get { return _mainNavigation.SelectedPlayer != null; }
+            get { return _mainNavigation.SelectedPlayer != null || _mainNavigation.SelectedGameRequest != null; }
         }
 
         public void CreateLocalGame()

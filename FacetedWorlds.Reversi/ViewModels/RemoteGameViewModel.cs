@@ -1,177 +1,32 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Input;
-using FacetedWorlds.Reversi.Client.NavigationModels;
-using FacetedWorlds.Reversi.GameLogic;
+﻿using FacetedWorlds.Reversi.Client.NavigationModels;
 using FacetedWorlds.Reversi.Model;
-using UpdateControls.XAML;
-using System;
 using FacetedWorlds.Reversi.NavigationModels;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class RemoteGameViewModel : IGameViewModel
+    public class RemoteGameViewModel : PlayerGameViewModel
     {
         private Player _player;
-        private RemoteGameState _gameState;
-        private MainNavigationModel _mainNavigation;
 
-        public RemoteGameViewModel(Player player, MainNavigationModel mainNavigation)
+        public RemoteGameViewModel(Player player, MainNavigationModel mainNavigation) :
+            base(mainNavigation)
         {
             _player = player;
-            _mainNavigation = mainNavigation;
-            _gameState = new RemoteGameState(player, mainNavigation);
         }
 
-        public string Name
+        protected override Player Player
         {
-            get
-            {
-                return
-                    MyColor == PieceColor.Black
-                        ? string.Format("you vs. {0}", OtherPlayerName)
-                        : String.Format("{0} vs. you", OtherPlayerName);
-            }
+            get { return _player; }
         }
 
-        public bool HasNewMessages
+        public override void ClearSelectedPlayer()
         {
-            get
-            {
-                Player otherPlayer = GetOtherPlayer();
-                return otherPlayer == null ? false : otherPlayer.NewMessages.Any();
-            }
+            MainNavigation.SelectedPlayer = null;
         }
 
-        public bool CanChat
+        public override bool IsWaiting
         {
-            get { return true; }
-        }
-
-        public ICommand Resign
-        {
-            get
-            {
-                return MakeCommand
-                    .Do(() => _player.Game.DeclareWinner(GetOtherPlayer(), true));
-            }
-        }
-
-        public PieceColor MyColor
-        {
-            get { return _gameState.MyColor; }
-        }
-
-        public PieceColor OpponentColor
-        {
-            get { return _gameState.MyColor.Opposite(); }
-        }
-
-        public bool MyTurn
-        {
-            get { return _gameState.MyTurn && !_gameState.IsMovePending; }
-        }
-
-        public string Outcome
-        {
-            get
-            {
-                return
-                    _gameState.IWon ? "You Won" :
-                    _gameState.ILost ? "You Lost" :
-                    _gameState.IDrew ? "You Drew" :
-                    _gameState.IResigned ? "You Resigned" :
-                    _gameState.HeResigned ? "Opponent Resigned" :
-                        string.Empty;
-            }
-        }
-
-        public bool ILost
-        {
-            get { return _gameState.ILost; }
-        }
-
-        public bool IDrew
-        {
-            get { return _gameState.IDrew; }
-        }
-
-        public IEnumerable<IRowViewModel> Rows
-        {
-            get
-            {
-                for (int row = 0; row < Square.NumberOfRows; row++)
-                    yield return new RemoteRowViewModel(_gameState, row);
-            }
-        }
-
-        public bool IsMovePending
-        {
-            get { return _gameState.IsMovePending; }
-        }
-
-        public void PreviewMove(int row, int column)
-        {
-            _gameState.SetPreviewMove(Square.FromCoordinates(row, column));
-        }
-
-        public void ClearPreviewMove()
-        {
-            _gameState.SetPreviewMove(null);
-        }
-
-        public void MakeMove(int row, int column)
-        {
-            _gameState.MakeMove(Square.FromCoordinates(row, column));
-        }
-
-        public void CommitMove()
-        {
-            _gameState.CommitMove();
-        }
-
-        public void CancelMove()
-        {
-            _gameState.CancelMove();
-        }
-
-        private string OtherPlayerName
-        {
-            get
-            {
-                var otherPlayer = GetOtherPlayer();
-                return otherPlayer == null ? "nobody" : otherPlayer.User.UserName;
-            }
-        }
-
-        private Player GetOtherPlayer()
-        {
-            List<Player> players = _player.Game.Players.ToList();
-            return players.FirstOrDefault(p => p != _player);
-        }
-
-        public void ClearSelectedPlayer()
-        {
-            _mainNavigation.SelectedPlayer = null;
-        }
-
-        public void AcknowledgeOutcome()
-        {
-            IEnumerable<Outcome> outcomes = _player.Game.Outcomes;
-            foreach (Outcome outcome in outcomes)
-            {
-                _player.Acknowledge(outcome);
-            }
-        }
-
-        public bool IsChatEnabled
-        {
-            get { return _player.User.IsChatEnabled.Any(); }
-        }
-
-        public void EnableChat()
-        {
-            _player.User.EnableChat();
+            get { return false; }
         }
 
         public override bool Equals(object obj)

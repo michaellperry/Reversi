@@ -19,6 +19,7 @@ namespace FacetedWorlds.Reversi.Presenters
     public class Presenter : IPresentationServices
     {
         private const string STR_SelectedPlayerGameGuid = "SelectedPlayerGameGuid";
+        private const string STR_SelectedGameRequestGuid = "SelectedGameRequestGuid";
         private const string STR_OpponentName = "OpponentName";
         private const string STR_MessageBody = "MessageBody";
         private const string STR_Name = "Name";
@@ -44,11 +45,14 @@ namespace FacetedWorlds.Reversi.Presenters
                 .Subscribe(() => _identity.ApprovedUsers
                     .SelectMany(user => user.ActivePlayers)
                     .Select(player => player.Game)
+                )
+                .Subscribe(() => _identity.ApprovedUsers
+                    .SelectMany(user => user.PendingGameRequests)
                 );
 
             string anid = UserExtendedProperties.GetValue("ANID") as string;
             string anonymousUserId = String.IsNullOrEmpty(anid)
-                ? "test:user11"
+                ? "test:user12"
                 : "liveid:" + ParseAnonymousId(anid);
             _identity = _community.AddFact(new Identity(anonymousUserId));
 
@@ -120,6 +124,9 @@ namespace FacetedWorlds.Reversi.Presenters
                 Get<Guid>(state, STR_SelectedPlayerGameGuid, value =>
                     _mainNavigation.SelectedPlayer = user.ActivePlayers
                         .FirstOrDefault(player => player.Game._unique == value));
+                Get<Guid>(state, STR_SelectedGameRequestGuid, value =>
+                    _mainNavigation.SelectedGameRequest = user.GameRequests
+                        .FirstOrDefault(gameRequest => gameRequest._unique == value));
             }
             Get<string>(state, STR_OpponentName, value => _mainNavigation.OpponentName = value);
             Get<string>(state, STR_MessageBody, value => _mainNavigation.MessageBody = value);
@@ -130,6 +137,8 @@ namespace FacetedWorlds.Reversi.Presenters
         {
             if (_mainNavigation.SelectedPlayer != null)
                 Set(state, STR_SelectedPlayerGameGuid, _mainNavigation.SelectedPlayer.Game._unique);
+            if (_mainNavigation.SelectedGameRequest != null)
+                Set(state, STR_SelectedGameRequestGuid, _mainNavigation.SelectedGameRequest._unique);
 
             Set(state, STR_OpponentName, _mainNavigation.OpponentName);
             Set(state, STR_MessageBody, _mainNavigation.MessageBody);

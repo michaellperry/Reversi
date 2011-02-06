@@ -65,6 +65,15 @@ fact User {
 	ChatEnable* isChatEnabled {
 		ChatEnable e : e.user = this
 	}
+
+	GameRequest* gameRequests {
+		GameRequest r : r.user = this
+	}
+
+	GameRequest* pendingGameRequests {
+		GameRequest r : r.user = this
+			where not r.isCompleted
+	}
 }
 
 fact ChatEnable {
@@ -185,4 +194,32 @@ fact LocalOutcome {
 
 fact LocalOutcomeAcknowledge {
 	LocalOutcome outcome;
+}
+
+
+fact MatchmakingService {
+	GameRequest* pendingGameRequests {
+		GameRequest r : r.matchmakingService = this
+			where not r.isCompleted
+	}
+}
+
+fact GameRequest {
+	unique;
+	publish MatchmakingService matchmakingService;
+	User user;
+	
+	bool isCompleted {
+		exists GameRequestCompletion c : c.gameRequest = this
+	}
+
+	Player* player {
+		GameRequestCompletion c : c.gameRequest = this
+		Player p : c.player = p
+	}
+}
+
+fact GameRequestCompletion {
+	publish GameRequest gameRequest;
+	Player player;
 }

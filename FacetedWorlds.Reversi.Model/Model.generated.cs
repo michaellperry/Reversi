@@ -29,6 +29,10 @@ digraph "FacetedWorlds.Reversi.Model"
     LocalOutcome -> LocalGame
     LocalOutcome -> LocalPlayer [label="  ?"]
     LocalOutcomeAcknowledge -> LocalOutcome
+    GameRequest -> MatchmakingService [color="red"]
+    GameRequest -> User
+    GameRequestCompletion -> GameRequest [color="red"]
+    GameRequestCompletion -> Player
 }
 **/
 
@@ -314,6 +318,13 @@ namespace FacetedWorlds.Reversi.Model
         public static Query QueryIsChatEnabled = new Query()
             .JoinSuccessors(ChatEnable.RoleUser)
             ;
+        public static Query QueryGameRequests = new Query()
+            .JoinSuccessors(GameRequest.RoleUser)
+            ;
+        public static Query QueryPendingGameRequests = new Query()
+            .JoinSuccessors(GameRequest.RoleUser, Condition.WhereIsEmpty(GameRequest.QueryIsCompleted)
+            )
+            ;
 
         // Predicates
 
@@ -329,6 +340,8 @@ namespace FacetedWorlds.Reversi.Model
         private Result<Player> _finishedPlayers;
         private Result<User> _relatedUsers;
         private Result<ChatEnable> _isChatEnabled;
+        private Result<GameRequest> _gameRequests;
+        private Result<GameRequest> _pendingGameRequests;
 
         // Business constructor
         public User(
@@ -353,6 +366,8 @@ namespace FacetedWorlds.Reversi.Model
             _finishedPlayers = new Result<Player>(this, QueryFinishedPlayers);
             _relatedUsers = new Result<User>(this, QueryRelatedUsers);
             _isChatEnabled = new Result<ChatEnable>(this, QueryIsChatEnabled);
+            _gameRequests = new Result<GameRequest>(this, QueryGameRequests);
+            _pendingGameRequests = new Result<GameRequest>(this, QueryPendingGameRequests);
         }
 
         // Predecessor access
@@ -383,6 +398,14 @@ namespace FacetedWorlds.Reversi.Model
         public IEnumerable<ChatEnable> IsChatEnabled
         {
             get { return _isChatEnabled; }
+        }
+        public IEnumerable<GameRequest> GameRequests
+        {
+            get { return _gameRequests; }
+        }
+        public IEnumerable<GameRequest> PendingGameRequests
+        {
+            get { return _pendingGameRequests; }
         }
     }
     
@@ -1235,6 +1258,191 @@ namespace FacetedWorlds.Reversi.Model
         public LocalOutcome Outcome
         {
             get { return _outcome.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class MatchmakingService : CorrespondenceFact
+    {
+        // Roles
+
+        // Queries
+        public static Query QueryPendingGameRequests = new Query()
+            .JoinSuccessors(GameRequest.RoleMatchmakingService, Condition.WhereIsEmpty(GameRequest.QueryIsCompleted)
+            )
+            ;
+
+        // Predicates
+
+        // Predecessors
+
+        // Fields
+
+        // Results
+        private Result<GameRequest> _pendingGameRequests;
+
+        // Business constructor
+        public MatchmakingService(
+            )
+        {
+            InitializeResults();
+        }
+
+        // Hydration constructor
+        public MatchmakingService(FactMemento memento)
+        {
+            InitializeResults();
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+            _pendingGameRequests = new Result<GameRequest>(this, QueryPendingGameRequests);
+        }
+
+        // Predecessor access
+
+        // Field access
+
+        // Query result access
+        public IEnumerable<GameRequest> PendingGameRequests
+        {
+            get { return _pendingGameRequests; }
+        }
+    }
+    
+    [CorrespondenceType]
+    public partial class GameRequest : CorrespondenceFact
+    {
+        // Roles
+        public static Role<MatchmakingService> RoleMatchmakingService = new Role<MatchmakingService>("matchmakingService", RoleRelationship.Pivot);
+        public static Role<User> RoleUser = new Role<User>("user");
+
+        // Queries
+        public static Query QueryIsCompleted = new Query()
+            .JoinSuccessors(GameRequestCompletion.RoleGameRequest)
+            ;
+        public static Query QueryPlayer = new Query()
+            .JoinSuccessors(GameRequestCompletion.RoleGameRequest)
+            .JoinPredecessors(GameRequestCompletion.RolePlayer)
+            ;
+
+        // Predicates
+        public static Condition IsCompleted = Condition.WhereIsNotEmpty(QueryIsCompleted);
+
+        // Predecessors
+        private PredecessorObj<MatchmakingService> _matchmakingService;
+        private PredecessorObj<User> _user;
+
+        // Unique
+        [CorrespondenceField]
+        public Guid _unique;
+
+        // Fields
+
+        // Results
+        private Result<Player> _player;
+
+        // Business constructor
+        public GameRequest(
+            MatchmakingService matchmakingService
+            ,User user
+            )
+        {
+            _unique = Guid.NewGuid();
+            InitializeResults();
+            _matchmakingService = new PredecessorObj<MatchmakingService>(this, RoleMatchmakingService, matchmakingService);
+            _user = new PredecessorObj<User>(this, RoleUser, user);
+        }
+
+        // Hydration constructor
+        public GameRequest(FactMemento memento)
+        {
+            InitializeResults();
+            _matchmakingService = new PredecessorObj<MatchmakingService>(this, RoleMatchmakingService, memento);
+            _user = new PredecessorObj<User>(this, RoleUser, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+            _player = new Result<Player>(this, QueryPlayer);
+        }
+
+        // Predecessor access
+        public MatchmakingService MatchmakingService
+        {
+            get { return _matchmakingService.Fact; }
+        }
+        public User User
+        {
+            get { return _user.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
+        public IEnumerable<Player> Player
+        {
+            get { return _player; }
+        }
+    }
+    
+    [CorrespondenceType]
+    public partial class GameRequestCompletion : CorrespondenceFact
+    {
+        // Roles
+        public static Role<GameRequest> RoleGameRequest = new Role<GameRequest>("gameRequest", RoleRelationship.Pivot);
+        public static Role<Player> RolePlayer = new Role<Player>("player");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<GameRequest> _gameRequest;
+        private PredecessorObj<Player> _player;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public GameRequestCompletion(
+            GameRequest gameRequest
+            ,Player player
+            )
+        {
+            InitializeResults();
+            _gameRequest = new PredecessorObj<GameRequest>(this, RoleGameRequest, gameRequest);
+            _player = new PredecessorObj<Player>(this, RolePlayer, player);
+        }
+
+        // Hydration constructor
+        public GameRequestCompletion(FactMemento memento)
+        {
+            InitializeResults();
+            _gameRequest = new PredecessorObj<GameRequest>(this, RoleGameRequest, memento);
+            _player = new PredecessorObj<Player>(this, RolePlayer, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public GameRequest GameRequest
+        {
+            get { return _gameRequest.Fact; }
+        }
+        public Player Player
+        {
+            get { return _player.Fact; }
         }
 
         // Field access

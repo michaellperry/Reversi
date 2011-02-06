@@ -48,5 +48,16 @@ namespace FacetedWorlds.Reversi.ViewModels
                     });
             }
         }
+
+        public bool CanRequestGame
+        {
+            get { return !_user.GameIsRequested; }
+        }
+
+        public void RequestGame()
+        {
+            _mainNavigation.SelectedGameRequest = _user.RequestGame();
+            _mainNavigation.OpponentName = null;
+        }
     }
 }

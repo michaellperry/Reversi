@@ -36,6 +36,10 @@ namespace FacetedWorlds.Reversi.Presenters
                 {
                     _game = new RemoteGameViewModel(_mainNavigationModel.SelectedPlayer, _mainNavigationModel);
                 }
+                else if (_mainNavigationModel.SelectedGameRequest != null)
+                {
+                    _game = new GameRequestViewModel(_mainNavigationModel.SelectedGameRequest, _mainNavigationModel);
+                }
                 else
                 {
                     LocalGame localGame = _identity.ActiveLocalGames.FirstOrDefault();

@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Itzben, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\Itzben\WP7\Itzben\Bin\Release\Itzben.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
@@ -94,6 +97,7 @@
     <Compile Include="ValueConverters\PieceColorValueConverter.cs" />
     <Compile Include="ValueConverters\VisibilityValueConverter.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
+    <Compile Include="ViewModels\GameRequestViewModel.cs" />
     <Compile Include="ViewModels\IGameViewModel.cs" />
     <Compile Include="ViewModels\IPresentationServices.cs" />
     <Compile Include="ViewModels\IRowViewModel.cs" />
@@ -104,6 +108,7 @@
     <Compile Include="ViewModels\MessageViewModel.cs" />
     <Compile Include="ViewModels\NewGameViewModel.cs" />
     <Compile Include="ViewModels\PendingUserNameViewModel.cs" />
+    <Compile Include="ViewModels\PlayerGameViewModel.cs" />
     <Compile Include="ViewModels\YourNameViewModel.cs" />
     <Compile Include="Views\ChatControl.xaml.cs">
       <DependentUpon>ChatControl.xaml</DependentUpon>
