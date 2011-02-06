@@ -17,7 +17,7 @@ namespace FacetedWorlds.Reversi.ViewModels
         string Outcome { get; }
         IEnumerable<IRowViewModel> Rows { get; }
         bool IsMovePending { get; }
-        void PreviewMove(int row, int column);
+        bool PreviewMove(int row, int column);
         void ClearPreviewMove();
         void MakeMove(int row, int column);
         void CommitMove();

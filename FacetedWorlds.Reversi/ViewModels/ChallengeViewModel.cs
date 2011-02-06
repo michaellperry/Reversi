@@ -1,9 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using FacetedWorlds.Reversi.Model;
 using FacetedWorlds.Reversi.NavigationModels;
 using UpdateControls.XAML;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
@@ -47,11 +47,6 @@ namespace FacetedWorlds.Reversi.ViewModels
                         _mainNavigation.OpponentName = null;
                     });
             }
-        }
-
-        public bool CanRequestGame
-        {
-            get { return !_user.GameIsRequested; }
         }
 
         public void RequestGame()

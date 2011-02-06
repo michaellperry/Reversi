@@ -51,6 +51,8 @@ namespace FacetedWorlds.Reversi.ViewModels
             get
             {
                 return
+                    MyColor == PieceColor.Empty
+                        ? "Waiting for opponent" :
                     MyColor == PieceColor.Black
                         ? string.Format("you vs. {0}", OtherPlayerName)
                         : String.Format("{0} vs. you", OtherPlayerName);
@@ -68,7 +70,12 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public bool CanChat
         {
-            get { return true; }
+            get { return Player != null; }
+        }
+
+        public bool CanResign
+        {
+            get { return Player != null && Player.Game.Outcome == null; }
         }
 
         public ICommand Resign
@@ -136,10 +143,9 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return GameState != null && GameState.IsMovePending; }
         }
 
-        public void PreviewMove(int row, int column)
+        public bool PreviewMove(int row, int column)
         {
-            if (GameState != null)
-                GameState.SetPreviewMove(Square.FromCoordinates(row, column));
+            return GameState != null && GameState.SetPreviewMove(Square.FromCoordinates(row, column));
         }
 
         public void ClearPreviewMove()

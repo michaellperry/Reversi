@@ -97,9 +97,9 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return _gameState.IsMovePending; }
         }
 
-        public void PreviewMove(int row, int column)
+        public bool PreviewMove(int row, int column)
         {
-            _gameState.SetPreviewMove(Square.FromCoordinates(row, column));
+            return _gameState.SetPreviewMove(Square.FromCoordinates(row, column));
         }
 
         public void ClearPreviewMove()

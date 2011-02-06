@@ -6,6 +6,7 @@ using UpdateControls;
 using UpdateControls.XAML;
 using System.Windows.Threading;
 using System;
+using Microsoft.Devices;
 
 namespace FacetedWorlds.Reversi.Views
 {
@@ -49,6 +50,7 @@ namespace FacetedWorlds.Reversi.Views
             _relativeToNewPiece = e.GetPosition(this).Minus(NewPieceRestingPosition);
             _dragging = true;
             CaptureMouse();
+            Bump();
             e.Handled = true;
         }
 
@@ -63,7 +65,8 @@ namespace FacetedWorlds.Reversi.Views
                 Point hitPoint = newPoint.Plus(FloatingPiecePosition);
                 int hitRow = (int)(hitPoint.Y) / SquareSize;
                 int hitColumn = (int)(hitPoint.X) / SquareSize;
-                ViewModel.PreviewMove(hitRow, hitColumn);
+                if (ViewModel.PreviewMove(hitRow, hitColumn))
+                    Bump();
             }
         }
 
@@ -133,6 +136,11 @@ namespace FacetedWorlds.Reversi.Views
         private IGameViewModel ViewModel
         {
             get { return ForView.Unwrap<IGameViewModel>(DataContext); }
+        }
+
+        private static void Bump()
+        {
+            VibrateController.Default.Start(TimeSpan.FromSeconds(0.03));
         }
     }
 }

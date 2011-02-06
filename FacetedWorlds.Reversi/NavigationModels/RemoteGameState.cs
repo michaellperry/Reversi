@@ -183,13 +183,17 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
             }
         }
 
-        public void SetPreviewMove(Square square)
+        public bool SetPreviewMove(Square square)
         {
             _depGameBoard.OnGet();
             if (square != null && !_gameBoard.LegalMoves.Contains(square))
                 square = null;
             if (!Object.Equals(_mainNavigation.PreviewMove, square))
+            {
                 _mainNavigation.PreviewMove = square;
+                return square != null;
+            }
+            return false;
         }
 
         public void MakeMove(Square square)

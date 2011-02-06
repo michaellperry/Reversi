@@ -24,7 +24,7 @@
 		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectionChanged="ListBox_SelectionChanged"/>
 		<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width">
 			<Button Content="Challenge" Click="Challenge_Click" VerticalAlignment="Top" />
-			<Button Content="Random Player" VerticalAlignment="Top" IsEnabled="{Binding CanRequestGame}" Click="RequestGame_Click"/>
+			<Button Content="Random Player" VerticalAlignment="Top" Click="RequestGame_Click"/>
 		</StackPanel>
 	</StackPanel>
 </UserControl>
