@@ -221,8 +221,8 @@
 				<Ellipse x:Name="PieceGloss" Fill="{Binding MyColor, Converter={StaticResource PieceGlossValueConverter}}" Height="49" Width="49" Canvas.Top="96" Canvas.Left="4" Opacity="0"/>
 				<Ellipse x:Name="PieceFlat" Fill="{Binding MyColor, Converter={StaticResource PieceColorValueConverter}}" Height="45" Width="45" Canvas.Top="4" Canvas.Left="6" Opacity="0"/>
 			</Canvas>
-			<StackPanel Canvas.Left="115" Orientation="Horizontal" Canvas.Top="461" VerticalAlignment="Top">
-				<Button Content="OK" d:LayoutOverrides="Height" Width="114" Visibility="{Binding IsMovePending, Converter={StaticResource VisibilityValueConverter}}" Click="OK_Click"/>
+			<StackPanel Canvas.Left="132" Orientation="Horizontal" Canvas.Top="455" VerticalAlignment="Top">
+				<Button Content="OK" d:LayoutOverrides="Height" Width="104" Visibility="{Binding IsMovePending, Converter={StaticResource VisibilityValueConverter}}" Click="OK_Click"/>
 				<Button Content="Undo" Width="114" Visibility="{Binding IsMovePending, Converter={StaticResource VisibilityValueConverter}}" Click="Undo_Click" d:LayoutOverrides="Height"/>
 			</StackPanel>
 		</Canvas>

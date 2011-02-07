@@ -71,7 +71,7 @@
 			<Button Content="Chat" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{Binding CanChat, Converter={StaticResource VisibilityValueConverter}}" Click="Chat_Click"/>
 			<FacetedWorlds_Reversi:SpeechBaloonControl HorizontalAlignment="Right" Margin="0,0,103,10" VerticalAlignment="Bottom" Width="51" Height="46" Visibility="{Binding HasNewMessages, Converter={StaticResource VisibilityValueConverter}}"/>
 			<TextBlock Margin="12,0,103,13" VerticalAlignment="Bottom" FontSize="32" d:DataContext="{d:DesignData /SampleData/LocalGameViewModelSampleData.xaml}" Text="{Binding Outcome}"/>
-			<Button Content="Resign" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="148" Click="Resign_Click" Visibility="{Binding CanResign, Converter={StaticResource VisibilityValueConverter}}"/>
+			<Button Content="Resign" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="139" Click="Resign_Click" Visibility="{Binding CanResign, Converter={StaticResource VisibilityValueConverter}}"/>
 			<FacetedWorlds_Reversi:WaitControl Height="31" Margin="0,212,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="105" Visibility="{Binding IsWaiting, Converter={StaticResource VisibilityValueConverter}}"/>
 		</Grid>
 	</Grid>
