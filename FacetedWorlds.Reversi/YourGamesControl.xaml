@@ -7,11 +7,11 @@
 	xmlns:local="clr-namespace:FacetedWorlds.Reversi"
 	mc:Ignorable="d"
 	x:Class="FacetedWorlds.Reversi.YourGamesControl"
-	d:DesignWidth="448" d:DesignHeight="591.5">
+	d:DesignWidth="456" d:DesignHeight="591.5">
 
 	<UserControl.Resources>
 		<DataTemplate x:Key="GameSummaryTemplate">
-			<FacetedWorlds_Reversi_Views:GameSummaryControl Height="46" d:LayoutOverrides="Width"/>
+			<FacetedWorlds_Reversi_Views:GameSummaryControl Height="46" Width="448"/>
 		</DataTemplate>
 	</UserControl.Resources>
 
@@ -23,13 +23,13 @@
 					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
 				</TextBlock.Foreground>
 			</TextBlock>
-			<ItemsControl ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding YourMove}" UseLayoutRounding="True"/>
+			<ListBox ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding YourMove}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" UseLayoutRounding="True" SelectedItem="{Binding SelectedGame, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged"/>
 			<TextBlock TextWrapping="Wrap" Text="Their Move:" HorizontalAlignment="Left" Height="27" Width="104" Margin="0,7,0,0">
 				<TextBlock.Foreground>
 					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
 				</TextBlock.Foreground>
 			</TextBlock>
-			<ItemsControl ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding TheirMove}" UseLayoutRounding="True"/>
+			<ListBox ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding TheirMove}" UseLayoutRounding="True" HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedGame, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged"/>
 		</StackPanel>
 	</ScrollViewer>
 </UserControl>

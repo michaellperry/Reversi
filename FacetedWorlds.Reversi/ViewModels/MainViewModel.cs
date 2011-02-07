@@ -58,27 +58,18 @@ namespace FacetedWorlds.Reversi.ViewModels
             }
         }
 
-        public IEnumerable<GameSummaryViewModel> Wins
+        public GameSummaryViewModel SelectedGame
         {
             get
             {
-                return User == null
-                    ? Enumerable.Empty<GameSummaryViewModel>()
-                    : User.FinishedPlayers
-                        .Where(p => p.Game.Outcome.Winner == p)
-                        .Select(p => new GameSummaryViewModel(p, _mainNavigation));
+                return _mainNavigation.SelectedPlayer == null
+                    ? null
+                    : new GameSummaryViewModel(_mainNavigation.SelectedPlayer, _mainNavigation);
             }
-        }
-
-        public IEnumerable<GameSummaryViewModel> Losses
-        {
-            get
+            set
             {
-                return User == null
-                    ? Enumerable.Empty<GameSummaryViewModel>()
-                    : User.FinishedPlayers
-                        .Where(p => p.Game.Outcome.Winner != p)
-                        .Select(p => new GameSummaryViewModel(p, _mainNavigation));
+                if (value != null)
+                	_mainNavigation.SelectedPlayer = value.Player;
             }
         }
 

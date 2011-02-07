@@ -16,45 +16,23 @@
 		<FacetedWorlds_Reversi_ValueConverters:PieceColorValueConverter x:Key="PieceColorValueConverter"/>
 	</UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="Transparent" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseLeave="Grid_MouseLeave" MouseEnter="Grid_MouseEnter" MouseMove="Grid_MouseMove">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="VisualStateGroup">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0:0:0.4"/>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="Resting">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="ContentPane" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="ContentPane" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="ContentPane" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetZ)" Storyboard.TargetName="ContentPane" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="Pressed"/>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
-		<Grid x:Name="ContentPane" Margin="0,-1,0,1">
-			<Grid.Projection>
-				<PlaneProjection/>
-			</Grid.Projection>
-			<Grid.Background>
-				<SolidColorBrush Color="{StaticResource PhoneContrastBackgroundColor}" Opacity="0"/>
-			</Grid.Background>
-			<Custom:Interaction.Triggers>
-				<Custom:EventTrigger EventName="MouseLeftButtonUp">
-					<ic:NavigateToPageAction TargetPage="/Views/GamePage.xaml"/>
-				</Custom:EventTrigger>
-			</Custom:Interaction.Triggers>
-			<TextBlock Text="{Binding OpponentName}" VerticalAlignment="Center" Margin="0,0,166,0"/>
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" d:LayoutOverrides="HorizontalAlignment">
-				<FacetedWorlds_Reversi:SpeechBaloonControl Width="51" Visibility="{Binding HasNewMessages, Converter={StaticResource VisibilityValueConverter}}"/>
-				<Canvas Margin="0,2" Width="42">
-					<Ellipse Height="42" VerticalAlignment="Center" HorizontalAlignment="Center" Width="42" Fill="{Binding MyColor, Converter={StaticResource PieceGlossValueConverter}}"/>
-					<Ellipse Fill="{Binding MyColor, Converter={StaticResource PieceColorValueConverter}}" Height="36" Canvas.Left="3" Canvas.Top="3" Width="36"/>
-				</Canvas>
-				<TextBlock Text="{Binding BlackCount}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="35" TextAlignment="Center"/>
-				<TextBlock Text="{Binding WhiteCount}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="35" TextAlignment="Center"/>
-			</StackPanel>
-		</Grid>
+    <Grid x:Name="ContentPane">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition/>
+    		<ColumnDefinition Width="163"/>
+    	</Grid.ColumnDefinitions>
+		<Grid.Background>
+			<SolidColorBrush Color="{StaticResource PhoneContrastBackgroundColor}" Opacity="0"/>
+		</Grid.Background>
+		<TextBlock Text="{Binding OpponentName}" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+			<FacetedWorlds_Reversi:SpeechBaloonControl Width="51" Visibility="{Binding HasNewMessages, Converter={StaticResource VisibilityValueConverter}}"/>
+			<Canvas Margin="0,2" Width="42">
+				<Ellipse Height="42" VerticalAlignment="Center" HorizontalAlignment="Center" Width="42" Fill="{Binding MyColor, Converter={StaticResource PieceGlossValueConverter}}"/>
+				<Ellipse Fill="{Binding MyColor, Converter={StaticResource PieceColorValueConverter}}" Height="36" Canvas.Left="3" Canvas.Top="3" Width="36"/>
+			</Canvas>
+			<TextBlock Text="{Binding BlackCount}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="35" TextAlignment="Center"/>
+			<TextBlock Text="{Binding WhiteCount}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="35" TextAlignment="Center"/>
+		</StackPanel>
 	</Grid>
 </UserControl>

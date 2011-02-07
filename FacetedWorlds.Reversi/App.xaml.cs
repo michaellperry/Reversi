@@ -100,7 +100,7 @@ namespace FacetedWorlds.Reversi
                 Exception ex = e.ExceptionObject;
                 System.Diagnostics.Debug.WriteLine(ex.Message);
                 System.Diagnostics.Debug.WriteLine(ex.StackTrace);
-                //System.Diagnostics.Debugger.Break();
+                System.Diagnostics.Debugger.Break();
             }
         }
 

@@ -1,11 +1,10 @@
 using System.Linq;
+using System.Windows.Input;
 using FacetedWorlds.Reversi.Client.NavigationModels;
 using FacetedWorlds.Reversi.GameLogic;
 using FacetedWorlds.Reversi.Model;
-using System.Windows.Input;
-using UpdateControls.XAML;
-using System;
 using FacetedWorlds.Reversi.NavigationModels;
+using UpdateControls.XAML;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
@@ -21,6 +20,11 @@ namespace FacetedWorlds.Reversi.ViewModels
             _player = player;
             _mainNavigation = mainNavigation;
             _gameState = new RemoteGameState(player, _mainNavigation);
+        }
+
+        public Player Player
+        {
+            get { return _player; }
         }
 
         public bool MyTurn
