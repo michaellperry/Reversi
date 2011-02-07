@@ -10,6 +10,7 @@ namespace FacetedWorlds.Reversi.ViewModels
         string Name { get; }
         bool HasNewMessages { get; }
         bool CanChat { get; }
+        bool CanResign { get; }
         ICommand Resign { get; }
         PieceColor MyColor { get; }
         PieceColor OpponentColor { get; }

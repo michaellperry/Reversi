@@ -36,6 +36,11 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return false; }
         }
 
+        public bool CanResign
+        {
+            get { return _gameState.Game.Outcome == null; }
+        }
+
         public ICommand Resign
         {
             get
