@@ -154,6 +154,16 @@ namespace FacetedWorlds.Reversi.ViewModels
             get { return false; }
         }
 
+        public int BlackCount
+        {
+            get { return _gameState.BlackCount; }
+        }
+
+        public int WhiteCount
+        {
+            get { return _gameState.WhiteCount; }
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == this)

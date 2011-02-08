@@ -152,7 +152,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             get
             {
-                GameBoard gameBoard = GetGameBoard();
+                GameBoard gameBoard = GetPreviewBoard();
                 return gameBoard.BlackCount;
             }
         }
@@ -161,7 +161,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             get
             {
-                GameBoard gameBoard = GetGameBoard();
+                GameBoard gameBoard = GetPreviewBoard();
                 return gameBoard.WhiteCount;
             }
         }

@@ -8,7 +8,7 @@ using UpdateControls.XAML;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class GameSummaryViewModel
+    public class GameSummaryViewModel : ViewModelBase
     {
         private Player _player;
         private MainNavigationModel _mainNavigation;
@@ -29,14 +29,14 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public bool MyTurn
         {
-            get { return _gameState.MyTurn; }
+            get { return Get(() => _gameState.MyTurn); }
         }
 
         public string OpponentName
         {
             get
             {
-                return Opponent == null ? null : Opponent.User.UserName;
+                return Get(() => Opponent == null ? null : Opponent.User.UserName);
             }
         }
 
@@ -50,20 +50,19 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public int BlackCount
         {
-            get { return _gameState.BlackCount; }
+            get { return Get(() => _gameState.BlackCount); }
         }
 
         public int WhiteCount
         {
-            get { return _gameState.WhiteCount; }
+            get { return Get(() => _gameState.WhiteCount); }
         }
 
         public bool HasNewMessages
         {
             get
             {
-                Player opponent = Opponent;
-                return opponent == null ? false : opponent.NewMessages.Any();
+                return Get(() => Opponent == null ? false : Opponent.NewMessages.Any());
             }
         }
 

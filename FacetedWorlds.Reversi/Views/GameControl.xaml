@@ -225,6 +225,8 @@
 				<Button Content="OK" d:LayoutOverrides="Height" Width="104" Visibility="{Binding IsMovePending, Converter={StaticResource VisibilityValueConverter}}" Click="OK_Click"/>
 				<Button Content="Undo" Width="114" Visibility="{Binding IsMovePending, Converter={StaticResource VisibilityValueConverter}}" Click="Undo_Click" d:LayoutOverrides="Height"/>
 			</StackPanel>
+			<TextBlock Canvas.Left="2" TextWrapping="Wrap" Text="{Binding BlackCount}" Canvas.Top="456" Width="39"/>
+			<TextBlock Canvas.Left="417" TextWrapping="Wrap" Text="{Binding WhiteCount}" Canvas.Top="456" Width="39" TextAlignment="Right"/>
 		</Canvas>
 	</Grid>
 </UserControl>

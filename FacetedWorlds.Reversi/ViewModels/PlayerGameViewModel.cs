@@ -214,5 +214,15 @@ namespace FacetedWorlds.Reversi.ViewModels
             if (Player != null)
                 Player.User.EnableChat();
         }
+
+        public int BlackCount
+        {
+            get { return _gameState.BlackCount; }
+        }
+
+        public int WhiteCount
+        {
+            get { return _gameState.WhiteCount; }
+        }
     }
 }

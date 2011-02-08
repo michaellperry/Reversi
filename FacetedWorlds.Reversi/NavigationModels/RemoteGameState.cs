@@ -41,11 +41,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
 
         public PieceColor MyColor
         {
-            get
-            {
-                bool gameIsOngoing = _player != null && _player.Game.Outcome == null;
-                return gameIsOngoing ? _myColor : PieceColor.Empty;
-            }
+            get { return _myColor; }
         }
 
         public PieceColor ToMove
@@ -169,8 +165,8 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             get
             {
-                _depGameBoard.OnGet();
-                return _gameBoard.BlackCount;
+                _depPreviewBoard.OnGet();
+                return _previewBoard.BlackCount;
             }
         }
 
@@ -178,8 +174,8 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         {
             get
             {
-                _depGameBoard.OnGet();
-                return _gameBoard.WhiteCount;
+                _depPreviewBoard.OnGet();
+                return _previewBoard.WhiteCount;
             }
         }
 
