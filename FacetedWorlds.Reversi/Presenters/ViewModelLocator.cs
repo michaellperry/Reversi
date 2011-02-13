@@ -17,6 +17,7 @@ namespace FacetedWorlds.Reversi.Presenters
         private NewGameViewModel _newGame;
         private IGameViewModel _game;
         private ChatViewModel _chat;
+        private SettingsViewModel _settings;
 
         private Dependent _depGame;
         private Dependent _depChat;
@@ -55,6 +56,7 @@ namespace FacetedWorlds.Reversi.Presenters
                     ? null
                     : new ChatViewModel(_mainNavigationModel.SelectedPlayer, _mainNavigationModel);
             });
+            _settings = new SettingsViewModel(_identity);
         }
         
         public MainViewModel Main
@@ -75,6 +77,11 @@ namespace FacetedWorlds.Reversi.Presenters
         public ChatViewModel Chat
         {
             get { _depChat.OnGet(); return _chat; }
+        }
+
+        public SettingsViewModel Settings
+        {
+            get { return _settings; }
         }
     }
 }

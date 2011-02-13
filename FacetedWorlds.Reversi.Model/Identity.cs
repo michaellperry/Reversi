@@ -34,5 +34,19 @@ namespace FacetedWorlds.Reversi.Model
             Community.AddFact(new LocalPlayer(game, 0));
             Community.AddFact(new LocalPlayer(game, 1));
         }
+
+        public void EnableToastNotification(bool enabled)
+        {
+            if (enabled)
+            {
+                foreach (DisableToastNotification disable in IsToastNotificationDisabled)
+                    Community.AddFact(new EnableToastNotification(disable));
+            }
+            else
+            {
+                if (!IsToastNotificationDisabled.Any())
+                    Community.AddFact(new DisableToastNotification(this));
+            }
+        }
     }
 }

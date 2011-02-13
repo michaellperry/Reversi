@@ -14,6 +14,8 @@ digraph "FacetedWorlds.Reversi.Model"
     Claim -> IdentityService [color="red"]
     ClaimResponse -> Claim [color="red"]
     ChatEnable -> User
+    DisableToastNotification -> Identity
+    EnableToastNotification -> DisableToastNotification
     Player -> User [color="red"]
     Player -> Game [color="red"]
     Message -> Player
@@ -51,6 +53,10 @@ namespace FacetedWorlds.Reversi.Model
             .JoinSuccessors(LocalGame.RoleIdentity, Condition.WhereIsEmpty(LocalGame.QueryIsActive)
             )
             ;
+        public static Query QueryIsToastNotificationDisabled = new Query()
+            .JoinSuccessors(DisableToastNotification.RoleIdentity, Condition.WhereIsEmpty(DisableToastNotification.QueryIsReenabled)
+            )
+            ;
 
         // Predicates
 
@@ -63,6 +69,7 @@ namespace FacetedWorlds.Reversi.Model
         // Results
         private Result<Claim> _claims;
         private Result<LocalGame> _activeLocalGames;
+        private Result<DisableToastNotification> _isToastNotificationDisabled;
 
         // Business constructor
         public Identity(
@@ -84,6 +91,7 @@ namespace FacetedWorlds.Reversi.Model
         {
             _claims = new Result<Claim>(this, QueryClaims);
             _activeLocalGames = new Result<LocalGame>(this, QueryActiveLocalGames);
+            _isToastNotificationDisabled = new Result<DisableToastNotification>(this, QueryIsToastNotificationDisabled);
         }
 
         // Predecessor access
@@ -102,6 +110,10 @@ namespace FacetedWorlds.Reversi.Model
         public IEnumerable<LocalGame> ActiveLocalGames
         {
             get { return _activeLocalGames; }
+        }
+        public IEnumerable<DisableToastNotification> IsToastNotificationDisabled
+        {
+            get { return _isToastNotificationDisabled; }
         }
     }
     
@@ -451,6 +463,113 @@ namespace FacetedWorlds.Reversi.Model
         public User User
         {
             get { return _user.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class DisableToastNotification : CorrespondenceFact
+    {
+        // Roles
+        public static Role<Identity> RoleIdentity = new Role<Identity>("identity");
+
+        // Queries
+        public static Query QueryIsReenabled = new Query()
+            .JoinSuccessors(EnableToastNotification.RoleDisable)
+            ;
+
+        // Predicates
+        public static Condition IsReenabled = Condition.WhereIsNotEmpty(QueryIsReenabled);
+
+        // Predecessors
+        private PredecessorObj<Identity> _identity;
+
+        // Unique
+        [CorrespondenceField]
+        public Guid _unique;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public DisableToastNotification(
+            Identity identity
+            )
+        {
+            _unique = Guid.NewGuid();
+            InitializeResults();
+            _identity = new PredecessorObj<Identity>(this, RoleIdentity, identity);
+        }
+
+        // Hydration constructor
+        public DisableToastNotification(FactMemento memento)
+        {
+            InitializeResults();
+            _identity = new PredecessorObj<Identity>(this, RoleIdentity, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public Identity Identity
+        {
+            get { return _identity.Fact; }
+        }
+
+        // Field access
+
+        // Query result access
+    }
+    
+    [CorrespondenceType]
+    public partial class EnableToastNotification : CorrespondenceFact
+    {
+        // Roles
+        public static Role<DisableToastNotification> RoleDisable = new Role<DisableToastNotification>("disable");
+
+        // Queries
+
+        // Predicates
+
+        // Predecessors
+        private PredecessorObj<DisableToastNotification> _disable;
+
+        // Fields
+
+        // Results
+
+        // Business constructor
+        public EnableToastNotification(
+            DisableToastNotification disable
+            )
+        {
+            InitializeResults();
+            _disable = new PredecessorObj<DisableToastNotification>(this, RoleDisable, disable);
+        }
+
+        // Hydration constructor
+        public EnableToastNotification(FactMemento memento)
+        {
+            InitializeResults();
+            _disable = new PredecessorObj<DisableToastNotification>(this, RoleDisable, memento);
+        }
+
+        // Result initializer
+        private void InitializeResults()
+        {
+        }
+
+        // Predecessor access
+        public DisableToastNotification Disable
+        {
+            get { return _disable.Fact; }
         }
 
         // Field access

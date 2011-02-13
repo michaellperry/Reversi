@@ -17,6 +17,7 @@ namespace FacetedWorlds.Reversi
             ApplicationBar = new ApplicationBar();
             AddButton("/Images/appbar.add.rest.png", "new game", NewGameButtonClick);
             AddButton("/Images/appbar.pass.rest.png", "pass phone", PassThePhoneButtonClick);
+            AddMenuItem("Settings", SettingsClick);
             ApplicationBar.IsVisible = true;
         }
 
@@ -28,6 +29,11 @@ namespace FacetedWorlds.Reversi
         void PassThePhoneButtonClick(object sender, EventArgs e)
         {
             CreateLocalGame();
+        }
+
+        void SettingsClick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/SettingsPage.xaml", UriKind.Relative));
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -45,6 +51,13 @@ namespace FacetedWorlds.Reversi
             newGameButton.Text = text;
             newGameButton.Click += click;
             ApplicationBar.Buttons.Add(newGameButton);
+        }
+
+        private void AddMenuItem(string text, EventHandler click)
+        {
+            ApplicationBarMenuItem menuItem = new ApplicationBarMenuItem(text);
+            menuItem.Click += click;
+            ApplicationBar.MenuItems.Add(menuItem);
         }
 
         private void NewGame_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -36,8 +36,9 @@ namespace FacetedWorlds.Reversi.Presenters
         {
             IStorageStrategy storageStrategy = IsolatedStorageStorageStrategy.Load();
             //IStorageStrategy storageStrategy = new MemoryStorageStrategy();
+            POXConfigurationProvider configurationProvider = new POXConfigurationProvider();
             _community = new Community(storageStrategy)
-                .AddAsynchronousCommunicationStrategy(new POXAsynchronousCommunicationStrategy(new POXConfigurationProvider()))
+                .AddAsynchronousCommunicationStrategy(new POXAsynchronousCommunicationStrategy(configurationProvider))
                 .RegisterAssembly(typeof(User))
                 .Subscribe(() => _identity)
                 .Subscribe(() => _identity.Claims)
@@ -55,6 +56,7 @@ namespace FacetedWorlds.Reversi.Presenters
                 ? "test:user12"
                 : "liveid:" + ParseAnonymousId(anid);
             _identity = _community.AddFact(new Identity(anonymousUserId));
+            configurationProvider.Identity = _identity;
 
             // Synchronize whenever the user has something to send.
             _community.FactAdded += delegate

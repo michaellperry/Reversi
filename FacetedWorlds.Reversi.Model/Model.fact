@@ -11,6 +11,11 @@ fact Identity {
 		LocalGame g : g.identity = this
 			where g.isActive
 	}
+
+	DisableToastNotification* isToastNotificationDisabled {
+		DisableToastNotification d : d.identity = this
+			where not d.isReenabled
+	}
 }
 
 fact IdentityService {
@@ -78,6 +83,19 @@ fact User {
 
 fact ChatEnable {
 	User user;
+}
+
+fact DisableToastNotification {
+	unique;
+	Identity identity;
+
+	bool isReenabled {
+		exists EnableToastNotification e : e.disable = this
+	}
+}
+
+fact EnableToastNotification {
+	DisableToastNotification disable;
 }
 
 fact Game {
@@ -215,7 +233,7 @@ fact GameRequest {
 
 	Player* player {
 		GameRequestCompletion c : c.gameRequest = this
-		Player p : c.player = p
+		Player p : p = c.player
 	}
 }
 

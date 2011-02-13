@@ -56,6 +56,7 @@
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -107,6 +108,7 @@
     <Compile Include="ViewModels\NewGameViewModel.cs" />
     <Compile Include="ViewModels\PendingUserNameViewModel.cs" />
     <Compile Include="ViewModels\PlayerGameViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\YourNameViewModel.cs" />
     <Compile Include="Views\ChatControl.xaml.cs">
       <DependentUpon>ChatControl.xaml</DependentUpon>
@@ -149,6 +151,9 @@
       <DependentUpon>PendingUserNameControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PointExtensions.cs" />
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SpeechBaloonControl.xaml.cs">
       <DependentUpon>SpeechBaloonControl.xaml</DependentUpon>
     </Compile>
@@ -208,6 +213,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PendingUserNameControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,6 +286,9 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
     <DesignData Include="SampleData\NewGameViewModelSampleData.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </DesignData>
+    <DesignData Include="SampleData\SettingsViewModelSampleData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
     <DesignData Include="SampleData\SquareViewModelSampleData.xaml">
