@@ -76,6 +76,7 @@
     <Reference Include="UpdateControls.Correspondence.Memory">
       <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="UpdateControls.Correspondence.POXClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

@@ -5,22 +5,20 @@ using UpdateControls.XAML;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class LocalRowViewModel : ViewModelBase, IRowViewModel
+    public class LocalRowViewModel : IRowViewModel
     {
         private LocalGameState _gameState;
         private int _row;
-        private static int _instanceCount = 0;
 
         public LocalRowViewModel(LocalGameState gameState, int row)
         {
-            System.Diagnostics.Debug.WriteLine(this.GetType().Name + " " + ++_instanceCount);
             _gameState = gameState;
             _row = row;
         }
 
         public IEnumerable<ISquareViewModel> Squares
         {
-            get { return Get(() => GetSquares()); }
+            get { return GetSquares(); }
         }
 
         private IEnumerable<ISquareViewModel> GetSquares()

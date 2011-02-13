@@ -5,7 +5,7 @@ using UpdateControls.XAML;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class RemoteRowViewModel : ViewModelBase, IRowViewModel
+    public class RemoteRowViewModel : IRowViewModel
     {
         private RemoteGameState _gameState;
         private int _row;
@@ -18,7 +18,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public IEnumerable<ISquareViewModel> Squares
         {
-            get { return Get(() => GetSquares()); }
+            get { return GetSquares(); }
         }
 
         private IEnumerable<ISquareViewModel> GetSquares()
