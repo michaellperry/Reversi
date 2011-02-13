@@ -11,7 +11,7 @@ using UpdateControls;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public abstract class PlayerGameViewModel : IGameViewModel
+    public abstract class PlayerGameViewModel : ViewModelBase, IGameViewModel
     {
         private MainNavigationModel _mainNavigation;
         private RemoteGameState _gameState;
@@ -50,12 +50,12 @@ namespace FacetedWorlds.Reversi.ViewModels
         {
             get
             {
-                return
+                return Get(() =>
                     MyColor == PieceColor.Empty
                         ? "Waiting for opponent" :
                     MyColor == PieceColor.Black
                         ? string.Format("you vs. {0}", OtherPlayerName)
-                        : String.Format("{0} vs. you", OtherPlayerName);
+                        : String.Format("{0} vs. you", OtherPlayerName));
             }
         }
 
@@ -63,19 +63,18 @@ namespace FacetedWorlds.Reversi.ViewModels
         {
             get
             {
-                Player otherPlayer = GetOtherPlayer();
-                return otherPlayer == null ? false : otherPlayer.NewMessages.Any();
+                return Get(() => GetOtherPlayer() == null ? false : GetOtherPlayer().NewMessages.Any());
             }
         }
 
         public bool CanChat
         {
-            get { return Player != null; }
+            get { return Get(() => Player != null); }
         }
 
         public bool CanResign
         {
-            get { return Player != null && Player.Game.Outcome == null; }
+            get { return Get(() => Player != null && Player.Game.Outcome == null); }
         }
 
         public ICommand Resign
@@ -90,57 +89,62 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public PieceColor MyColor
         {
-            get { return GameState == null ? PieceColor.Empty : GameState.MyColor; }
+            get { return Get(() => GameState == null ? PieceColor.Empty : GameState.MyColor); }
         }
 
         public PieceColor OpponentColor
         {
-            get { return GameState == null ? PieceColor.Empty : GameState.MyColor.Opposite(); }
+            get { return Get(() => GameState == null ? PieceColor.Empty : GameState.MyColor.Opposite()); }
         }
 
         public bool MyTurn
         {
-            get { return GameState != null && GameState.MyTurn && !GameState.IsMovePending; }
+            get { return Get(() => GameState != null && GameState.MyTurn && !GameState.IsMovePending); }
         }
 
         public string Outcome
         {
             get
             {
-                return
+                return Get(() =>
                     GameState == null ? "Waiting for opponent..." :
                     GameState.IWon ? "You Won" :
                     GameState.ILost ? "You Lost" :
                     GameState.IDrew ? "You Drew" :
                     GameState.IResigned ? "You Resigned" :
                     GameState.HeResigned ? "Opponent Resigned" :
-                        string.Empty;
+                        string.Empty);
             }
         }
 
         public bool ILost
         {
-            get { return GameState != null && GameState.ILost; }
+            get { return Get(() => GameState != null && GameState.ILost); }
         }
 
         public bool IDrew
         {
-            get { return GameState != null && GameState.IDrew; }
+            get { return Get(() => GameState != null && GameState.IDrew); }
         }
 
         public IEnumerable<IRowViewModel> Rows
         {
             get
             {
-                if (GameState != null)
-                    for (int row = 0; row < Square.NumberOfRows; row++)
-                        yield return new RemoteRowViewModel(GameState, row);
+                return Get(() => GetRows());
             }
+        }
+
+        private IEnumerable<IRowViewModel> GetRows()
+        {
+            if (GameState != null)
+                for (int row = 0; row < Square.NumberOfRows; row++)
+                    yield return new RemoteRowViewModel(GameState, row);
         }
 
         public bool IsMovePending
         {
-            get { return GameState != null && GameState.IsMovePending; }
+            get { return Get(() => GameState != null && GameState.IsMovePending); }
         }
 
         public bool PreviewMove(int row, int column)
@@ -176,8 +180,7 @@ namespace FacetedWorlds.Reversi.ViewModels
         {
             get
             {
-                var otherPlayer = GetOtherPlayer();
-                return otherPlayer == null ? "nobody" : otherPlayer.User.UserName;
+                return Get(() => GetOtherPlayer() == null ? "nobody" : GetOtherPlayer().User.UserName);
             }
         }
 
@@ -217,12 +220,12 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public int BlackCount
         {
-            get { return _gameState.BlackCount; }
+            get { return Get(() => _gameState.BlackCount); }
         }
 
         public int WhiteCount
         {
-            get { return _gameState.WhiteCount; }
+            get { return Get(() => _gameState.WhiteCount); }
         }
     }
 }

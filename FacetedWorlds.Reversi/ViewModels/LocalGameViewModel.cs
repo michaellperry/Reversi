@@ -10,13 +10,15 @@ using FacetedWorlds.Reversi.NavigationModels;
 
 namespace FacetedWorlds.Reversi.ViewModels
 {
-    public class LocalGameViewModel : IGameViewModel
+    public class LocalGameViewModel : ViewModelBase, IGameViewModel
     {
         private LocalGameState _gameState;
         private MainNavigationModel _mainNavigation;
+        private static int _instanceCount = 0;
 
         public LocalGameViewModel(LocalGame localGame, MainNavigationModel mainNavigation)
         {
+            System.Diagnostics.Debug.WriteLine(this.GetType().Name + " " + ++_instanceCount);
             _gameState = new LocalGameState(localGame, mainNavigation);
             _mainNavigation = mainNavigation;
         }
@@ -38,7 +40,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public bool CanResign
         {
-            get { return _gameState.Game.Outcome == null; }
+            get { return Get(() => _gameState.Game.Outcome == null); }
         }
 
         public ICommand Resign
@@ -62,44 +64,46 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public PieceColor MyColor
         {
-            get { return _gameState.MyColor; }
+            get { return Get(() => _gameState.MyColor); }
         }
 
         public PieceColor OpponentColor
         {
-            get { return _gameState.MyColor.Opposite(); }
+            get { return Get(() => _gameState.MyColor.Opposite()); }
         }
 
         public bool MyTurn
         {
-            get { return !_gameState.IsMovePending && _gameState.Game.Outcome == null; }
+            get { return Get(() => !_gameState.IsMovePending && _gameState.Game.Outcome == null); }
         }
 
         public string Outcome
         {
             get
             {
-                return
+                return Get(() =>
                     _gameState.BlackWon ? "Black Won" :
                     _gameState.WhiteWon ? "White Won" :
                     _gameState.Draw ? "Draw" :
                     _gameState.Resigned ? "Resigned" :
-                    string.Empty;
+                    string.Empty);
             }
         }
 
         public IEnumerable<IRowViewModel> Rows
         {
-            get
-            {
-                for (int row = 0; row < Square.NumberOfRows; row++)
-                    yield return new LocalRowViewModel(_gameState, row);
-            }
+            get { return Get(() => GetRows()); }
+        }
+
+        private IEnumerable<IRowViewModel> GetRows()
+        {
+            for (int row = 0; row < Square.NumberOfRows; row++)
+                yield return new LocalRowViewModel(_gameState, row);
         }
 
         public bool IsMovePending
         {
-            get { return _gameState.IsMovePending; }
+            get { return Get(() => _gameState.IsMovePending); }
         }
 
         public bool PreviewMove(int row, int column)
@@ -156,12 +160,12 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public int BlackCount
         {
-            get { return _gameState.BlackCount; }
+            get { return Get(() => _gameState.BlackCount); }
         }
 
         public int WhiteCount
         {
-            get { return _gameState.WhiteCount; }
+            get { return Get(() => _gameState.WhiteCount); }
         }
 
         public override bool Equals(object obj)

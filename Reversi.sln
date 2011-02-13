@@ -17,7 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.UnitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.IdentityService", "FacetedWorlds.Reversi.IdentityService\FacetedWorlds.Reversi.IdentityService.csproj", "{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateControls.Correspondence.POXClient (WP7)", "..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.POXClient (WP7)\UpdateControls.Correspondence.POXClient (WP7).csproj", "{896FC2DB-34B3-4F20-812E-15AE88D7398C}"
+EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
+		SccProjectUniqueName0 = ..\\correspondence\\Correspondence\\WP7\\UpdateControls.Correspondence.POXClient\u0020(WP7)\\UpdateControls.Correspondence.POXClient\u0020(WP7).csproj
+		SccProjectName0 = $/historicmodelinggc/Correspondence/WP7/UpdateControls.Correspondence.POXClient\u0020(WP7)
+		SccAuxPath0 = https://tfs.codeplex.com/tfs/tfs10
+		SccLocalPath0 = ..\\correspondence\\Correspondence\\WP7\\UpdateControls.Correspondence.POXClient\u0020(WP7)
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -111,6 +123,16 @@ Global
 		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|x86.ActiveCfg = Release|x86
 		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|x86.Build.0 = Release|x86
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{896FC2DB-34B3-4F20-812E-15AE88D7398C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

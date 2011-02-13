@@ -29,7 +29,7 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public override bool IsWaiting
         {
-            get { return !_gameRequest.Player.Any(); }
+            get { return Get(() => !_gameRequest.Player.Any()); }
         }
 
         public override bool Equals(object obj)

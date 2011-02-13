@@ -24,6 +24,8 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
         private GameBoard _previewBoard;
         private Dependent _depPreviewBoard;
 
+        private static int _updateCount = 0;
+
         public LocalGameState(LocalGame game, MainNavigationModel mainNavigation)
         {
             _game = game;
@@ -275,6 +277,7 @@ namespace FacetedWorlds.Reversi.Client.NavigationModels
 
         private void UpdatePreviewBoard()
         {
+            System.Diagnostics.Debug.WriteLine("UpdatePreviewBoard " + ++_updateCount);
             GameBoard gameBoard = GetGameBoard();
             if (_mainNavigation.PreviewMove != null && gameBoard.LegalMoves.Contains(_mainNavigation.PreviewMove))
                 _previewBoard = gameBoard.AfterMove(_mainNavigation.PreviewMove);
