@@ -63,7 +63,7 @@
 					<Border.Background>
 						<SolidColorBrush Color="{StaticResource PhoneTextBoxColor}"/>
 					</Border.Background>
-					<TextBox TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" d:LayoutOverrides="Height" Background="{x:Null}" BorderBrush="{x:Null}" KeyDown="TextBox_KeyDown"/>
+					<TextBox TextWrapping="Wrap" Text="{Binding MessageBody, Mode=TwoWay}" TextChanged="TextBox_TextChanged" d:LayoutOverrides="Height" Background="{x:Null}" BorderBrush="{x:Null}" KeyDown="TextBox_KeyDown" InputScope="Text"/>
 				</Border>
 				<Path Data="M19.999998,0 L34.666664,10.999999 L300,10.999999 L300,83 L0,83 L0,10.999999 L19.999998,10.999999 L19.999998,10.909792 C20,6.6582754E-07 20,6.6582754E-07 19.999998,0 z" HorizontalAlignment="Right" Height="83" Margin="0,-1,-244,0" Grid.Row="2" RenderTransformOrigin="0.0933333333333333,0.072289163841131" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="300">
 					<Path.Fill>
