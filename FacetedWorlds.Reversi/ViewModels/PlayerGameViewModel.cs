@@ -220,12 +220,12 @@ namespace FacetedWorlds.Reversi.ViewModels
 
         public int BlackCount
         {
-            get { return _gameState.BlackCount; }
+            get { return GameState == null ? 0 : GameState.BlackCount; }
         }
 
         public int WhiteCount
         {
-            get { return _gameState.WhiteCount; }
+            get { return GameState == null ? 0 : GameState.WhiteCount; }
         }
     }
 }
