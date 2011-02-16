@@ -16,7 +16,7 @@
 		<FacetedWorlds_Reversi_ValueConverters:PieceColorValueConverter x:Key="PieceColorValueConverter"/>
 	</UserControl.Resources>
 
-    <Grid x:Name="ContentPane">
+    <Grid x:Name="ContentPane" d:DataContext="{d:DesignData /SampleData/GameSummaryViewModelSampleData.xaml}">
     	<Grid.ColumnDefinitions>
     		<ColumnDefinition/>
     		<ColumnDefinition Width="163"/>

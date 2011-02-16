@@ -17,11 +17,19 @@
 		</DataTemplate>
 	</UserControl.Resources>
 
-    <StackPanel x:Name="LayoutRoot" Background="Transparent">
-		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Opponent:" HorizontalAlignment="Left" Height="27" Width="95"/>
+    <StackPanel x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/ChallengeViewModelSampleData.xaml}">
+		<TextBlock Margin="8,0,0,0" TextWrapping="Wrap" Text="Opponent:" HorizontalAlignment="Left" Height="27" Width="95">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
 		<TextBox TextWrapping="Wrap" Text="{Binding OpponentName, Mode=TwoWay}" Height="72"/>
-		<TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Select an opponent:" Height="27" Width="177"/>
-		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectionChanged="ListBox_SelectionChanged"/>
+		<TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" Text="Select an opponent:" Height="27" Width="177">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<ListBox ItemTemplate="{StaticResource StringTemplate1}" ItemsSource="{Binding MyFriends}" Margin="8,0,0,0" SelectionChanged="ListBox_SelectionChanged" FontSize="{StaticResource PhoneFontSizeMediumLarge}"/>
 		<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width">
 			<Button Content="Challenge" Click="Challenge_Click" VerticalAlignment="Top" />
 			<Button Content="Random Player" VerticalAlignment="Top" Click="RequestGame_Click"/>

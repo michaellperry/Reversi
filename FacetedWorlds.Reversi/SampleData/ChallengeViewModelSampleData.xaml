@@ -1,0 +1,9 @@
+﻿<FacetedWorlds_Reversi_ViewModels:ChallengeViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:System="clr-namespace:System;assembly=mscorlib" OpponentName="Elit enim mus erat">
+	<FacetedWorlds_Reversi_ViewModels:ChallengeViewModel.MyFriends>
+		<System:String>Class vestibulum cras</System:String>
+		<System:String>Adipiscing nam duis nunc maecenas</System:String>
+		<System:String>Curae sed</System:String>
+		<System:String>Aliquam aenean parturient dis curabitur</System:String>
+		<System:String>Amet phasellus</System:String>
+	</FacetedWorlds_Reversi_ViewModels:ChallengeViewModel.MyFriends>
+</FacetedWorlds_Reversi_ViewModels:ChallengeViewModel>

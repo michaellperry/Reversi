@@ -23,13 +23,13 @@
 					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
 				</TextBlock.Foreground>
 			</TextBlock>
-			<ListBox ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding YourMove}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" UseLayoutRounding="True" SelectedItem="{Binding SelectedGame, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged"/>
+			<ListBox ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding YourMove}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" UseLayoutRounding="True" SelectedItem="{Binding SelectedGame, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged" FontSize="{StaticResource PhoneFontSizeMediumLarge}"/>
 			<TextBlock TextWrapping="Wrap" Text="Their Move:" HorizontalAlignment="Left" Height="27" Width="104" Margin="0,7,0,0">
 				<TextBlock.Foreground>
 					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
 				</TextBlock.Foreground>
 			</TextBlock>
-			<ListBox ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding TheirMove}" UseLayoutRounding="True" HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedGame, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged"/>
+			<ListBox ItemTemplate="{StaticResource GameSummaryTemplate}" ItemsSource="{Binding TheirMove}" UseLayoutRounding="True" HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedGame, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged" FontSize="{StaticResource PhoneFontSizeMediumLarge}"/>
 		</StackPanel>
 	</ScrollViewer>
 </UserControl>

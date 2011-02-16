@@ -276,7 +276,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <DesignData Include="SampleData\ChallengeViewModelSampleData.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </DesignData>
     <DesignData Include="SampleData\ChatViewModelSampleData.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </DesignData>
+    <DesignData Include="SampleData\GameSummaryViewModelSampleData.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </DesignData>
     <DesignData Include="SampleData\LocalGameViewModelSampleData.xaml">

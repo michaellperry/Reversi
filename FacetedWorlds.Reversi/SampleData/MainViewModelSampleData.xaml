@@ -1,4 +1,4 @@
-﻿<FacetedWorlds_Reversi_ViewModels:MainViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:FacetedWorlds_Reversi_Model="clr-namespace:FacetedWorlds.Reversi.Model;assembly=FacetedWorlds.Reversi.Model" ApprovedUserName="Aenean aliquam vestibulum" HasSelectedPlayer="True" IsUserApproved="False" IsUserNotApproved="True">
+﻿<FacetedWorlds_Reversi_ViewModels:MainViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:FacetedWorlds_Reversi_Model="clr-namespace:FacetedWorlds.Reversi.Model;assembly=FacetedWorlds.Reversi.Model" ApprovedUserName="Aenean aliquam vestibulum" HasSelectedPlayer="True" IsUserApproved="True" IsUserNotApproved="False">
 	<FacetedWorlds_Reversi_ViewModels:MainViewModel.TheirMove>
 		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="59" HasNewMessages="True" MyTurn="False" MyColor="Black" OpponentName="Orci pede" WhiteCount="49">
 			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
