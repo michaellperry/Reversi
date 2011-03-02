@@ -28,7 +28,7 @@ namespace FacetedWorlds.Reversi
 
             _community = new Community(new SSCEStorageStrategy(databaseFileName))
                 .AddCommunicationStrategy(new WebServiceCommunicationStrategy())
-                .RegisterAssembly(typeof(User))
+                .Register<CorrespondenceModule>()
                 .Subscribe(() => _machineViewModel.User)
                 .Subscribe(() => _machineViewModel.User == null
                     ? Enumerable.Empty<Game>()

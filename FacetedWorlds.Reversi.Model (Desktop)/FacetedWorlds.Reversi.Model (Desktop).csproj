@@ -40,8 +40,8 @@
     <Reference Include="UpdateControls">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence, Version=1.0.0.3, Culture=neutral, PublicKeyToken=19e83a8289e31a8f, processorArchitecture=MSIL">
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

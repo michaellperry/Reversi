@@ -31,7 +31,7 @@ namespace FacetedWorlds.Reversi.IdentityServices
 
             Community community = new Community(new SSCEStorageStrategy(databaseFileName))
                 .AddCommunicationStrategy(new WebServiceCommunicationStrategy())
-                .RegisterAssembly(typeof(User))
+                .Register<CorrespondenceModule>()
                 .Subscribe(() => _service);
 
             _service = community.AddFact(new IdentityService());

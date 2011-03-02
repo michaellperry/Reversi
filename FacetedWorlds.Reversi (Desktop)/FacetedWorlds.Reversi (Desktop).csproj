@@ -44,22 +44,22 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="UpdateControls">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence\bin\Debug\UpdateControls.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.Memory">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.Memory\bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence.Memory\bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.SSCE">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.SSCE\bin\Debug\UpdateControls.Correspondence.SSCE.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence.SSCE\bin\Debug\UpdateControls.Correspondence.SSCE.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.WebService.Contract">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebService.Contract.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebService.Contract.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.WebServiceClient">
-      <HintPath>..\..\correspondence\Correspondence\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
+      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence.WebServiceClient\bin\Debug\UpdateControls.Correspondence.WebServiceClient.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.XAML">
       <HintPath>..\..\codeplex\updatecontrols\Desktop\UpdateControls.XAML\bin\Release\UpdateControls.XAML.dll</HintPath>

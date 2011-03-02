@@ -2,7 +2,9 @@
 using System.Linq;
 using UpdateControls.Correspondence;
 using UpdateControls.Correspondence.Mementos;
+using UpdateControls.Correspondence.Strategy;
 using System;
+using System.IO;
 
 /**
 / For use with http://graphviz.org/
@@ -40,9 +42,50 @@ digraph "FacetedWorlds.Reversi.Model"
 
 namespace FacetedWorlds.Reversi.Model
 {
-    [CorrespondenceType]
     public partial class Identity : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Identity newFact = new Identity(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._uri = (string)_fieldSerializerByType[typeof(string)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Identity fact = (Identity)obj;
+				_fieldSerializerByType[typeof(string)].WriteData(output, fact._uri);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Identity", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
 
         // Queries
@@ -63,8 +106,7 @@ namespace FacetedWorlds.Reversi.Model
         // Predecessors
 
         // Fields
-        [CorrespondenceField]
-        public string _uri;
+        private string _uri;
 
         // Results
         private Result<Claim> _claims;
@@ -81,7 +123,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Identity(FactMemento memento)
+        private Identity(FactMemento memento)
         {
             InitializeResults();
         }
@@ -117,9 +159,48 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class IdentityService : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				IdentityService newFact = new IdentityService(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				IdentityService fact = (IdentityService)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.IdentityService", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
 
         // Queries
@@ -145,7 +226,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public IdentityService(FactMemento memento)
+        private IdentityService(FactMemento memento)
         {
             InitializeResults();
         }
@@ -167,13 +248,64 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class Claim : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Claim newFact = new Claim(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Claim fact = (Claim)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Claim", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Identity> RoleIdentity = new Role<Identity>("identity", RoleRelationship.Pivot);
-        public static Role<User> RoleUser = new Role<User>("user");
-        public static Role<IdentityService> RoleIdentityService = new Role<IdentityService>("identityService", RoleRelationship.Pivot);
+        public static Role RoleIdentity = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"identity",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Identity", 1),
+			true));
+        public static Role RoleUser = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"user",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.User", 1),
+			false));
+        public static Role RoleIdentityService = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"identityService",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.IdentityService", 1),
+			true));
 
         // Queries
         public static Query QueryResponses = new Query()
@@ -210,7 +342,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Claim(FactMemento memento)
+        private Claim(FactMemento memento)
         {
             InitializeResults();
             _identity = new PredecessorObj<Identity>(this, RoleIdentity, memento);
@@ -247,11 +379,56 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class ClaimResponse : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				ClaimResponse newFact = new ClaimResponse(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._approved = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				ClaimResponse fact = (ClaimResponse)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._approved);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.ClaimResponse", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Claim> RoleClaim = new Role<Claim>("claim", RoleRelationship.Pivot);
+        public static Role RoleClaim = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"claim",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Claim", 1),
+			true));
 
         // Queries
 
@@ -261,8 +438,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<Claim> _claim;
 
         // Fields
-        [CorrespondenceField]
-        public int _approved;
+        private int _approved;
 
         // Results
 
@@ -278,7 +454,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public ClaimResponse(FactMemento memento)
+        private ClaimResponse(FactMemento memento)
         {
             InitializeResults();
             _claim = new PredecessorObj<Claim>(this, RoleClaim, memento);
@@ -304,9 +480,50 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class User : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				User newFact = new User(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._userName = (string)_fieldSerializerByType[typeof(string)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				User fact = (User)obj;
+				_fieldSerializerByType[typeof(string)].WriteData(output, fact._userName);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.User", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
 
         // Queries
@@ -343,8 +560,7 @@ namespace FacetedWorlds.Reversi.Model
         // Predecessors
 
         // Fields
-        [CorrespondenceField]
-        public string _userName;
+        private string _userName;
 
         // Results
         private Result<Claim> _claims;
@@ -365,7 +581,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public User(FactMemento memento)
+        private User(FactMemento memento)
         {
             InitializeResults();
         }
@@ -421,11 +637,54 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class ChatEnable : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				ChatEnable newFact = new ChatEnable(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				ChatEnable fact = (ChatEnable)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.ChatEnable", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<User> RoleUser = new Role<User>("user");
+        public static Role RoleUser = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"user",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.User", 1),
+			false));
 
         // Queries
 
@@ -448,7 +707,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public ChatEnable(FactMemento memento)
+        private ChatEnable(FactMemento memento)
         {
             InitializeResults();
             _user = new PredecessorObj<User>(this, RoleUser, memento);
@@ -470,11 +729,56 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class DisableToastNotification : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				DisableToastNotification newFact = new DisableToastNotification(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._unique = (Guid)_fieldSerializerByType[typeof(Guid)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				DisableToastNotification fact = (DisableToastNotification)obj;
+				_fieldSerializerByType[typeof(Guid)].WriteData(output, fact._unique);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.DisableToastNotification", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Identity> RoleIdentity = new Role<Identity>("identity");
+        public static Role RoleIdentity = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"identity",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Identity", 1),
+			false));
 
         // Queries
         public static Query QueryIsReenabled = new Query()
@@ -488,8 +792,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<Identity> _identity;
 
         // Unique
-        [CorrespondenceField]
-        public Guid _unique;
+        private Guid _unique;
 
         // Fields
 
@@ -506,7 +809,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public DisableToastNotification(FactMemento memento)
+        private DisableToastNotification(FactMemento memento)
         {
             InitializeResults();
             _identity = new PredecessorObj<Identity>(this, RoleIdentity, memento);
@@ -524,15 +827,60 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Field access
+		public Guid Unique { get { return _unique; } }
+
 
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class EnableToastNotification : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				EnableToastNotification newFact = new EnableToastNotification(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				EnableToastNotification fact = (EnableToastNotification)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.EnableToastNotification", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<DisableToastNotification> RoleDisable = new Role<DisableToastNotification>("disable");
+        public static Role RoleDisable = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"disable",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.DisableToastNotification", 1),
+			false));
 
         // Queries
 
@@ -555,7 +903,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public EnableToastNotification(FactMemento memento)
+        private EnableToastNotification(FactMemento memento)
         {
             InitializeResults();
             _disable = new PredecessorObj<DisableToastNotification>(this, RoleDisable, memento);
@@ -577,9 +925,50 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class Game : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Game newFact = new Game(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._unique = (Guid)_fieldSerializerByType[typeof(Guid)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Game fact = (Game)obj;
+				_fieldSerializerByType[typeof(Guid)].WriteData(output, fact._unique);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Game", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
 
         // Queries
@@ -603,8 +992,7 @@ namespace FacetedWorlds.Reversi.Model
         // Predecessors
 
         // Unique
-        [CorrespondenceField]
-        public Guid _unique;
+        private Guid _unique;
 
         // Fields
 
@@ -623,7 +1011,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Game(FactMemento memento)
+        private Game(FactMemento memento)
         {
             InitializeResults();
         }
@@ -640,6 +1028,8 @@ namespace FacetedWorlds.Reversi.Model
         // Predecessor access
 
         // Field access
+		public Guid Unique { get { return _unique; } }
+
 
         // Query result access
         public IEnumerable<Player> Players
@@ -660,12 +1050,61 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class Player : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Player newFact = new Player(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._index = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Player fact = (Player)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._index);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Player", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<User> RoleUser = new Role<User>("user", RoleRelationship.Pivot);
-        public static Role<Game> RoleGame = new Role<Game>("game", RoleRelationship.Pivot);
+        public static Role RoleUser = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"user",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.User", 1),
+			true));
+        public static Role RoleGame = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"game",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Game", 1),
+			true));
 
         // Queries
         public static Query QueryMoves = new Query()
@@ -691,8 +1130,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<Game> _game;
 
         // Fields
-        [CorrespondenceField]
-        public int _index;
+        private int _index;
 
         // Results
         private Result<Move> _moves;
@@ -712,7 +1150,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Player(FactMemento memento)
+        private Player(FactMemento memento)
         {
             InitializeResults();
             _user = new PredecessorObj<User>(this, RoleUser, memento);
@@ -753,11 +1191,58 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class Message : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Message newFact = new Message(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._body = (string)_fieldSerializerByType[typeof(string)].ReadData(output);
+						newFact._index = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Message fact = (Message)obj;
+				_fieldSerializerByType[typeof(string)].WriteData(output, fact._body);
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._index);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Message", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Player> RoleSender = new Role<Player>("sender");
+        public static Role RoleSender = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"sender",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Player", 1),
+			false));
 
         // Queries
         public static Query QueryIsAcknowledged = new Query()
@@ -771,10 +1256,8 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<Player> _sender;
 
         // Fields
-        [CorrespondenceField]
-        public string _body;
-        [CorrespondenceField]
-        public int _index;
+        private string _body;
+        private int _index;
 
         // Results
 
@@ -792,7 +1275,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Message(FactMemento memento)
+        private Message(FactMemento memento)
         {
             InitializeResults();
             _sender = new PredecessorObj<Player>(this, RoleSender, memento);
@@ -822,11 +1305,54 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class Acknowledge : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Acknowledge newFact = new Acknowledge(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Acknowledge fact = (Acknowledge)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Acknowledge", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Message> RoleMessage = new Role<Message>("message");
+        public static Role RoleMessage = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"message",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Message", 1),
+			false));
 
         // Queries
 
@@ -849,7 +1375,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Acknowledge(FactMemento memento)
+        private Acknowledge(FactMemento memento)
         {
             InitializeResults();
             _message = new PredecessorObj<Message>(this, RoleMessage, memento);
@@ -871,11 +1397,58 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class Move : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Move newFact = new Move(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._index = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+						newFact._square = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Move fact = (Move)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._index);
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._square);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Move", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Player> RolePlayer = new Role<Player>("player");
+        public static Role RolePlayer = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"player",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Player", 1),
+			false));
 
         // Queries
 
@@ -885,10 +1458,8 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<Player> _player;
 
         // Fields
-        [CorrespondenceField]
-        public int _index;
-        [CorrespondenceField]
-        public int _square;
+        private int _index;
+        private int _square;
 
         // Results
 
@@ -906,7 +1477,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Move(FactMemento memento)
+        private Move(FactMemento memento)
         {
             InitializeResults();
             _player = new PredecessorObj<Player>(this, RolePlayer, memento);
@@ -936,12 +1507,61 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class Outcome : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				Outcome newFact = new Outcome(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._resigned = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				Outcome fact = (Outcome)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._resigned);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.Outcome", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Game> RoleGame = new Role<Game>("game");
-        public static Role<Player> RoleWinner = new Role<Player>("winner");
+        public static Role RoleGame = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"game",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Game", 1),
+			false));
+        public static Role RoleWinner = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"winner",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Player", 1),
+			false));
 
         // Queries
 
@@ -952,8 +1572,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorOpt<Player> _winner;
 
         // Fields
-        [CorrespondenceField]
-        public int _resigned;
+        private int _resigned;
 
         // Results
 
@@ -971,7 +1590,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public Outcome(FactMemento memento)
+        private Outcome(FactMemento memento)
         {
             InitializeResults();
             _game = new PredecessorObj<Game>(this, RoleGame, memento);
@@ -1002,12 +1621,59 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class OutcomeAcknowledge : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				OutcomeAcknowledge newFact = new OutcomeAcknowledge(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				OutcomeAcknowledge fact = (OutcomeAcknowledge)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.OutcomeAcknowledge", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Player> RolePlayer = new Role<Player>("player");
-        public static Role<Outcome> RoleOutcome = new Role<Outcome>("outcome");
+        public static Role RolePlayer = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"player",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Player", 1),
+			false));
+        public static Role RoleOutcome = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"outcome",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Outcome", 1),
+			false));
 
         // Queries
 
@@ -1033,7 +1699,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public OutcomeAcknowledge(FactMemento memento)
+        private OutcomeAcknowledge(FactMemento memento)
         {
             InitializeResults();
             _player = new PredecessorObj<Player>(this, RolePlayer, memento);
@@ -1060,11 +1726,56 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class LocalGame : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				LocalGame newFact = new LocalGame(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._unique = (Guid)_fieldSerializerByType[typeof(Guid)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				LocalGame fact = (LocalGame)obj;
+				_fieldSerializerByType[typeof(Guid)].WriteData(output, fact._unique);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.LocalGame", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<Identity> RoleIdentity = new Role<Identity>("identity");
+        public static Role RoleIdentity = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"identity",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Identity", 1),
+			false));
 
         // Queries
         public static Query QueryPlayers = new Query()
@@ -1089,8 +1800,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<Identity> _identity;
 
         // Unique
-        [CorrespondenceField]
-        public Guid _unique;
+        private Guid _unique;
 
         // Fields
 
@@ -1110,7 +1820,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public LocalGame(FactMemento memento)
+        private LocalGame(FactMemento memento)
         {
             InitializeResults();
             _identity = new PredecessorObj<Identity>(this, RoleIdentity, memento);
@@ -1131,6 +1841,8 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Field access
+		public Guid Unique { get { return _unique; } }
+
 
         // Query result access
         public IEnumerable<LocalPlayer> Players
@@ -1147,11 +1859,56 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class LocalPlayer : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				LocalPlayer newFact = new LocalPlayer(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._index = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				LocalPlayer fact = (LocalPlayer)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._index);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.LocalPlayer", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<LocalGame> RoleGame = new Role<LocalGame>("game");
+        public static Role RoleGame = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"game",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.LocalGame", 1),
+			false));
 
         // Queries
 
@@ -1161,8 +1918,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<LocalGame> _game;
 
         // Fields
-        [CorrespondenceField]
-        public int _index;
+        private int _index;
 
         // Results
 
@@ -1178,7 +1934,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public LocalPlayer(FactMemento memento)
+        private LocalPlayer(FactMemento memento)
         {
             InitializeResults();
             _game = new PredecessorObj<LocalGame>(this, RoleGame, memento);
@@ -1204,11 +1960,58 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class LocalMove : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				LocalMove newFact = new LocalMove(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._index = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+						newFact._square = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				LocalMove fact = (LocalMove)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._index);
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._square);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.LocalMove", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<LocalPlayer> RolePlayer = new Role<LocalPlayer>("player");
+        public static Role RolePlayer = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"player",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.LocalPlayer", 1),
+			false));
 
         // Queries
 
@@ -1218,10 +2021,8 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<LocalPlayer> _player;
 
         // Fields
-        [CorrespondenceField]
-        public int _index;
-        [CorrespondenceField]
-        public int _square;
+        private int _index;
+        private int _square;
 
         // Results
 
@@ -1239,7 +2040,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public LocalMove(FactMemento memento)
+        private LocalMove(FactMemento memento)
         {
             InitializeResults();
             _player = new PredecessorObj<LocalPlayer>(this, RolePlayer, memento);
@@ -1269,12 +2070,61 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class LocalOutcome : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				LocalOutcome newFact = new LocalOutcome(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._resigned = (int)_fieldSerializerByType[typeof(int)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				LocalOutcome fact = (LocalOutcome)obj;
+				_fieldSerializerByType[typeof(int)].WriteData(output, fact._resigned);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.LocalOutcome", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<LocalGame> RoleGame = new Role<LocalGame>("game");
-        public static Role<LocalPlayer> RoleWinner = new Role<LocalPlayer>("winner");
+        public static Role RoleGame = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"game",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.LocalGame", 1),
+			false));
+        public static Role RoleWinner = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"winner",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.LocalPlayer", 1),
+			false));
 
         // Queries
 
@@ -1285,8 +2135,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorOpt<LocalPlayer> _winner;
 
         // Fields
-        [CorrespondenceField]
-        public int _resigned;
+        private int _resigned;
 
         // Results
 
@@ -1304,7 +2153,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public LocalOutcome(FactMemento memento)
+        private LocalOutcome(FactMemento memento)
         {
             InitializeResults();
             _game = new PredecessorObj<LocalGame>(this, RoleGame, memento);
@@ -1335,11 +2184,54 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class LocalOutcomeAcknowledge : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				LocalOutcomeAcknowledge newFact = new LocalOutcomeAcknowledge(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				LocalOutcomeAcknowledge fact = (LocalOutcomeAcknowledge)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.LocalOutcomeAcknowledge", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<LocalOutcome> RoleOutcome = new Role<LocalOutcome>("outcome");
+        public static Role RoleOutcome = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"outcome",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.LocalOutcome", 1),
+			false));
 
         // Queries
 
@@ -1362,7 +2254,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public LocalOutcomeAcknowledge(FactMemento memento)
+        private LocalOutcomeAcknowledge(FactMemento memento)
         {
             InitializeResults();
             _outcome = new PredecessorObj<LocalOutcome>(this, RoleOutcome, memento);
@@ -1384,9 +2276,48 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
-    [CorrespondenceType]
     public partial class MatchmakingService : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				MatchmakingService newFact = new MatchmakingService(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				MatchmakingService fact = (MatchmakingService)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.MatchmakingService", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
 
         // Queries
@@ -1412,7 +2343,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public MatchmakingService(FactMemento memento)
+        private MatchmakingService(FactMemento memento)
         {
             InitializeResults();
         }
@@ -1434,12 +2365,61 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class GameRequest : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				GameRequest newFact = new GameRequest(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+						newFact._unique = (Guid)_fieldSerializerByType[typeof(Guid)].ReadData(output);
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				GameRequest fact = (GameRequest)obj;
+				_fieldSerializerByType[typeof(Guid)].WriteData(output, fact._unique);
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.GameRequest", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<MatchmakingService> RoleMatchmakingService = new Role<MatchmakingService>("matchmakingService", RoleRelationship.Pivot);
-        public static Role<User> RoleUser = new Role<User>("user");
+        public static Role RoleMatchmakingService = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"matchmakingService",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.MatchmakingService", 1),
+			true));
+        public static Role RoleUser = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"user",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.User", 1),
+			false));
 
         // Queries
         public static Query QueryIsCompleted = new Query()
@@ -1458,8 +2438,7 @@ namespace FacetedWorlds.Reversi.Model
         private PredecessorObj<User> _user;
 
         // Unique
-        [CorrespondenceField]
-        public Guid _unique;
+        private Guid _unique;
 
         // Fields
 
@@ -1479,7 +2458,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public GameRequest(FactMemento memento)
+        private GameRequest(FactMemento memento)
         {
             InitializeResults();
             _matchmakingService = new PredecessorObj<MatchmakingService>(this, RoleMatchmakingService, memento);
@@ -1503,6 +2482,8 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Field access
+		public Guid Unique { get { return _unique; } }
+
 
         // Query result access
         public IEnumerable<Player> Player
@@ -1511,12 +2492,59 @@ namespace FacetedWorlds.Reversi.Model
         }
     }
     
-    [CorrespondenceType]
     public partial class GameRequestCompletion : CorrespondenceFact
     {
+		// Factory
+		internal class CorrespondenceFactFactory : ICorrespondenceFactFactory
+		{
+			private IDictionary<Type, IFieldSerializer> _fieldSerializerByType;
+
+			public CorrespondenceFactFactory(IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+			{
+				_fieldSerializerByType = fieldSerializerByType;
+			}
+
+			public CorrespondenceFact CreateFact(FactMemento memento)
+			{
+				GameRequestCompletion newFact = new GameRequestCompletion(memento);
+
+				// Create a memory stream from the memento data.
+				using (MemoryStream data = new MemoryStream(memento.Data))
+				{
+					using (BinaryReader output = new BinaryReader(data))
+					{
+					}
+				}
+
+				return newFact;
+			}
+
+			public void WriteFactData(CorrespondenceFact obj, BinaryWriter output)
+			{
+				GameRequestCompletion fact = (GameRequestCompletion)obj;
+			}
+		}
+
+		// Type
+		internal static CorrespondenceFactType _correspondenceFactType = new CorrespondenceFactType(
+			"FacetedWorlds.Reversi.Model.GameRequestCompletion", 1);
+
+		protected override CorrespondenceFactType GetCorrespondenceFactType()
+		{
+			return _correspondenceFactType;
+		}
+
         // Roles
-        public static Role<GameRequest> RoleGameRequest = new Role<GameRequest>("gameRequest", RoleRelationship.Pivot);
-        public static Role<Player> RolePlayer = new Role<Player>("player");
+        public static Role RoleGameRequest = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"gameRequest",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.GameRequest", 1),
+			true));
+        public static Role RolePlayer = new Role(new RoleMemento(
+			_correspondenceFactType,
+			"player",
+			new CorrespondenceFactType("FacetedWorlds.Reversi.Model.Player", 1),
+			false));
 
         // Queries
 
@@ -1542,7 +2570,7 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Hydration constructor
-        public GameRequestCompletion(FactMemento memento)
+        private GameRequestCompletion(FactMemento memento)
         {
             InitializeResults();
             _gameRequest = new PredecessorObj<GameRequest>(this, RoleGameRequest, memento);
@@ -1569,4 +2597,193 @@ namespace FacetedWorlds.Reversi.Model
         // Query result access
     }
     
+
+	public class CorrespondenceModule : ICorrespondenceModule
+	{
+		public void RegisterAllFactTypes(Community community, IDictionary<Type, IFieldSerializer> fieldSerializerByType)
+		{
+			community.AddType(
+				Identity._correspondenceFactType,
+				new Identity.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Identity._correspondenceFactType }));
+			community.AddQuery(
+				Identity._correspondenceFactType,
+				Identity.QueryClaims.QueryDefinition);
+			community.AddQuery(
+				Identity._correspondenceFactType,
+				Identity.QueryActiveLocalGames.QueryDefinition);
+			community.AddQuery(
+				Identity._correspondenceFactType,
+				Identity.QueryIsToastNotificationDisabled.QueryDefinition);
+			community.AddType(
+				IdentityService._correspondenceFactType,
+				new IdentityService.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { IdentityService._correspondenceFactType }));
+			community.AddQuery(
+				IdentityService._correspondenceFactType,
+				IdentityService.QueryPendingClaims.QueryDefinition);
+			community.AddType(
+				Claim._correspondenceFactType,
+				new Claim.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Claim._correspondenceFactType }));
+			community.AddQuery(
+				Claim._correspondenceFactType,
+				Claim.QueryResponses.QueryDefinition);
+			community.AddQuery(
+				Claim._correspondenceFactType,
+				Claim.QueryIsPending.QueryDefinition);
+			community.AddType(
+				ClaimResponse._correspondenceFactType,
+				new ClaimResponse.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { ClaimResponse._correspondenceFactType }));
+			community.AddType(
+				User._correspondenceFactType,
+				new User.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { User._correspondenceFactType }));
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryClaims.QueryDefinition);
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryActivePlayers.QueryDefinition);
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryFinishedPlayers.QueryDefinition);
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryRelatedUsers.QueryDefinition);
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryIsChatEnabled.QueryDefinition);
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryGameRequests.QueryDefinition);
+			community.AddQuery(
+				User._correspondenceFactType,
+				User.QueryPendingGameRequests.QueryDefinition);
+			community.AddType(
+				ChatEnable._correspondenceFactType,
+				new ChatEnable.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { ChatEnable._correspondenceFactType }));
+			community.AddType(
+				DisableToastNotification._correspondenceFactType,
+				new DisableToastNotification.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { DisableToastNotification._correspondenceFactType }));
+			community.AddQuery(
+				DisableToastNotification._correspondenceFactType,
+				DisableToastNotification.QueryIsReenabled.QueryDefinition);
+			community.AddType(
+				EnableToastNotification._correspondenceFactType,
+				new EnableToastNotification.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { EnableToastNotification._correspondenceFactType }));
+			community.AddType(
+				Game._correspondenceFactType,
+				new Game.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Game._correspondenceFactType }));
+			community.AddQuery(
+				Game._correspondenceFactType,
+				Game.QueryPlayers.QueryDefinition);
+			community.AddQuery(
+				Game._correspondenceFactType,
+				Game.QueryMessages.QueryDefinition);
+			community.AddQuery(
+				Game._correspondenceFactType,
+				Game.QueryMoves.QueryDefinition);
+			community.AddQuery(
+				Game._correspondenceFactType,
+				Game.QueryOutcomes.QueryDefinition);
+			community.AddType(
+				Player._correspondenceFactType,
+				new Player.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Player._correspondenceFactType }));
+			community.AddQuery(
+				Player._correspondenceFactType,
+				Player.QueryMoves.QueryDefinition);
+			community.AddQuery(
+				Player._correspondenceFactType,
+				Player.QueryNewMessages.QueryDefinition);
+			community.AddQuery(
+				Player._correspondenceFactType,
+				Player.QueryIsActive.QueryDefinition);
+			community.AddQuery(
+				Player._correspondenceFactType,
+				Player.QueryIsNotActive.QueryDefinition);
+			community.AddType(
+				Message._correspondenceFactType,
+				new Message.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Message._correspondenceFactType }));
+			community.AddQuery(
+				Message._correspondenceFactType,
+				Message.QueryIsAcknowledged.QueryDefinition);
+			community.AddType(
+				Acknowledge._correspondenceFactType,
+				new Acknowledge.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Acknowledge._correspondenceFactType }));
+			community.AddType(
+				Move._correspondenceFactType,
+				new Move.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Move._correspondenceFactType }));
+			community.AddType(
+				Outcome._correspondenceFactType,
+				new Outcome.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { Outcome._correspondenceFactType }));
+			community.AddType(
+				OutcomeAcknowledge._correspondenceFactType,
+				new OutcomeAcknowledge.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { OutcomeAcknowledge._correspondenceFactType }));
+			community.AddType(
+				LocalGame._correspondenceFactType,
+				new LocalGame.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { LocalGame._correspondenceFactType }));
+			community.AddQuery(
+				LocalGame._correspondenceFactType,
+				LocalGame.QueryPlayers.QueryDefinition);
+			community.AddQuery(
+				LocalGame._correspondenceFactType,
+				LocalGame.QueryMoves.QueryDefinition);
+			community.AddQuery(
+				LocalGame._correspondenceFactType,
+				LocalGame.QueryOutcomes.QueryDefinition);
+			community.AddQuery(
+				LocalGame._correspondenceFactType,
+				LocalGame.QueryIsActive.QueryDefinition);
+			community.AddType(
+				LocalPlayer._correspondenceFactType,
+				new LocalPlayer.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { LocalPlayer._correspondenceFactType }));
+			community.AddType(
+				LocalMove._correspondenceFactType,
+				new LocalMove.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { LocalMove._correspondenceFactType }));
+			community.AddType(
+				LocalOutcome._correspondenceFactType,
+				new LocalOutcome.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { LocalOutcome._correspondenceFactType }));
+			community.AddType(
+				LocalOutcomeAcknowledge._correspondenceFactType,
+				new LocalOutcomeAcknowledge.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { LocalOutcomeAcknowledge._correspondenceFactType }));
+			community.AddType(
+				MatchmakingService._correspondenceFactType,
+				new MatchmakingService.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { MatchmakingService._correspondenceFactType }));
+			community.AddQuery(
+				MatchmakingService._correspondenceFactType,
+				MatchmakingService.QueryPendingGameRequests.QueryDefinition);
+			community.AddType(
+				GameRequest._correspondenceFactType,
+				new GameRequest.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { GameRequest._correspondenceFactType }));
+			community.AddQuery(
+				GameRequest._correspondenceFactType,
+				GameRequest.QueryIsCompleted.QueryDefinition);
+			community.AddQuery(
+				GameRequest._correspondenceFactType,
+				GameRequest.QueryPlayer.QueryDefinition);
+			community.AddType(
+				GameRequestCompletion._correspondenceFactType,
+				new GameRequestCompletion.CorrespondenceFactFactory(fieldSerializerByType),
+				new FactMetadata(new List<CorrespondenceFactType> { GameRequestCompletion._correspondenceFactType }));
+		}
+	}
 }

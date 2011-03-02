@@ -39,7 +39,7 @@ namespace FacetedWorlds.Reversi.Presenters
             POXConfigurationProvider configurationProvider = new POXConfigurationProvider();
             _community = new Community(storageStrategy)
                 .AddAsynchronousCommunicationStrategy(new POXAsynchronousCommunicationStrategy(configurationProvider))
-                .RegisterAssembly(typeof(User))
+                .Register<CorrespondenceModule>()
                 .Subscribe(() => _identity)
                 .Subscribe(() => _identity.Claims)
                 .Subscribe(() => _identity.ApprovedUsers)
@@ -125,10 +125,10 @@ namespace FacetedWorlds.Reversi.Presenters
             {
                 Get<Guid>(state, STR_SelectedPlayerGameGuid, value =>
                     _mainNavigation.SelectedPlayer = user.ActivePlayers
-                        .FirstOrDefault(player => player.Game._unique == value));
+                        .FirstOrDefault(player => player.Game.Unique == value));
                 Get<Guid>(state, STR_SelectedGameRequestGuid, value =>
                     _mainNavigation.SelectedGameRequest = user.GameRequests
-                        .FirstOrDefault(gameRequest => gameRequest._unique == value));
+                        .FirstOrDefault(gameRequest => gameRequest.Unique == value));
             }
             Get<string>(state, STR_OpponentName, value => _mainNavigation.OpponentName = value);
             Get<string>(state, STR_MessageBody, value => _mainNavigation.MessageBody = value);
@@ -138,9 +138,9 @@ namespace FacetedWorlds.Reversi.Presenters
         public void SaveNavigation(IDictionary<string, object> state)
         {
             if (_mainNavigation.SelectedPlayer != null)
-                Set(state, STR_SelectedPlayerGameGuid, _mainNavigation.SelectedPlayer.Game._unique);
+                Set(state, STR_SelectedPlayerGameGuid, _mainNavigation.SelectedPlayer.Game.Unique);
             if (_mainNavigation.SelectedGameRequest != null)
-                Set(state, STR_SelectedGameRequestGuid, _mainNavigation.SelectedGameRequest._unique);
+                Set(state, STR_SelectedGameRequestGuid, _mainNavigation.SelectedGameRequest.Unique);
 
             Set(state, STR_OpponentName, _mainNavigation.OpponentName);
             Set(state, STR_MessageBody, _mainNavigation.MessageBody);
