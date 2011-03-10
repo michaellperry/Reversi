@@ -1,0 +1,526 @@
+﻿<FacetedWorlds_Reversi_ViewModels:MainViewModel xmlns:FacetedWorlds_Reversi_ViewModels="clr-namespace:FacetedWorlds.Reversi.ViewModels" xmlns:FacetedWorlds_Reversi_Model="clr-namespace:FacetedWorlds.Reversi.Model;assembly=FacetedWorlds.Reversi.Model" ApprovedUserName="Aenean aliquam vestibulum" HasSelectedPlayer="True" IsUserApproved="True" IsUserNotApproved="False">
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.TheirMove>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="59" HasNewMessages="True" MyTurn="False" MyColor="Black" OpponentName="Orci pede" WhiteCount="49">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="12">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="20" Square="82"/>
+						<FacetedWorlds_Reversi_Model:Move Index="42" Square="29"/>
+						<FacetedWorlds_Reversi_Model:Move Index="52" Square="81"/>
+						<FacetedWorlds_Reversi_Model:Move Index="54" Square="60"/>
+						<FacetedWorlds_Reversi_Model:Move Index="28" Square="92"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Aliquet sed"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Auctor adipiscing blandit congue"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Parturient vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Dis quam cursus ultricies"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Est venenatis commodo fusce"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Interdum vestibulum hac lobortis conubia"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="60" HasNewMessages="False" MyTurn="True" MyColor="Black" OpponentName="Nascetur quis adipiscing urna" WhiteCount="79">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="68">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="22"/>
+						<FacetedWorlds_Reversi_Model:Move Index="32" Square="70"/>
+						<FacetedWorlds_Reversi_Model:Move Index="28" Square="24"/>
+						<FacetedWorlds_Reversi_Model:Move Index="90" Square="39"/>
+						<FacetedWorlds_Reversi_Model:Move Index="60" Square="29"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Cras dictum cubilia lectus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Lorem parturient vestibulum pharetra"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum vulputate libero"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Curabitur adipiscing phasellus consequat leo"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Duis ligula"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Morbi dapibus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="13" HasNewMessages="True" MyTurn="False" MyColor="Empty" OpponentName="Convallis parturient" WhiteCount="29">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="94">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="57" Square="79"/>
+						<FacetedWorlds_Reversi_Model:Move Index="32" Square="64"/>
+						<FacetedWorlds_Reversi_Model:Move Index="82" Square="36"/>
+						<FacetedWorlds_Reversi_Model:Move Index="98" Square="56"/>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="53"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Nunc mus nulla placerat nec"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Pulvinar egestas euismod vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum litora dignissim"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Proin adipiscing luctus magnis"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Elementum amet feugiat ante arcu"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Non diam gravida"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="89" HasNewMessages="False" MyTurn="True" MyColor="White" OpponentName="Facilisis eget augue iaculis" WhiteCount="62">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="49">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="65" Square="72"/>
+						<FacetedWorlds_Reversi_Model:Move Index="54" Square="79"/>
+						<FacetedWorlds_Reversi_Model:Move Index="45" Square="54"/>
+						<FacetedWorlds_Reversi_Model:Move Index="42" Square="57"/>
+						<FacetedWorlds_Reversi_Model:Move Index="84" Square="72"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Mattis elit parturient"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Mauris mollis enim dolor"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Montes per lacinia"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum erat"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Eros nostra fermentum laoreet"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Fames sed ornare fringilla sagittis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="36" HasNewMessages="True" MyTurn="False" MyColor="Black" OpponentName="Senectus sociosqu sem vestibulum" WhiteCount="38">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="63">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="73" Square="60"/>
+						<FacetedWorlds_Reversi_Model:Move Index="62" Square="62"/>
+						<FacetedWorlds_Reversi_Model:Move Index="26" Square="57"/>
+						<FacetedWorlds_Reversi_Model:Move Index="34" Square="75"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Natoque habitasse"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Nibh adipiscing"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Hendrerit himenaeos parturient platea vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Nisi suscipit vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Sit primis vel torquent"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Adipiscing felis"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="64" HasNewMessages="False" MyTurn="True" MyColor="White" OpponentName="Nisl ipsum rutrum nam" WhiteCount="84">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="19">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="22" Square="61"/>
+						<FacetedWorlds_Reversi_Model:Move Index="21" Square="13"/>
+						<FacetedWorlds_Reversi_Model:Move Index="69" Square="13"/>
+						<FacetedWorlds_Reversi_Model:Move Index="81" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="59" Square="27"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Imperdiet nunc"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Posuere odio"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Malesuada penatibus sapien parturient ultrices"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Semper porttitor"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Sociis tincidunt taciti"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Orci tellus justo"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="80" HasNewMessages="True" MyTurn="False" MyColor="White" OpponentName="Tristique vestibulum vehicula" WhiteCount="83">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="84">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="34" Square="70"/>
+						<FacetedWorlds_Reversi_Model:Move Index="46" Square="72"/>
+						<FacetedWorlds_Reversi_Model:Move Index="16" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="37" Square="29"/>
+						<FacetedWorlds_Reversi_Model:Move Index="83" Square="39"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Pede quam sed potenti"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Quis volutpat lacus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Dis maecenas tempor pretium praesent"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Tempus rhoncus vestibulum adipiscing tortor"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Sodales parturient urna"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Est vestibulum turpis lorem"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="23" HasNewMessages="False" MyTurn="True" MyColor="Black" OpponentName="Cras accumsan viverra bibendum aliquam" WhiteCount="45">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="90">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="66" Square="73"/>
+						<FacetedWorlds_Reversi_Model:Move Index="91" Square="41"/>
+						<FacetedWorlds_Reversi_Model:Move Index="97" Square="26"/>
+						<FacetedWorlds_Reversi_Model:Move Index="24" Square="35"/>
+						<FacetedWorlds_Reversi_Model:Move Index="42" Square="81"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Varius vestibulum magna aenean"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Ultricies venenatis integer hac"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Adipiscing parturient duis"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Mauris massa"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Metus morbi vestibulum leo"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Vestibulum neque nullam"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="81" HasNewMessages="True" MyTurn="False" MyColor="Black" OpponentName="Nunc mus vulputate curabitur phasellus" WhiteCount="21">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="13">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="58" Square="55"/>
+						<FacetedWorlds_Reversi_Model:Move Index="84" Square="93"/>
+						<FacetedWorlds_Reversi_Model:Move Index="51" Square="88"/>
+						<FacetedWorlds_Reversi_Model:Move Index="80" Square="77"/>
+						<FacetedWorlds_Reversi_Model:Move Index="38" Square="55"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Dictumst amet consequat convallis aptent"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Quisque nec eleifend vivamus netus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Auctor ante nulla"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Facilisi faucibus congue dignissim cursus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Aliquam elementum habitant inceptos interdum"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Arcu porta non lobortis purus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="61" HasNewMessages="False" MyTurn="True" MyColor="Black" OpponentName="Diam risus velit" WhiteCount="87">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="68">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="69" Square="37"/>
+						<FacetedWorlds_Reversi_Model:Move Index="90" Square="38"/>
+						<FacetedWorlds_Reversi_Model:Move Index="31" Square="38"/>
+						<FacetedWorlds_Reversi_Model:Move Index="89" Square="78"/>
+						<FacetedWorlds_Reversi_Model:Move Index="47" Square="17"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Eget dictum aliquet"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Elit nascetur facilisis"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Enim blandit vitae"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Per fermentum fringilla"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Adipiscing parturient"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Pharetra habitasse class"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.TheirMove>
+	<FacetedWorlds_Reversi_ViewModels:MainViewModel.YourMove>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="53" HasNewMessages="True" MyTurn="False" MyColor="Black" OpponentName="Tortor dictumst aliquam eleifend vestibulum" WhiteCount="29">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="46">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="85" Square="49"/>
+						<FacetedWorlds_Reversi_Model:Move Index="31" Square="85"/>
+						<FacetedWorlds_Reversi_Model:Move Index="43" Square="46"/>
+						<FacetedWorlds_Reversi_Model:Move Index="15" Square="19"/>
+						<FacetedWorlds_Reversi_Model:Move Index="99" Square="84"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Aliquet turpis adipiscing hac blandit"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Commodo nisl varius leo aenean"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Nunc mus morbi conubia parturient"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Mauris nulla cubilia"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Nec facilisi non fringilla odio"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Faucibus nullam habitant vestibulum orci"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="50" HasNewMessages="False" MyTurn="True" MyColor="Empty" OpponentName="Habitasse proin aptent per pede" WhiteCount="34">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="94">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="23" Square="97"/>
+						<FacetedWorlds_Reversi_Model:Move Index="10" Square="82"/>
+						<FacetedWorlds_Reversi_Model:Move Index="33" Square="22"/>
+						<FacetedWorlds_Reversi_Model:Move Index="97" Square="19"/>
+						<FacetedWorlds_Reversi_Model:Move Index="80" Square="61"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Inceptos hendrerit himenaeos"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Dapibus augue"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Imperdiet quam interdum egestas"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum auctor"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Malesuada penatibus"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Dolor porttitor congue euismod"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="54" HasNewMessages="True" MyTurn="False" MyColor="White" OpponentName="Quis urna" WhiteCount="23">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="41">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="15"/>
+						<FacetedWorlds_Reversi_Model:Move Index="53" Square="81"/>
+						<FacetedWorlds_Reversi_Model:Move Index="81" Square="13"/>
+						<FacetedWorlds_Reversi_Model:Move Index="94" Square="94"/>
+						<FacetedWorlds_Reversi_Model:Move Index="41" Square="73"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Cursus adipiscing"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Tincidunt tristique"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Fames cras lobortis ultricies"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Feugiat sed gravida nascetur"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Parturient sem"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Venenatis pharetra placerat"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="47" HasNewMessages="False" MyTurn="True" MyColor="White" OpponentName="Sit vestibulum vestibulum pulvinar" WhiteCount="83">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="89">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="23"/>
+						<FacetedWorlds_Reversi_Model:Move Index="52" Square="17"/>
+						<FacetedWorlds_Reversi_Model:Move Index="23" Square="67"/>
+						<FacetedWorlds_Reversi_Model:Move Index="20" Square="96"/>
+						<FacetedWorlds_Reversi_Model:Move Index="21" Square="66"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Vulputate vel dictum curabitur"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Phasellus adipiscing"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Iaculis lectus nam sagittis"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Felis duis nunc lacinia amet"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Parturient sed laoreet ipsum senectus"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Dis sociosqu suscipit"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="17" HasNewMessages="True" MyTurn="False" MyColor="Empty" OpponentName="Est justo libero" WhiteCount="66">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="21">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="22" Square="56"/>
+						<FacetedWorlds_Reversi_Model:Move Index="36" Square="15"/>
+						<FacetedWorlds_Reversi_Model:Move Index="87" Square="97"/>
+						<FacetedWorlds_Reversi_Model:Move Index="41" Square="11"/>
+						<FacetedWorlds_Reversi_Model:Move Index="93" Square="10"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Torquent vestibulum ultrices"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Ante lacus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Natoque arcu posuere vehicula"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum ligula adipiscing litora lorem"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Hac magna luctus massa"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Diam magnis volutpat mattis maecenas"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="28" HasNewMessages="False" MyTurn="True" MyColor="Black" OpponentName="Praesent potenti" WhiteCount="67">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="12">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="25" Square="55"/>
+						<FacetedWorlds_Reversi_Model:Move Index="99" Square="81"/>
+						<FacetedWorlds_Reversi_Model:Move Index="34" Square="86"/>
+						<FacetedWorlds_Reversi_Model:Move Index="45" Square="43"/>
+						<FacetedWorlds_Reversi_Model:Move Index="44" Square="83"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Mauris accumsan metus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Pretium eget morbi mollis"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Montes neque"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Elit bibendum consequat parturient nostra"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Dictumst vestibulum eleifend"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Vestibulum enim"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="72" HasNewMessages="True" MyTurn="False" MyColor="Black" OpponentName="Rhoncus erat leo adipiscing facilisi" WhiteCount="68">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="47">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="66" Square="43"/>
+						<FacetedWorlds_Reversi_Model:Move Index="45" Square="42"/>
+						<FacetedWorlds_Reversi_Model:Move Index="49" Square="70"/>
+						<FacetedWorlds_Reversi_Model:Move Index="74" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="91" Square="48"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Convallis eros"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Netus dignissim elementum faucibus"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Nulla porta parturient habitant"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Facilisis vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum adipiscing ornare sodales"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Parturient platea"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="36" HasNewMessages="False" MyTurn="True" MyColor="Black" OpponentName="Mus nec purus viverra aliquam" WhiteCount="96">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="85">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="25" Square="16"/>
+						<FacetedWorlds_Reversi_Model:Move Index="88" Square="84"/>
+						<FacetedWorlds_Reversi_Model:Move Index="23" Square="86"/>
+						<FacetedWorlds_Reversi_Model:Move Index="89" Square="21"/>
+						<FacetedWorlds_Reversi_Model:Move Index="51" Square="65"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Vestibulum primis integer non"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Rutrum sapien nibh semper"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Risus inceptos quisque"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Fermentum vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Per interdum lobortis nascetur adipiscing"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Sociis fringilla"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="39" HasNewMessages="True" MyTurn="False" MyColor="Empty" OpponentName="Velit vivamus" WhiteCount="65">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="41">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="96" Square="71"/>
+						<FacetedWorlds_Reversi_Model:Move Index="77" Square="77"/>
+						<FacetedWorlds_Reversi_Model:Move Index="72" Square="69"/>
+						<FacetedWorlds_Reversi_Model:Move Index="42" Square="50"/>
+						<FacetedWorlds_Reversi_Model:Move Index="40" Square="97"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Habitasse sed hendrerit aliquam"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Aliquet blandit"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Pharetra sem parturient"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Vitae nisi placerat taciti class"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Curae pulvinar himenaeos imperdiet"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="True" UserName="Sagittis donec tellus"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+		<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel BlackCount="60" HasNewMessages="False" MyTurn="True" MyColor="Black" OpponentName="Etiam fusce sit tempor commodo" WhiteCount="55">
+			<FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+				<FacetedWorlds_Reversi_Model:Player Index="61">
+					<FacetedWorlds_Reversi_Model:Player.Game>
+						<FacetedWorlds_Reversi_Model:Game/>
+					</FacetedWorlds_Reversi_Model:Player.Game>
+					<FacetedWorlds_Reversi_Model:Player.Moves>
+						<FacetedWorlds_Reversi_Model:Move Index="95" Square="54"/>
+						<FacetedWorlds_Reversi_Model:Move Index="42" Square="33"/>
+						<FacetedWorlds_Reversi_Model:Move Index="16" Square="41"/>
+						<FacetedWorlds_Reversi_Model:Move Index="55" Square="49"/>
+						<FacetedWorlds_Reversi_Model:Move Index="70" Square="38"/>
+					</FacetedWorlds_Reversi_Model:Player.Moves>
+					<FacetedWorlds_Reversi_Model:Player.NewMessages>
+						<FacetedWorlds_Reversi_Model:Message Body="Lorem malesuada tempus nisl vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Senectus nunc"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Morbi sociosqu"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Tortor odio vestibulum"/>
+						<FacetedWorlds_Reversi_Model:Message Body="Penatibus suscipit torquent nulla porttitor"/>
+					</FacetedWorlds_Reversi_Model:Player.NewMessages>
+					<FacetedWorlds_Reversi_Model:Player.User>
+						<FacetedWorlds_Reversi_Model:User IsReserved="False" UserName="Proin ultrices"/>
+					</FacetedWorlds_Reversi_Model:Player.User>
+				</FacetedWorlds_Reversi_Model:Player>
+			</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel.Player>
+		</FacetedWorlds_Reversi_ViewModels:GameSummaryViewModel>
+	</FacetedWorlds_Reversi_ViewModels:MainViewModel.YourMove>
+</FacetedWorlds_Reversi_ViewModels:MainViewModel>

@@ -1,0 +1,59 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters" x:Class="FacetedWorlds.Reversi.Views.YourNameControl"
+    mc:Ignorable="d"
+    d:DesignHeight="659" d:DesignWidth="428">
+	<UserControl.Resources>
+		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
+		<DataTemplate x:Key="StringTemplate">
+			<Grid HorizontalAlignment="Left" Height="27">
+				<TextBlock Text="{Binding Mode=OneWay}" d:LayoutOverrides="Height" HorizontalAlignment="Left"/>
+				<Rectangle Margin="0,16,0,10">
+					<Rectangle.Fill>
+						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+					</Rectangle.Fill>
+				</Rectangle>
+			</Grid>
+		</DataTemplate>
+	</UserControl.Resources>
+    
+	<UserControl.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</UserControl.FontFamily>
+	<UserControl.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</UserControl.FontSize>
+	<UserControl.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</UserControl.Foreground>
+    
+    <Grid x:Name="LayoutRoot">
+		<StackPanel x:Name="InputPanel" Orientation="Vertical" VerticalAlignment="Top">
+			<TextBlock HorizontalAlignment="Left" Margin="8,8,8,0" TextWrapping="Wrap" Text="Please choose a name for yourself:"/>
+			<Grid d:LayoutOverrides="Width" VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<TextBox TextWrapping="Wrap" d:LayoutOverrides="Height" Text="{Binding YourName, Mode=TwoWay}" TextChanged="YourName_TextChanged"/>
+				<Button Content="OK" d:LayoutOverrides="Width, Height" Grid.Column="1" Click="OK_Click" IsEnabled="{Binding IsNameValid}"/>
+			</Grid>
+			<TextBlock Margin="8,0" TextWrapping="Wrap" Text="Suggestions:" VerticalAlignment="Top">
+				<TextBlock.Foreground>
+					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+				</TextBlock.Foreground>
+			</TextBlock>
+			<TextBlock TextWrapping="Wrap" Text="Your email address" Margin="8,0"/>
+			<TextBlock TextWrapping="Wrap" Text="Your full name and birth year" Margin="8,0"/>
+			<TextBlock TextWrapping="Wrap" Text="That name is already taken. Please try again." Margin="8,8,8,0" Visibility="{Binding HasRejectedNames, Converter={StaticResource VisibilityValueConverter}}">
+				<TextBlock.Foreground>
+					<SolidColorBrush Color="{StaticResource ErrorCaptionColor}"/>
+				</TextBlock.Foreground>
+			</TextBlock>
+			<ItemsControl ItemTemplate="{StaticResource StringTemplate}" ItemsSource="{Binding RejectedNames}" Margin="8,0" Visibility="{Binding HasRejectedNames, Converter={StaticResource VisibilityValueConverter}}"/>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,18 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="FacetedWorlds.Reversi.SendMessage"
+	d:DesignWidth="480" d:DesignHeight="435.122">
+
+	<Canvas x:Name="LayoutRoot" Background="Transparent">
+		<Path Data="M78.512192,124.13415 L211.13414,124.13415" Height="1" Canvas.Left="70.317" Stretch="Fill" Stroke="White" Canvas.Top="150.329" UseLayoutRounding="False" Width="133.622" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+		<Path Data="M78.512192,124.13415 L211.13414,124.13415" Height="1" Canvas.Left="92.339" Stretch="Fill" Stroke="White" Canvas.Top="192.313" UseLayoutRounding="False" Width="111.6" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+		<Path Data="M78.512192,124.13415 L211.13414,124.13415" Height="1" Canvas.Left="123.339" Stretch="Fill" Stroke="White" Canvas.Top="235.601" UseLayoutRounding="False" Width="80.6" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+		<Path Data="M0,0 L145.74336,0 L146.54245,2.2687564 C152.67494,20.390789 156.00002,39.807091 156.00002,60 C156.00002,80.192909 152.67494,99.609207 146.54245,117.73124 L146.09558,119 L0,119 z" Fill="White" Height="119" Canvas.Left="242" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" StrokeThickness="16" Canvas.Top="142" UseLayoutRounding="False" Width="156"/>
+		<Path Data="M272,259 C335,318 335,318 335,318 C335,255.5 335,255.5 335,255.5" Fill="White" Height="39" Canvas.Left="262" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" StrokeThickness="16" Canvas.Top="254.5" UseLayoutRounding="False" Width="63"/>
+		<Ellipse Height="360" Canvas.Left="38" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeThickness="16" Canvas.Top="22" Width="360" Stroke="White" d:IsHidden="True"/>
+	</Canvas>
+</UserControl>

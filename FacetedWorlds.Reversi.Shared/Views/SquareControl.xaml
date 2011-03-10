@@ -1,0 +1,23 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:FacetedWorlds_Reversi_ValueConverters="clr-namespace:FacetedWorlds.Reversi.ValueConverters"
+	mc:Ignorable="d"
+	x:Class="FacetedWorlds.Reversi.Views.SquareControl"
+	d:DesignWidth="57" d:DesignHeight="57"
+    Width="57" Height="57" d:DataContext="{d:DesignData /SampleData/SquareViewModelSampleData.xaml}" MouseLeftButtonDown="Square_MouseLeftButtonDown">
+	<UserControl.Resources>
+		<FacetedWorlds_Reversi_ValueConverters:PieceGlossValueConverter x:Key="PieceGlossValueConverter"/>
+		<FacetedWorlds_Reversi_ValueConverters:VisibilityValueConverter x:Key="VisibilityValueConverter"/>
+		<FacetedWorlds_Reversi_ValueConverters:PieceColorValueConverter x:Key="PieceColorValueConverter"/>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+        <Ellipse Margin="4" Fill="{Binding Color, Converter={StaticResource PieceGlossValueConverter}}"/>
+        <Ellipse Margin="6" Fill="{Binding Color, Converter={StaticResource PieceColorValueConverter}}"/>
+        <Rectangle Opacity="0.325" Visibility="{Binding IsPreviewCapture, Converter={StaticResource VisibilityValueConverter}}" d:IsHidden="True" Fill="Black"/>
+        <Ellipse Fill="{Binding OpponentColor, Converter={StaticResource PieceColorValueConverter}}" Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsPreviewCede, Converter={StaticResource VisibilityValueConverter}}"/>
+    </Grid>
+</UserControl>
