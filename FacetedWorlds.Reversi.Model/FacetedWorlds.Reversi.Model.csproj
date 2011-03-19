@@ -46,12 +46,11 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
-    <Reference Include="UpdateControls, Version=2.1.1.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>C:\Projects\correspondence\Correspondence\WP7\UpdateControls.Correspondence.Memory (WP7)\Bin\Debug\UpdateControls.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UpdateControls, Version=2.1.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
-      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

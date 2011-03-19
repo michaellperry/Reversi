@@ -39,14 +39,14 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UpdateControls">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UpdateControls, Version=2.1.1.6, Culture=neutral, PublicKeyToken=19e83a8289e31a8f, processorArchitecture=MSIL">
+      <HintPath>..\ExternalLibs\Desktop\UpdateControls.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence">
-      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence.Memory\bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+      <HintPath>..\ExternalLibs\Desktop\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.Memory">
-      <HintPath>..\..\correspondence\Correspondence\Desktop\UpdateControls.Correspondence.Memory\bin\Debug\UpdateControls.Correspondence.Memory.dll</HintPath>
+      <HintPath>..\ExternalLibs\Desktop\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

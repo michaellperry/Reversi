@@ -60,16 +60,19 @@
     <Reference Include="System.Windows.Interactivity, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="UpdateControls, Version=2.1.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.dll</HintPath>
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.dll</HintPath>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence (WP7)\Bin\Debug\UpdateControls.Correspondence.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence">
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence.IsolatedStorage, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.IsolatedStorage (WP7)\Bin\Debug\UpdateControls.Correspondence.IsolatedStorage.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence.Data">
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.Correspondence.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="UpdateControls.Correspondence.IsolatedStorage">
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.Correspondence.IsolatedStorage.dll</HintPath>
     </Reference>
     <Reference Include="UpdateControls.Correspondence.POXClient">
-      <HintPath>..\..\correspondence\Correspondence\WP7\UpdateControls.Correspondence.POXClient (WP7)\Bin\Debug\UpdateControls.Correspondence.POXClient.dll</HintPath>
+      <HintPath>..\ExternalLibs\WP7\UpdateControls.Correspondence.POXClient.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

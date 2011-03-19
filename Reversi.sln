@@ -9,13 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.Model
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.ViewModel (Desktop)", "FacetedWorlds.Reversi.ViewModel (Desktop)\FacetedWorlds.Reversi.ViewModel (Desktop).csproj", "{8AE43169-E48F-4C3B-89B2-343A52A0092A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi (Desktop)", "FacetedWorlds.Reversi (Desktop)\FacetedWorlds.Reversi (Desktop).csproj", "{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.GameLogic (Desktop)", "FacetedWorlds.Reversi.GameLogic (Desktop)\FacetedWorlds.Reversi.GameLogic (Desktop).csproj", "{A65F21F9-B283-4D3D-93B5-8FE6AB36C9AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.UnitTest", "FacetedWorlds.Reversi.UnitTest\FacetedWorlds.Reversi.UnitTest.csproj", "{3EFCD0D9-F8AF-43D7-98E7-D461C7E3E900}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.IdentityService", "FacetedWorlds.Reversi.IdentityService\FacetedWorlds.Reversi.IdentityService.csproj", "{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedWorlds.Reversi.Free", "FacetedWorlds.Reversi.Free\FacetedWorlds.Reversi.Free.csproj", "{EFCCDDFC-BCCD-4039-8ADD-397683EC8078}"
 EndProject
@@ -75,16 +71,6 @@ Global
 		{8AE43169-E48F-4C3B-89B2-343A52A0092A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8AE43169-E48F-4C3B-89B2-343A52A0092A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8AE43169-E48F-4C3B-89B2-343A52A0092A}.Release|x86.ActiveCfg = Release|Any CPU
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Debug|x86.ActiveCfg = Debug|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Debug|x86.Build.0 = Debug|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Release|Any CPU.ActiveCfg = Release|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Release|Mixed Platforms.Build.0 = Release|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Release|x86.ActiveCfg = Release|x86
-		{9E1681BB-1CE9-4ACF-9506-0FD4A62A396A}.Release|x86.Build.0 = Release|x86
 		{A65F21F9-B283-4D3D-93B5-8FE6AB36C9AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A65F21F9-B283-4D3D-93B5-8FE6AB36C9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A65F21F9-B283-4D3D-93B5-8FE6AB36C9AE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -105,16 +91,6 @@ Global
 		{3EFCD0D9-F8AF-43D7-98E7-D461C7E3E900}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3EFCD0D9-F8AF-43D7-98E7-D461C7E3E900}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3EFCD0D9-F8AF-43D7-98E7-D461C7E3E900}.Release|x86.ActiveCfg = Release|Any CPU
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Debug|x86.ActiveCfg = Debug|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Debug|x86.Build.0 = Debug|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|Any CPU.ActiveCfg = Release|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|Mixed Platforms.Build.0 = Release|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|x86.ActiveCfg = Release|x86
-		{CF1412DE-0F28-47A4-A6E9-BEE1DA5E40F2}.Release|x86.Build.0 = Release|x86
 		{EFCCDDFC-BCCD-4039-8ADD-397683EC8078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFCCDDFC-BCCD-4039-8ADD-397683EC8078}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFCCDDFC-BCCD-4039-8ADD-397683EC8078}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
