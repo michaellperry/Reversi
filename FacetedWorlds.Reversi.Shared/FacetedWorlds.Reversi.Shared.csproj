@@ -78,6 +78,7 @@
     <Compile Include="NavigationModels\RemoteMoveComparer.cs" />
     <Compile Include="Presenters\POXConfigurationProvider.cs" />
     <Compile Include="Presenters\Presenter.cs" />
+    <Compile Include="Presenters\SynchronizationService.cs" />
     <Compile Include="Presenters\ViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\ChatMarginValueConverter.cs" />

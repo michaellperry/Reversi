@@ -1,8 +1,10 @@
 ﻿namespace FacetedWorlds.Reversi.Model;
 
 fact Identity {
+key:
 	string uri;
 
+query:
 	Claim* claims {
 		Claim c : c.identity = this
 	}
@@ -19,6 +21,8 @@ fact Identity {
 }
 
 fact IdentityService {
+key:
+query:
 	Claim* pendingClaims {
 		Claim c : c.identityService = this
 			where c.isPending
@@ -26,10 +30,12 @@ fact IdentityService {
 }
 
 fact Claim {
+key:
 	publish Identity identity;
 	User user;
 	publish IdentityService identityService;
 
+query:
 	ClaimResponse* responses {
 		ClaimResponse r : r.claim = this
 	}
@@ -40,13 +46,16 @@ fact Claim {
 }
 
 fact ClaimResponse {
+key:
 	publish Claim claim;
 	int approved;
 }
 
 fact User {
+key:
 	string userName;
 
+query:
 	Claim* claims {
 		Claim c : c.user = this
 	}
@@ -82,25 +91,31 @@ fact User {
 }
 
 fact ChatEnable {
+key:
 	User user;
 }
 
 fact DisableToastNotification {
+key:
 	unique;
 	Identity identity;
 
+query:
 	bool isReenabled {
 		exists EnableToastNotification e : e.disable = this
 	}
 }
 
 fact EnableToastNotification {
+key:
 	DisableToastNotification disable;
 }
 
 fact Game {
+key:
 	unique;
 
+query:
 	Player* players {
 		Player p : p.game = this
 	}
@@ -119,10 +134,12 @@ fact Game {
 }
 
 fact Player {
+key:
 	publish User user;
 	publish Game game;
 	int index;
 
+query:
 	Move* moves {
 		Move m : m.player = this
 	}
@@ -142,40 +159,48 @@ fact Player {
 }
 
 fact Message {
+key:
 	Player sender;
 	string body;
 	int index;
 
+query:
 	bool isAcknowledged {
 		exists Acknowledge a : a.message = this
 	}
 }
 
 fact Acknowledge {
+key:
 	Message message;
 }
 
 fact Move {
+key:
 	Player player;
 	int index;
 	int square;
 }
 
 fact Outcome {
+key:
 	Game game;
 	Player? winner;
 	int resigned;
 }
 
 fact OutcomeAcknowledge {
+key:
 	Player player;
 	Outcome outcome;
 }
 
 fact LocalGame {
+key:
 	unique;
 	Identity identity;
 
+query:
 	LocalPlayer* players {
 		LocalPlayer p : p.game = this
 	}
@@ -194,28 +219,34 @@ fact LocalGame {
 }
 
 fact LocalPlayer {
+key:
 	LocalGame game;
 	int index;
 }
 
 fact LocalMove {
+key:
 	LocalPlayer player;
 	int index;
 	int square;
 }
 
 fact LocalOutcome {
+key:
 	LocalGame game;
 	LocalPlayer? winner;
 	int resigned;
 }
 
 fact LocalOutcomeAcknowledge {
+key:
 	LocalOutcome outcome;
 }
 
 
 fact MatchmakingService {
+key:
+query:
 	GameRequest* pendingGameRequests {
 		GameRequest r : r.matchmakingService = this
 			where not r.isCompleted
@@ -223,10 +254,12 @@ fact MatchmakingService {
 }
 
 fact GameRequest {
+key:
 	unique;
 	publish MatchmakingService matchmakingService;
 	User user;
 	
+query:
 	bool isCompleted {
 		exists GameRequestCompletion c : c.gameRequest = this
 	}
@@ -238,6 +271,7 @@ fact GameRequest {
 }
 
 fact GameRequestCompletion {
+key:
 	publish GameRequest gameRequest;
 	Player player;
 }

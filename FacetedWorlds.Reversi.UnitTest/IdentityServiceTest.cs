@@ -23,16 +23,16 @@ namespace FacetedWorlds.Reversi.UnitTest
             MemoryCommunicationStrategy sharedCommunication = new MemoryCommunicationStrategy();
             _serverCommunity = new Community(new MemoryStorageStrategy())
                 .AddCommunicationStrategy(sharedCommunication)
-                .Register<CorrespondenceModule>()
+                .Register<CorrespondenceModel>()
                 .Subscribe(() => _service);
             _clientCommunity = new Community(new MemoryStorageStrategy())
                 .AddCommunicationStrategy(sharedCommunication)
-                .Register<CorrespondenceModule>()
+                .Register<CorrespondenceModel>()
                 .Subscribe(() => _identity.Claims)
                 .Subscribe(() => _identity);
             _otherClientCommunity = new Community(new MemoryStorageStrategy())
                 .AddCommunicationStrategy(sharedCommunication)
-                .Register<CorrespondenceModule>()
+                .Register<CorrespondenceModel>()
                 .Subscribe(() => _otherIdentity.Claims);
 
             _service = _serverCommunity.AddFact(new IdentityService());

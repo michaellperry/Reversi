@@ -25,8 +25,8 @@ namespace FacetedWorlds.Reversi.Presenters
         {
             get
             {
-                return new POXConfiguration("http://facetedworlds.com/correspondence_server_web/pox", "FacetedWorlds.Reversi");
-                //return new POXConfiguration("http://michael-pc:8080/correspondence_server_web/pox", "FacetedWorlds.Reversi");
+                //return new POXConfiguration("http://facetedworlds.com/correspondence_server_web/pox", "FacetedWorlds.Reversi", "api key");
+                return new POXConfiguration("http://10.0.1.7:11821/correspondence_server_web/pox", "FacetedWorlds.Reversi", "api key");
             }
         }
 

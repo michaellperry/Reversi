@@ -157,6 +157,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _isToastNotificationDisabled; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class IdentityService : CorrespondenceFact
@@ -246,6 +249,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _pendingClaims; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class Claim : CorrespondenceFact
@@ -377,6 +383,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _responses; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class ClaimResponse : CorrespondenceFact
@@ -478,6 +487,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class User : CorrespondenceFact
@@ -635,6 +647,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _pendingGameRequests; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class ChatEnable : CorrespondenceFact
@@ -727,6 +742,9 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class DisableToastNotification : CorrespondenceFact
@@ -831,6 +849,9 @@ namespace FacetedWorlds.Reversi.Model
 
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class EnableToastNotification : CorrespondenceFact
@@ -923,6 +944,9 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class Game : CorrespondenceFact
@@ -1048,6 +1072,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _outcomes; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class Player : CorrespondenceFact
@@ -1189,6 +1216,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _newMessages; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class Message : CorrespondenceFact
@@ -1303,6 +1333,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class Acknowledge : CorrespondenceFact
@@ -1395,6 +1428,9 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class Move : CorrespondenceFact
@@ -1505,6 +1541,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class Outcome : CorrespondenceFact
@@ -1619,6 +1658,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class OutcomeAcknowledge : CorrespondenceFact
@@ -1724,6 +1766,9 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class LocalGame : CorrespondenceFact
@@ -1857,6 +1902,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _outcomes; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class LocalPlayer : CorrespondenceFact
@@ -1958,6 +2006,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class LocalMove : CorrespondenceFact
@@ -2068,6 +2119,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class LocalOutcome : CorrespondenceFact
@@ -2182,6 +2236,9 @@ namespace FacetedWorlds.Reversi.Model
         }
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class LocalOutcomeAcknowledge : CorrespondenceFact
@@ -2274,6 +2331,9 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+
+        // Mutable property access
+
     }
     
     public partial class MatchmakingService : CorrespondenceFact
@@ -2363,6 +2423,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _pendingGameRequests; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class GameRequest : CorrespondenceFact
@@ -2490,6 +2553,9 @@ namespace FacetedWorlds.Reversi.Model
         {
             get { return _player; }
         }
+
+        // Mutable property access
+
     }
     
     public partial class GameRequestCompletion : CorrespondenceFact
@@ -2595,10 +2661,13 @@ namespace FacetedWorlds.Reversi.Model
         // Field access
 
         // Query result access
+
+        // Mutable property access
+
     }
     
 
-	public class CorrespondenceModule : ICorrespondenceModule
+	public class CorrespondenceModel : ICorrespondenceModel
 	{
 		public void RegisterAllFactTypes(Community community, IDictionary<Type, IFieldSerializer> fieldSerializerByType)
 		{
