@@ -79,11 +79,18 @@ namespace FacetedWorlds.Reversi.Presenters
 
         private static string GetAnonymousUserId()
         {
-            string anid = UserExtendedProperties.GetValue("ANID") as string;
-            string anonymousUserId = String.IsNullOrEmpty(anid)
-                ? "test:user12"
-                : "liveid:" + ParseAnonymousId(anid);
-            return anonymousUserId;
+            try
+            {
+                string anid = UserExtendedProperties.GetValue("ANID") as string;
+                string anonymousUserId = String.IsNullOrEmpty(anid)
+                    ? "test:user12"
+                    : "liveid:" + ParseAnonymousId(anid);
+                return anonymousUserId;
+            }
+            catch (Exception)
+            {
+                return "test:user12";
+            }
         }
 
         private static string ParseAnonymousId(string anid)
